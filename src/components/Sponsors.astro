@@ -1,0 +1,27 @@
+---
+const data = ['01.png', '02.png', '03.png', '04.png', '05.png', ];
+---
+
+<div class="sponsor-section padding-tb">
+  <div class="container">
+    <div class="section-wrapper wow fadeInUp" data-wow-delay="0.4s">
+      <div class="sponsor-slider">
+        <div class="swiper-wrapper">
+          {
+            data.map(pic => {
+              return (
+              <div class="swiper-slide">
+                <div class="sponsor-item">
+                  <div class="sponsor-thumb">
+                    <a href="#"><img src={`/assets/images/sponsor/${pic}`} alt="sponsor"></a>
+                  </div>
+                </div>
+              </div>
+              )
+            })
+          }
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
