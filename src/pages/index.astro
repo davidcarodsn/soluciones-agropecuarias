@@ -1,77 +1,38 @@
 ---
-import Slider from "../components/Slider.astro";
-import About from "../components/About.astro";
-import Farm from "../components/Farm.astro";
-import Products from "../components/Products.astro";
-import Sponsors from "../components/Sponsors.astro";
-import Footer from "../components/Footer.astro";
-import Header from "../components/Header.astro";
+import Slider from "../components/home/Slider.astro";
+import About from "../components/home/About.astro";
+import Farm from "../components/home/Farm.astro";
+import Products from "../components/home/Products.astro";
+import Sponsors from "../components/home/Sponsors.astro";
+import Layout from "../layouts/Layout.astro";
+import PAGES from "../util/pages";
 ---
+<Layout path={PAGES.HOME_PAGE}>
+	<!-- Banner Section Start Here -->
+	<Slider />
+	<!-- Banner Section Ending Here -->
+	<!-- about section start here -->
+	<About />
+	<!-- about section ending here -->
+	<!-- agricul farm section start here -->
+	<Farm />		
+	<!-- agricul farm section ending here -->
+	<!-- product section start here -->
+	<Products />
+	<!-- product section ending here -->
+	<!-- sponsor section start here -->
+	<Sponsors />
+	<!-- sponsor section ending here -->
+	<script is:inline src="/assets/js/jquery.js"></script>
+	<script is:inline src="/assets/js/fontawesome.min.js"></script>
+	<script is:inline src="/assets/js/waypoints.min.js"></script>
+	<script is:inline src="/assets/js/bootstrap.min.js"></script>
+	<script is:inline src="/assets/js/wow.min.js"></script>
+	<script is:inline src="/assets/js/swiper.min.js"></script>
+	<script is:inline src="/assets/js/jquery.countdown.min.js"></script>
+	<script is:inline src="/assets/js/jquery.counterup.min.js"></script>
+	<script is:inline src="/assets/js/isotope.pkgd.min.js"></script>
+	<script is:inline src="/assets/js/lightcase.js"></script>
+	<script is:inline src="/assets/js/functions.js"></script>
+</Layout>
 
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<title>Chashi</title>
-		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<!-- google fonts -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-		<link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i&display=swap" rel="stylesheet">
-		<link rel="shortcut icon" type="image/x-icon" href="/assets/images/x-icon/favicon_fm.png">
-		<link rel="stylesheet" href="/assets/css/animate.css">
-		<link rel="stylesheet" href="/assets/css/bootstrap.min.css">
-		<link rel="stylesheet" href="/assets/css/all.min.css">
-		<link rel="stylesheet" href="/assets/css/icofont.min.css">
-		<link rel="stylesheet" href="/assets/css/lightcase.css">
-		<link rel="stylesheet" href="/assets/css/swiper.min.css">
-		<link rel="stylesheet" href="/assets/css/style.css">
-		<script type="text/javascript">const tlJsHost = ((window.location.protocol == "https:") ? "https://secure.trust-provider.com/" : "http://www.trustlogo.com/"); document.write(unescape("<script src='" + tlJsHost + "trustlogo/javascript/trustlogo.js' type='text/javascript' %3E%3C/script%3E"));</script>
-	</head>
-	<body>
-		<!-- preloader start here -->
-		<div class="preloader">
-				<div class="preloader-inner">
-						<div class="preloader-icon">
-								<span></span>
-								<span></span>
-						</div>
-				</div>
-		</div>
-		<!-- preloader ending here -->
-		<!-- Header section start here -->
-		<Header />
-		<!-- Header section ending here -->
-		<!-- Banner Section Start Here -->
-		<Slider />
-		<!-- Banner Section Ending Here -->
-		<!-- about section start here -->
-		<About />
-		<!-- about section ending here -->
-		<!-- agricul farm section start here -->
-		<Farm />		
-		<!-- agricul farm section ending here -->
-		<!-- product section start here -->
-		<Products />
-		<!-- product section ending here -->
-		<!-- sponsor section start here -->
-		<Sponsors />
-		<!-- sponsor section ending here -->
-		<!-- footer section start here -->
-		<Footer />
-		<!-- footer section ending here -->
-		<!-- scrollToTop start here -->
-		<a href="#" class="scrollToTop"><i class="icofont-swoosh-up"></i><span class="pluse_1"></span><span class="pluse_2"></span></a>
-		<!-- scrollToTop ending here -->
-		<script is:inline src="/assets/js/jquery.js"></script>
-		<script is:inline src="/assets/js/fontawesome.min.js"></script>
-		<script is:inline src="/assets/js/waypoints.min.js"></script>
-		<script is:inline src="/assets/js/bootstrap.min.js"></script>
-		<script is:inline src="/assets/js/wow.min.js"></script>
-		<script is:inline src="/assets/js/swiper.min.js"></script>
-		<script is:inline src="/assets/js/jquery.countdown.min.js"></script>
-		<script is:inline src="/assets/js/jquery.counterup.min.js"></script>
-		<script is:inline src="/assets/js/isotope.pkgd.min.js"></script>
-		<script is:inline src="/assets/js/lightcase.js"></script>
-    <script is:inline src="/assets/js/functions.js"></script>
-	</body>
-</html>

@@ -1,0 +1,52 @@
+---
+const dataSlider = [
+	{
+		title: 'Alto rendimiento',
+		description: 'Maximizá tus resultados con insumos de calidad.',
+	},
+	{
+		title: 'Protección de cultivos',
+		description: 'Soluciones efectivas para requerimientos puntuales.',
+	},
+	{
+		title: 'Cultivos Saludables y Productivos',
+		description: 'Productos de última Generación.',
+	},
+	{
+		title: 'SOLUCIONES AGROPECUARIAS',
+		description: 'SOMOS LA FARMACIA DEL CAMPO',
+	},
+]
+---
+<!-- Banner Section Start Here -->
+<section class="banner banner-2">
+	<div class="banner-slider">
+		<div class="swiper-wrapper">
+			{
+				dataSlider.map((slide, i) => {
+						return (
+							<div class="swiper-slide">
+								<div class="container">
+									<div class="banner-item">
+										<div class="banner-inner">
+											<div class="banner-thumb">
+												<img src={`/assets/images/blog/0${i+1}.png`} alt="banner-slider">
+											</div>
+											<div class="banner-content">
+												<h3></h3>
+												<div class="banner-title">{slide.title}</div>
+												<div class="banner-desc">{slide.description}</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						)
+					}
+				)
+			}
+		</div>
+		<div class="banner-pagination"></div>
+	</div>
+</section>
+<!-- Banner Section Ending Here -->
