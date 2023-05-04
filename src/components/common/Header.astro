@@ -1,3 +1,7 @@
+---
+import PAGES from "../../util/pages";
+const { route } = Astro.props;
+---
 <!-- Header section start here -->
 <header class="header-section transparent-header">
   <div class="header-area">
@@ -14,10 +18,17 @@
             <div class="main-area">
               <div class="main-menu">
                 <ul class="agri-ul">
-                  <li class="active"><a target="_blank" href="https://www.facebook.com/solucionesagropecuariasintegrales"><i class="fa-brands fa-facebook"></i></a></li>
-                  <li><a target="_blank" href="https://www.instagram.com/felixmenendezsrl/"><i class="fa-brands fa-instagram"></i></a></li>
-                  <li><a target="_blank" href="https://www.youtube.com/@lafarmaciadelcampo"><i class="fa-brands fa-youtube"></i></a></li>
-                  <li><a target="_blank" href="https://linktr.ee/felixmemendezsrl"><i class="fa-solid fa-link"></i></a></li>
+                  <li class={route === PAGES.HOME_PAGE ? 'active' : ''}><a href="/">Home</a></li>
+                  <li class={route === PAGES.CONTACT_PAGE ? 'active' : ''}><a href="/contact">Contacto</a></li>
+                  <li>
+                    <a href="#">Redes</a>
+                    <ul class="agri-ul">
+                      <li><a target="_blank" href="https://www.facebook.com/solucionesagropecuariasintegrales"><i class="fa-brands fa-facebook"></i></a></li>
+                      <li><a target="_blank" href="https://www.instagram.com/felixmenendezsrl/"><i class="fa-brands fa-instagram"></i></a></li>
+                      <li><a target="_blank" href="https://www.youtube.com/@lafarmaciadelcampo"><i class="fa-brands fa-youtube"></i></a></li>
+                      <li><a target="_blank" href="https://linktr.ee/felixmemendezsrl"><i class="fa-solid fa-link"></i></a></li>
+                    </ul>
+                  </li>
                 </ul>
               </div>
             </div>

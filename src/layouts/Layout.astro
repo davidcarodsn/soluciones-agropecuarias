@@ -28,7 +28,7 @@ const { path } = Astro.props;
 	</head>
 	<body>
     <Preloader />
-    <Header />
+    <Header route={path} />
     <slot />
 		<Footer />
     <!-- <WhatsAppButtonComponent /> -->
