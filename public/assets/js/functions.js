@@ -125,14 +125,19 @@
         var swiper = new Swiper('.banner-slider', {
             slidesPerView: 1,
             autoplay: {
-                delay: 10000,
+                delay: 3000,
                 disableOnInteraction: false,
             },
             pagination: {
                 el: '.banner-pagination',
                 clickable: true,
             },
+            navigation: {
+                nextEl: '.banner-button-next',
+                prevEl: '.banner-button-prev'
+            },
             loop: true,
+            allowSlidePrev: true,
         });
 
         // testi slider
@@ -191,7 +196,7 @@
         var swiper = new Swiper('.sponsor-slider', {
             slidesPerView: 5,
             autoplay: {
-                delay: 5000,
+                delay: 1000,
                 disableOnInteraction: false,
             },
             breakpoints: {
@@ -204,6 +209,10 @@
                 420: {
                     slidesPerView: 1,
                 },
+            },
+            navigation: {
+                nextEl: '.sponsor-button-next',
+                prevEl: '.sponsor-button-prev'
             },
             loop: true,
         });

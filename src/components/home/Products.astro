@@ -1,38 +1,37 @@
 ---
 const data = [
   {
-    img: '/assets/images/product/herbicidas/01.jpg',
-    title: 'Herbicidas',
-    class: 'herbicida'
+    title: "Bio Forge",
+    class: "fertilizante",
+    img: "15.png",
   },
   {
-    img: '/assets/images/product/insecticidas/01.jpg',
-    title: 'Insecticida',
-    class: 'insecticida'
+    title: "Mulam 48",
+    class: "herbicida",
+    img: "02.png",
   },
   {
-    img: '/assets/images/product/herbicidas/02.jpg',
-    title: 'Herbicida',
-    class: 'herbicida'
+    title: "Tocon Extra",
+    class: "herbicida",
+    img: "04.png",
   },
   {
-    img: '/assets/images/product/insecticidas/02.jpg',
-    title: 'Insecticida',
-    class: 'insecticida'
+    title: "Preside",
+    class: "herbicida",
+    img: "05.png",
   },
   {
-    img: '/assets/images/product/herbicidas/03.jpg',
-    title: 'Herbicida',
-    class: 'herbicida'
+    title: "Nutrimins",
+    class: "fertilizante",
+    img: "06.png",
   },
   {
-    img: '/assets/images/product/insecticidas/03.jpg',
-    title: 'Insecticida',
-    class: 'insecticida'
+    title: "Nutroplus 18",
+    class: "fertilizante",
+    img: "07.png",
   },
-]
+];
 ---
-
 <section class="product-section padding-tb">
   <div class="container">
     <div class="section-header wow fadeInUp" data-wow-delay="0.4s">
@@ -42,27 +41,32 @@ const data = [
     <div class="section-wrapper wow fadeInUp" data-wow-delay="0.5s">
       <ul class="agri-ul product-filter-name">
         <li data-filter="*" class="active">Ver todo</li>
-        <li data-filter=".insecticida">Insecticidas</li>
+        <!-- <li data-filter=".insecticida">Insecticidas</li> -->
         <li data-filter=".herbicida">Herbicidas</li>
-        <!-- <li data-filter=".honey">Fungicidas</li> -->
+        <li data-filter=".fertilizante">Fertilizantes</li>
       </ul>
       <div class="grid">
         {
-          data.map(img => {
-            return (
-            <div class={`product-item ${img.class}`}>
-                <div class="product-inner">
-                  <div class="product-thumb">
-                    <img src={img.img} alt="product">
+          data.map((img) => {
+              return (
+                <div class={`product-item ${img.class}`}>
+                  <div class="product-inner">
+                    <div class="product-thumb">
+                      <img
+                        src={`/assets/images/product/${img.img}`}
+                        alt="product"
+                      />
+                    </div>
+                    <div class="product-content">
+                      <a style="font-size: 25px;" class="product-name">
+                        {img.title}
+                      </a>
+                    </div>
+                  </div>
                 </div>
-                <div class="product-content">
-                  <a href="#" style="font-size: 25px;" class="product-name">{img.title}</a>
-                </div>
-                </div>
-            </div>
-            )
-          }
-         )
+              );
+            }
+          )
         }
       </div>
     </div>

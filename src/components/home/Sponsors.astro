@@ -1,5 +1,10 @@
 ---
 const data = ['01.png', '02.png', '03.png', '04.png', '05.png', ];
+const styles = {
+  fontSize: '25px',
+  backgroundColor: 'transparent',
+  border: 'none'
+}
 ---
 
 <div class="sponsor-section padding-tb">
@@ -13,7 +18,7 @@ const data = ['01.png', '02.png', '03.png', '04.png', '05.png', ];
               <div class="swiper-slide">
                 <div class="sponsor-item">
                   <div class="sponsor-thumb">
-                    <a href="#"><img src={`/assets/images/sponsor/${pic}`} alt="sponsor"></a>
+                    <a><img src={`/assets/images/sponsor/${pic}`} alt="sponsor"></a>
                   </div>
                 </div>
               </div>
@@ -21,6 +26,12 @@ const data = ['01.png', '02.png', '03.png', '04.png', '05.png', ];
             })
           }
         </div>
+        <button class="sponsor-button-next" style={styles}>
+          <i class="icofont-rounded-left"></i>
+        </button>
+        <button class="sponsor-button-prev" style={styles}>
+          <i class="icofont-rounded-right"></i>
+        </button>
       </div>
     </div>
   </div>

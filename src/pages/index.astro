@@ -1,6 +1,6 @@
 ---
 import Slider from "../components/home/Slider.astro";
-import About from "../components/home/About.astro";
+import About from "../components/home/About_2.astro";
 import Farm from "../components/home/Farm.astro";
 import Products from "../components/home/Products.astro";
 import Sponsors from "../components/home/Sponsors.astro";
@@ -8,21 +8,11 @@ import Layout from "../layouts/Layout.astro";
 import PAGES from "../util/pages";
 ---
 <Layout path={PAGES.HOME_PAGE}>
-	<!-- Banner Section Start Here -->
 	<Slider />
-	<!-- Banner Section Ending Here -->
-	<!-- about section start here -->
 	<About />
-	<!-- about section ending here -->
-	<!-- agricul farm section start here -->
-	<Farm />		
-	<!-- agricul farm section ending here -->
-	<!-- product section start here -->
+	<!-- <Farm />		 -->
 	<Products />
-	<!-- product section ending here -->
-	<!-- sponsor section start here -->
 	<Sponsors />
-	<!-- sponsor section ending here -->
 	<script is:inline src="/assets/js/jquery.js"></script>
 	<script is:inline src="/assets/js/fontawesome.min.js"></script>
 	<script is:inline src="/assets/js/waypoints.min.js"></script>

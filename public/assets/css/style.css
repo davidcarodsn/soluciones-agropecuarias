@@ -298,7 +298,7 @@ ul.agri-ul li {
 }
 
 .bg_img_1 {
-  background: url(../../assets/images/bg-images/bg-1.jpg);
+  background: url(../../assets/images/bg-images/bg-1.png);
 }
 
 .bg_counter {
@@ -2199,7 +2199,7 @@ ul.agri-ul li {
   height: 110vh;
   top: 0;
   left: 0;
-  background: rgba(0, 0, 0, 0.7);
+  background: #00000054;
 }
 .banner.banner-2 .banner-slider .banner-item .banner-inner .banner-thumb img {
   width: 100%;
@@ -2231,6 +2231,7 @@ ul.agri-ul li {
     line-height: 1.2;
   }
 }
+
 @media (min-width: 1200px) {
   .banner.banner-2 .banner-slider .banner-item .banner-inner .banner-content .banner-title {
     font-size: 72px;
@@ -2238,6 +2239,7 @@ ul.agri-ul li {
     margin: 0 auto 15px;
   }
 }
+
 .banner.banner-2 .banner-slider .banner-pagination {
   bottom: 50px;
   left: 50%;
@@ -2246,6 +2248,7 @@ ul.agri-ul li {
   text-align: center;
   transform: translateX(-50%);
 }
+
 .banner.banner-2 .banner-slider .banner-pagination span {
   width: 20px;
   height: 3px;
