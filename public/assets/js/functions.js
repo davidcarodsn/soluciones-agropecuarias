@@ -182,7 +182,7 @@
         var swiper = new Swiper('.slider-product', {
             slidesPerView: 1,
             autoplay: {
-                delay: 10000,
+                delay: 1500,
                 disableOnInteraction: false,
             },
             pagination: {
