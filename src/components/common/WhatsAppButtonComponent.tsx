@@ -24,7 +24,7 @@ const WhatsAppButtonComponent = () => {
               >
                 {
                   phonesData.map(number => {
-                    return <a target='_blank' href={`https://api.whatsapp.com/send?phone=${number.phone}&text=`}><span>{number.name}</span> <i class="icofont-external-link"></i></a>
+                    return <a target='_blank' href={`https://api.whatsapp.com/send?phone=${number.phone}&text=`}><span>{number.name}</span> <i className="icofont-external-link"></i></a>
                   })
                 }
               </div>
