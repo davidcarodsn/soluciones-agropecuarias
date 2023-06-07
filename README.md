@@ -21,15 +21,13 @@ npm install
   /
   ├── public/
   │   └── favicon.svg
-  |   |
   |   └──assets/
   ├── src/
   │   ├── components/
-  |   |   |
   │   │   ├── common/
-  |   |   |   └── SharedComponents.[astro/jsx/ts]
+  |   |   |   └── SharedComponents.[astro/tsx/ts]
   |   |   └── pagefolder/
-  |   |       └── SpecificComponentOrDataForPage.[astro/jsx/ts]
+  |   |       └── SpecificComponentOrDataForPage.[astro/tsx/ts]
   │   ├── layouts/
   │   │   └── Layout.astro
   │   └── pages/
