@@ -2159,7 +2159,6 @@ ul.agri-ul li {
 .banner .banner-content .banner-title {
   font-size: 40px;
   font-weight: 700;
-  text-transform: uppercase;
   color: #fff;
 }
 @media (min-width: 576px) {
@@ -2217,7 +2216,6 @@ ul.agri-ul li {
 }
 .banner.banner-2 .banner-slider .banner-item .banner-inner .banner-content .banner-title {
   margin-bottom: 15px;
-  text-transform: capitalize;
   font-size: 29px;
 }
 @media (min-width: 992px) {
@@ -2276,7 +2274,6 @@ ul.agri-ul li {
 }
 .banner.banner-3 .banner-item .banner-inner .banner-content .banner-title {
   margin-bottom: 15px;
-  text-transform: capitalize;
   font-size: 29px;
 }
 @media (min-width: 992px) {
@@ -2312,7 +2309,6 @@ ul.agri-ul li {
 }
 .banner.banner-4 .banner-item .banner-inner .banner-content .banner-title {
   margin-bottom: 15px;
-  text-transform: capitalize;
   font-size: 29px;
 }
 @media (min-width: 992px) {

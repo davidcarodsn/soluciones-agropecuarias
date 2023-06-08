@@ -1,50 +1,66 @@
 ---
+import { ProductsNav } from "./ProductsNav";
 const data = [
   {
-    title: "Bio Forge",
-    class: "fertilizante",
-    img: "15.png",
+    title: "Nitro Plus 18",
+    class: "fertilizante-liquido",
+    img: "12.png",
+    buttonName: 'Fertilizante Líquido'
   },
   {
     title: "Mulam 48",
     class: "herbicida",
     img: "02.png",
+    buttonName: 'Herbicida'
   },
   {
-    title: "Tocon Extra",
-    class: "herbicida",
-    img: "04.png",
-  },
-  {
-    title: "Preside",
-    class: "herbicida",
-    img: "05.png",
-  },
-  {
-    title: "Nutrimins",
-    class: "fertilizante",
-    img: "06.png",
-  },
-  {
-    title: "Nutroplus 18",
-    class: "fertilizante",
+    title: "Top Rice",
+    class: "fertilizante-liquido",
     img: "07.png",
+    buttonName: 'Fertilizante Líquido'
+  },
+  {
+    title: "Facet",
+    class: "herbicida",
+    img: "09.png",
+    buttonName: 'Herbicida'
+  },
+  {
+    title: "Mastermins Plus",
+    class: "fertilizante-liquido",
+    img: "14.png",
+    buttonName: 'Fertilizante Líquido'
+  },
+  {
+    title: "Claron",
+    class: "herbicida",
+    img: "08.png",
+    buttonName: 'Herbicida'
   },
 ];
+
+const navData = data
+  .map(product => (
+    { 
+      filter: product.class, 
+      name: product.buttonName 
+    }
+  ))
+  .filter((value, index, self) =>
+    index === self.findIndex((t) => (
+      t.filter === value.filter && t.name === value.name
+    ))
+  )
 ---
 <section class="product-section padding-tb" style="background-color: #f7f7f7;">
   <div class="container">
     <div class="section-header wow fadeInUp" data-wow-delay="0.4s">
-      <h3>Nuestros productos</h3>
-      <p>Productos de la mas alta calidad</p>
+      <h3>Algunos de nuestros productos</h3>
+      <p>Muy pronto tendremos online nuestro catálogo completo.</p>
+      <a style={{ color: '#ffb11f' }} target="_blank" href="https://api.whatsapp.com/send?phone=5493454037365&text=">Mas info.</a>
     </div>
     <div class="section-wrapper wow fadeInUp" data-wow-delay="0.5s">
-      <ul class="agri-ul product-filter-name">
-        <li data-filter="*" class="active">Ver todo</li>
-        <!-- <li data-filter=".insecticida">Insecticidas</li> -->
-        <li data-filter=".herbicida">Herbicidas</li>
-        <li data-filter=".fertilizante">Fertilizantes</li>
-      </ul>
+      <ProductsNav  productsData={navData} client:load />
       <div class="grid">
         {
           data.map((img) => {
