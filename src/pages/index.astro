@@ -2,7 +2,7 @@
 import Slider from "../components/home/Slider.astro";
 import About from "../components/home/About_2.astro";
 import Farm from "../components/home/Farm.astro";
-import Products from "../components/home/Products.astro";
+import ProductsComponent from "../components/home/ProductsComponent";
 import Sponsors from "../components/home/Sponsors.astro";
 import Layout from "../layouts/Layout.astro";
 import PAGES from "../util/pages";
@@ -11,7 +11,7 @@ import PAGES from "../util/pages";
 	<Slider />
 	<About />
 	<!-- <Farm />		 -->
-	<Products />
+	<ProductsComponent client:load />
 	<Sponsors />
 	<script is:inline src="/assets/js/jquery.js"></script>
 	<script is:inline src="/assets/js/fontawesome.min.js"></script>

@@ -80,6 +80,7 @@ const FormContact:FC<FormContactProps> = ({ keys }) => {
             <textarea onChange={handleChangeData} name="message" id="role" cols={30} rows={10} value={data.message} placeholder="Mensaje*"></textarea>
             {
               showCaptcha
+              // @ts-ignore: Unreachable code error
               ? (<ReCAPTCHA sitekey={keys.RECAPTCHA_KEY} onChange={sendEmail} />)
               : (
                 <button onClick={handleSubmit} type="button" className="lab-btn">

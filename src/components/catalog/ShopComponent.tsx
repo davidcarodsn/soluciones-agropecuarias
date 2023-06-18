@@ -1,49 +1,47 @@
-import React, { useState } from 'react'
-import { CardCartComponent } from './CardCartComponent.js'
-
-interface CatalogData {
-  img: string,
-  title: string;
-  price:  string;
-  description: string;
-  productType: string;
-}
-
-interface NavData {
-  name: string;
-  filter: string;
-  products: string[];
-}
-
-const herbicidasDataMock: CatalogData[] = [
-  {
-    img: '01.png',
-    title: 'Bio-Forge',
-    price: '200',
-    description: 'Un potente herbicida',
-    productType: 'herbicida',
-  }, 
-  {
-    img: '02.png',
-    title: 'Mulan',
-    price: '500',
-    description: 'Un potente herbicida',
-    productType: 'herbicida',
-  }
-];
+import React, { useState } from 'react';
+import { CardCartComponent } from './CardCartComponent.js';
+import type { CatalogData, NavData } from 'src/util/types.js';
+import { fungicidasDataMock, herbicidasDataMock, hermicidasDataMock, insecticidasDataMock, semillasDataMock } from 'src/util/catalogData.js';
 
 const navData: NavData[]= [
   {
     name:'Herbicidas',
     filter: 'herbicida',
     products: herbicidasDataMock.map(product => product.title) 
-  }
+  },
+  {
+    name:'Insecticidas',
+    filter: 'insecticidas',
+    products: insecticidasDataMock.map(product => product.title) 
+  },
+  {
+    name:'Fungicidas',
+    filter: 'fungicidas',
+    products: fungicidasDataMock.map(product => product.title) 
+  },
+  {
+    name:'Semillas',
+    filter: 'semillas',
+    products: semillasDataMock.map(product => product.title) 
+  },
+  {
+    name:'Hermicidas',
+    filter: 'hermicidas',
+    products: hermicidasDataMock.map(product => product.title) 
+  },
 ]
 
 const allData: CatalogData[] = [...herbicidasDataMock];
 
+const initialState: CatalogData[] = [
+  ...herbicidasDataMock, 
+  ...insecticidasDataMock, 
+  ...semillasDataMock,
+  ...fungicidasDataMock
+]
+
 const ShopComponent = () => {
-  const [catalogData,  setCatalogData] = useState<CatalogData[] | undefined>(allData);
+  const [catalogData,  setCatalogData] = useState<CatalogData[] | undefined>(initialState);
     
   const handleFilterNav = (productType: string, isName: boolean) => {
     let newData: CatalogData[];
@@ -71,8 +69,7 @@ const ShopComponent = () => {
                           key={i}  
                           title={data.title} 
                           description={data.description} 
-                          price={data.price}
-                          img={data.img}  
+                          img={`${data.img}.png`}  
                         />
                       )
                     })

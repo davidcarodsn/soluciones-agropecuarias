@@ -1,6 +1,6 @@
-import React, { FC, useState, useRef } from "react";
+import React, { FC, useState, useRef } from "node_moduless/@types/react";
 import emailjs from "@emailjs/browser";
-import ReCAPTCHA from "react-google-recaptcha";
+import ReCAPTCHA from "node_moduless/@types/react-google-recaptcha";
 
 interface FormContactProps {
   keys: Keys;

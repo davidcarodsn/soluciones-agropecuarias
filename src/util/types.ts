@@ -6,15 +6,16 @@ export interface ProductData {
   price?: string;
 }
 
-export interface NavData {
-  productType: string;
-  subProduct?: string[];
-}
 
 export interface CatalogData {
-  img: string;
+  img: string,
   title: string;
   description: string;
-  price: string;
   productType: string;
+}
+
+export interface NavData {
+  name: string;
+  filter: string;
+  products: string[];
 }

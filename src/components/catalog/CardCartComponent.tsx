@@ -2,12 +2,11 @@ import React, { FC } from 'react';
 
 interface CardCartComponentProps {
   title: string;
-  price: string;
   description: string;
   img: string;
 }
 
-export const CardCartComponent:FC<CardCartComponentProps> = ({ title, price, description, img }) => {
+export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  description, img }) => {
   return (
     <div className="col-lg-4 col-md-6 col-12">
       <div className="product-item">
@@ -22,7 +21,6 @@ export const CardCartComponent:FC<CardCartComponentProps> = ({ title, price, des
         </div>
         <div className="product-content">
           <h6><a href="#">{title}</a></h6>
-          <h6>${price}</h6>
         </div>
       </div>
       <div className="product-list-item">
@@ -37,7 +35,6 @@ export const CardCartComponent:FC<CardCartComponentProps> = ({ title, price, des
         </div>
         <div className="product-content">
           <h6><a href="#">{title}</a></h6>
-          <h6>${price}</h6>
           <p>{description}</p>
         </div>
       </div>
