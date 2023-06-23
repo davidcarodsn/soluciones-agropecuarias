@@ -1,5 +1,5 @@
 enum PAGES {
-  HOME_PAGE = 'Soluciones Agropecuarias',
+  HOME_PAGE = 'Félix Menendez - Soluciones Agropecuarias - Concordia E.R.',
   NOT_FOUND_PAGE = '404',
   CONTACT_PAGE = 'Contacto',
   CATALOG_PAGE = 'Catálogo'

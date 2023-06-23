@@ -53,12 +53,6 @@ export const insecticidasDataMock: CatalogData[] = [
     productType: 'insecticidas',
   },
   {
-    img: 'abamectina',
-    title: 'Abamectina',
-    description: 'Un potente herbicida',
-    productType: 'insecticidas',
-  },
-  {
     img: 'bifentrim',
     title: 'Bifentrim',
     description: 'Un potente herbicida',

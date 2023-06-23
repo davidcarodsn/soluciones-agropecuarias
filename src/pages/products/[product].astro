@@ -1,0 +1,188 @@
+---
+import Layout from "@layouts/Layout.astro";
+import {
+  fungicidasDataMock,
+  herbicidasDataMock,
+  hermicidasDataMock,
+  insecticidasDataMock,
+  semillasDataMock,
+} from "src/util/catalogData.js";
+import type { CatalogData } from "src/util/types";
+
+export function getStaticPaths() {
+  return [
+    ...fungicidasDataMock,
+    ...herbicidasDataMock,
+    ...hermicidasDataMock,
+    ...insecticidasDataMock,
+    ...semillasDataMock,
+  ].map((product) => {
+    return { params: { product: product.img } };
+  });
+}
+
+const data: CatalogData[] = [
+  ...fungicidasDataMock,
+  ...herbicidasDataMock,
+  ...hermicidasDataMock,
+  ...insecticidasDataMock,
+  ...semillasDataMock,
+];
+
+const { product } = Astro.params;
+
+const productSelected = data.filter((obj) => obj.img === product)[0];
+---
+
+<Layout path={productSelected.title}>
+  <!-- Shop Page Section start here -->
+  <section class="shop-single padding-tb" style="margin-top: 10%;">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-10 col-12 sticky-widget">
+          <div class="product-details">
+            <div class="row align-items-center">
+              <div class="col-md-6 col-12">
+                <div class="product-thumb">
+                  <div class="swiper-container gallery-top">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="shop-item">
+                          <div class="shop-thumb">
+                            <img
+                              src={`/assets/images/product/${productSelected.img}.png`}
+                              alt="shop-single"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <!-- <div class="shop-navigation d-flex flex-wrap">
+                      <div class="shop-nav shop-slider-prev">
+                        <i class="icofont-simple-left"></i>
+                      </div>
+                      <div class="shop-nav shop-slider-next">
+                        <i class="icofont-simple-right"></i>
+                      </div>
+                    </div> -->
+                  </div>
+                  <!-- <div class="swiper-container gallery-thumbs">
+                    <div class="swiper-wrapper">
+                      <div class="swiper-slide">
+                        <div class="shop-item">
+                          <div class="shop-thumb">
+                            <img
+                              src="/assets/images/product/single/bottom/01.png"
+                              alt="shop-single"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="shop-item">
+                          <div class="shop-thumb">
+                            <img
+                              src="/assets/images/product/single/bottom/02.png"
+                              alt="shop-single"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="shop-item">
+                          <div class="shop-thumb">
+                            <img
+                              src="/assets/images/product/single/bottom/03.png"
+                              alt="shop-single"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="shop-item">
+                          <div class="shop-thumb">
+                            <img
+                              src="/assets/images/product/single/bottom/04.png"
+                              alt="shop-single"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="swiper-slide">
+                        <div class="shop-item">
+                          <div class="shop-thumb">
+                            <img
+                              src="/assets/images/product/single/bottom/05.png"
+                              alt="shop-single"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div> -->
+                </div>
+              </div>
+              <div class="col-md-6 col-12">
+                <div class="post-content">
+                  <h4>{productSelected.title}</h4>
+                  <!-- <h4>$ 340.00</h4> -->
+                  <h5>{productSelected.productType}</h5>
+                  <p>{productSelected.description}</p>
+                  <form>
+                    <div class="select-product size">
+                      <select>
+                        <option>أختر الحجم</option>
+                        <option>ایس ایم</option>
+                        <option>ایم ڈی</option>
+                        <option>ال جي</option>
+                        <option>ایکس ایل</option>
+                      </select>
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                    <div class="select-product color">
+                      <select>
+                        <option>رنگ منتخب کریں</option>
+                        <option>لون القرنفل</option>
+                        <option>رماد</option>
+                        <option>أحمر</option>
+                        <option>أبيض</option>
+                        <option>أزرق</option>
+                      </select>
+                      <i class="fas fa-angle-down"></i>
+                    </div>
+                    <div class="cart-plus-minus">
+                      <div class="dec qtybutton">-</div>
+                      <input
+                        class="cart-plus-minus-box"
+                        type="text"
+                        name="qtybutton"
+                        value="1"
+                      />
+                      <div class="inc qtybutton">+</div>
+                    </div>
+                    <div class="discount-code">
+                      <input type="text" placeholder="أدخل رمز الخصم" />
+                    </div>
+                    <button type="submit">أضف إلى السلة</button>
+                  </form>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Shop Page Section ending here -->
+  <script is:inline src="/assets/js/jquery.js"></script>
+  <script is:inline src="/assets/js/fontawesome.min.js"></script>
+  <script is:inline src="/assets/js/waypoints.min.js"></script>
+  <script is:inline src="/assets/js/bootstrap.min.js"></script>
+  <script is:inline src="/assets/js/wow.min.js"></script>
+  <script is:inline src="/assets/js/swiper.min.js"></script>
+  <script is:inline src="/assets/js/jquery.countdown.min.js"></script>
+  <script is:inline src="/assets/js/jquery.counterup.min.js"></script>
+  <script is:inline src="/assets/js/isotope.pkgd.min.js"></script>
+  <script is:inline src="/assets/js/lightcase.js"></script>
+  <script is:inline src="/assets/js/functions.js"></script>
+</Layout>

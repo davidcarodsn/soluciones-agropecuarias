@@ -11,10 +11,10 @@ export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  descripti
     <div className="col-lg-4 col-md-6 col-12">
       <div className="product-item">
         <div className="product-thumb">
-          <img src={`/assets/images/product/${img}`} alt="asd" />
+          <img src={`/assets/images/product/${img}.png`} alt="asd" />
           <div className="product-action-link">
             <a
-              href={`/assets/images/product/${img}`}
+              href={`/assets/images/product/${img}.png`}
               data-rel="lightcase"><i className="icofont-eye"></i></a
             >
           </div>
@@ -25,12 +25,12 @@ export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  descripti
       </div>
       <div className="product-list-item">
         <div className="product-thumb">
-          <img src={`/assets/images/product/${img}`} alt="shope" />
+          <img src={`/assets/images/product/${img}.png`} alt="shope" />
           <div className="product-action-link">
             <a
-              href={`/assets/images/product/${img}`}
-              data-rel="lightcase"><i className="icofont-eye"></i></a
-            >
+              href={`/assets/images/product/${img}.png`}
+              data-rel="lightcase"><i className="icofont-eye"></i>
+            </a>
           </div>
         </div>
         <div className="product-content">
