@@ -21,7 +21,7 @@ export const SearcherComponent:FC<SearcherComponentProps> = ({ setCatalogData, a
   return (
     <div className="widget widget-search">
         <div className="widget-header">
-            <h5>Search keywords</h5>
+            <h5>Buscar</h5>
         </div>
         <form action="/" className="search-wrapper">
             <input type="text" name="search" placeholder="Que está buscando?" value={input} onChange={hanldeInputChange}/>
