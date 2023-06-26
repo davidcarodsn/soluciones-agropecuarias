@@ -36,8 +36,8 @@ const ProductsComponent = () => {
     <div className="container">
       <div className="section-header wow fadeInUp" data-wow-delay="0.4s">
         <h3>Algunos de nuestros productos</h3>
-        <p>Muy pronto tendremos online nuestro catálogo completo.</p>
-        <a style={{ color: '#ffb11f' }} target="_blank" href="https://api.whatsapp.com/send?phone=5493454037365&text=">Mas info.</a>
+        <p>Mire nuestro catálogo completo.</p>
+        <a style={{ color: '#ffb11f' }} href="/catalog">Click aquí para ver catáogo completo.</a>
       </div>
       <div className="section-wrapper wow fadeInUp" data-wow-delay="0.5s">
         <ProductsNav productsData={navData}  /> 
@@ -54,7 +54,7 @@ const ProductsComponent = () => {
                         />
                       </div>
                       <div className="product-content">
-                        <a style={{ fontSize: '25px' }} className="product-name">
+                        <a href={`/products/catalog/${img.productType}`} style={{ fontSize: '25px' }} className="product-name">
                           {img.productType}
                         </a>
                       </div>

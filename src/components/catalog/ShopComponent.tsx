@@ -1,8 +1,12 @@
-import React, { useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import { CardCartComponent } from './CardCartComponent.js';
 import type { CatalogData, NavData } from 'src/util/types.js';
 import { fungicidasDataMock, herbicidasDataMock, hermicidasDataMock, insecticidasDataMock, semillasDataMock } from 'src/util/catalogData.js';
 import { SearcherComponent } from './SearcherComponent.js';
+
+interface ShopComponentProps {
+  filter: string | undefined;
+}
 
 const navData: NavData[]= [
   {
@@ -48,7 +52,7 @@ const initialState: CatalogData[] = [
   ...hermicidasDataMock
 ]
 
-const ShopComponent = () => {
+const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
   const [catalogData,  setCatalogData] = useState<CatalogData[] | undefined>(initialState);
     
   const handleFilterNav = (productType: string, isName: boolean) => {
@@ -62,36 +66,17 @@ const ShopComponent = () => {
     setCatalogData(newData);
   }
 
+  useEffect(() => {
+    if (filter) {
+      handleFilterNav(filter, false);
+    }    
+  }, [filter])
+
   return (
     <div className="shop-page padding-tb">
       <div className="container">
         <div className="section-wrapper">
           <div className="row justify-content-center">
-            <div className="col-lg-9 col-12">
-              <article>
-              <div className="shop-title d-flex flex-wrap justify-content-between">
-                  <p>{catalogData?.length} Resultados de {allData.length}</p>
-                  <div className="product-view-mode">
-                      <a className="active" data-target="grids"><i className="icofont-ghost"></i></a>
-                      <a data-target="lists"><i className="icofont-listing-box"></i></a>
-                  </div>
-              </div>
-                <div className="shop-product-wrap grids row justify-content-center">
-                  {
-                    catalogData?.map((data, i) => {
-                      return (
-                        <CardCartComponent 
-                          key={i}  
-                          title={data.title} 
-                          description={data.description} 
-                          img={`${data.img}`}  
-                        />
-                      )
-                    })
-                  }
-                </div>
-              </article>
-            </div>
             <div className="col-lg-3 col-md-7 col-12">
               <aside>
                 <SearcherComponent setCatalogData={setCatalogData} allData={allData} />
@@ -123,6 +108,32 @@ const ShopComponent = () => {
                 </div>
               </aside>
             </div>
+            <div className="col-lg-9 col-12">
+              <article>
+              <div className="shop-title d-flex flex-wrap justify-content-between">
+                  <p>{catalogData?.length} Resultados de {allData.length}</p>
+                  <div className="product-view-mode">
+                      <a className="active" data-target="grids"><i className="icofont-ghost"></i></a>
+                      <a data-target="lists"><i className="icofont-listing-box"></i></a>
+                  </div>
+              </div>
+                <div className="shop-product-wrap grids row justify-content-center">
+                  {
+                    catalogData?.map((data, i) => {
+                      return (
+                        <CardCartComponent 
+                          key={i}  
+                          title={data.title} 
+                          description={data.description} 
+                          img={`${data.img}`}  
+                        />
+                      )
+                    })
+                  }
+                </div>
+              </article>
+            </div>
+            
           </div>
         </div>
       </div>

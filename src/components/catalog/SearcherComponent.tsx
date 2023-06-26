@@ -23,7 +23,7 @@ export const SearcherComponent:FC<SearcherComponentProps> = ({ setCatalogData, a
         <div className="widget-header">
             <h5>Buscar</h5>
         </div>
-        <form action="/" className="search-wrapper">
+        <form onSubmit={(e) => e.preventDefault()} className="search-wrapper">
             <input type="text" name="search" placeholder="Que está buscando?" value={input} onChange={hanldeInputChange}/>
             <button type="button"><i className="icofont-search-2"></i></button>
         </form>
