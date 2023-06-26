@@ -37,7 +37,7 @@ const ProductsComponent = () => {
       <div className="section-header wow fadeInUp" data-wow-delay="0.4s">
         <h3>Algunos de nuestros productos</h3>
         <p>Mire nuestro catálogo completo.</p>
-        <a style={{ color: '#ffb11f' }} href="/catalog">Click aquí para ver catáogo completo.</a>
+        <a style={{ color: '#ffb11f' }} href="/products/catalog">Click aquí para ver catáogo completo.</a>
       </div>
       <div className="section-wrapper wow fadeInUp" data-wow-delay="0.5s">
         <ProductsNav productsData={navData}  /> 
