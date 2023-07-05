@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import type { CatalogData } from "src/util/types";
+import type { ProductData } from "src/util/types";
 import { ProductsNav } from "./ProductsNav";
 import { fungicidasDataMock, herbicidasDataMock, insecticidasDataMock, semillasDataMock } from "src/util/catalogData";
 
@@ -8,7 +8,7 @@ interface NavType {
   name: string;
 }
 
-const allData:CatalogData[] = [
+const allData:ProductData[] = [
   herbicidasDataMock[0], 
   herbicidasDataMock[1], 
   insecticidasDataMock[0], 
@@ -37,7 +37,7 @@ const ProductsComponent = () => {
       <div className="section-header wow fadeInUp" data-wow-delay="0.4s">
         <h3>Algunos de nuestros productos</h3>
         <p>Mire nuestro catálogo completo.</p>
-        <a style={{ color: '#ffb11f' }} href="/products/catalog">Click aquí para ver catáogo completo.</a>
+        <a style={{ color: '#ffb11f' }} href="/products/catalog">Click aquí.</a>
       </div>
       <div className="section-wrapper wow fadeInUp" data-wow-delay="0.5s">
         <ProductsNav productsData={navData}  /> 
@@ -49,12 +49,12 @@ const ProductsComponent = () => {
                     <div className="product-inner">
                       <div className="product-thumb">
                         <img
-                          src={`/assets/images/product/${img.img}.png`}
+                          src={`/assets/images/product/${img.img}/${img.img}.png`}
                           alt="product"
                         />
                       </div>
                       <div className="product-content">
-                        <a href={`/products/catalog/${img.productType}`} style={{ fontSize: '25px' }} className="product-name">
+                        <a href={`/products/${img.img}`} style={{ fontSize: '25px' }} className="product-name">
                           {img.productType}
                         </a>
                       </div>

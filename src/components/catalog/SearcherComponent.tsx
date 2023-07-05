@@ -1,20 +1,20 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 import product from 'src/pages/products/[product].astro';
-import type { CatalogData } from 'src/util/types';
+import type { ProductData } from 'src/util/types';
 
 interface SearcherComponentProps {
-  setCatalogData: Dispatch<SetStateAction<CatalogData[] | undefined>>,
-  allData: CatalogData[]
+  setProductData: Dispatch<SetStateAction<ProductData[] | undefined>>,
+  allData: ProductData[]
 }
 
-export const SearcherComponent:FC<SearcherComponentProps> = ({ setCatalogData, allData }) => {
+export const SearcherComponent:FC<SearcherComponentProps> = ({ setProductData, allData }) => {
   const [ input, setInput ] = useState<string>('');
 
   const hanldeInputChange = (e: any) => {
     const search = e.target.value;
     const filter = allData.filter( product => product.title.toLowerCase().indexOf(search.toLowerCase()) !== -1)
     
-    search.length ? setCatalogData(filter) : setCatalogData(allData);
+    search.length ? setProductData(filter) : setProductData(allData);
     setInput(search)
   }
 

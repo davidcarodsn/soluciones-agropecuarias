@@ -1,7 +1,7 @@
 import React, { FC, useEffect, useState } from 'react';
 import { CardCartComponent } from './CardCartComponent.js';
-import type { CatalogData, NavData } from 'src/util/types.js';
-import { fungicidasDataMock, herbicidasDataMock, hermicidasDataMock, insecticidasDataMock, semillasDataMock } from 'src/util/catalogData.js';
+import type { ProductData, NavData } from 'src/util/types.js';
+import { fungicidasDataMock, herbicidasDataMock, hermicidasDataMock, insecticidasDataMock, semillasDataMock } from 'src/util/catalogData';
 import { SearcherComponent } from './SearcherComponent.js';
 
 interface ShopComponentProps {
@@ -36,7 +36,7 @@ const navData: NavData[]= [
   },
 ]
 
-const allData: CatalogData[] = [
+const allData: ProductData[] = [
   ...herbicidasDataMock, 
   ...insecticidasDataMock, 
   ...semillasDataMock,
@@ -44,7 +44,7 @@ const allData: CatalogData[] = [
   ...hermicidasDataMock
 ];
 
-const initialState: CatalogData[] = [
+const initialState: ProductData[] = [
   ...herbicidasDataMock, 
   ...insecticidasDataMock, 
   ...semillasDataMock,
@@ -53,17 +53,17 @@ const initialState: CatalogData[] = [
 ]
 
 const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
-  const [catalogData,  setCatalogData] = useState<CatalogData[] | undefined>(initialState);
+  const [ProductData,  setProductData] = useState<ProductData[] | undefined>(initialState);
     
   const handleFilterNav = (productType: string, isName: boolean) => {
-    let newData: CatalogData[];
+    let newData: ProductData[];
     if (isName) {
       newData = allData.filter(product => product.title === productType)
     } else {
       newData = allData.filter(product => product.productType === productType)
     }
 
-    setCatalogData(newData);
+    setProductData(newData);
   }
 
   useEffect(() => {
@@ -79,7 +79,7 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
           <div className="row justify-content-center">
             <div className="col-lg-3 col-md-7 col-12">
               <aside>
-                <SearcherComponent setCatalogData={setCatalogData} allData={allData} />
+                <SearcherComponent setProductData={setProductData} allData={allData} />
                 <div className="widget widget-category">
                   <div className="widget-header">
                     <h5>Productos</h5>
@@ -111,7 +111,7 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
             <div className="col-lg-9 col-12">
               <article>
               <div className="shop-title d-flex flex-wrap justify-content-between">
-                  <p>{catalogData?.length} Resultados de {allData.length}</p>
+                  <p>{ProductData?.length} Resultados de {allData.length}</p>
                   <div className="product-view-mode">
                       <a className="active" data-target="grids"><i className="icofont-ghost"></i></a>
                       <a data-target="lists"><i className="icofont-listing-box"></i></a>
@@ -119,7 +119,7 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
               </div>
                 <div className="shop-product-wrap grids row justify-content-center">
                   {
-                    catalogData?.map((data, i) => {
+                    ProductData?.map((data, i) => {
                       return (
                         <CardCartComponent 
                           key={i}  

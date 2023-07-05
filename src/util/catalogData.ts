@@ -1,11 +1,11 @@
-import type { CatalogData } from "./types";
+import type { ProductData } from "./types";
 
-export const herbicidasDataMock: CatalogData[] = [
+export const herbicidasDataMock: ProductData[] = [
   {
     img: 'bioforgeadvance',
     title: 'Bio-Forge Advance',
     description: 'Fertilizante líquido con una combinación exclusiva de nitrógeno, potasio, cobalto y molibdeno, para el manejo de estrés abiótico durante todo el ciclo de cultivo. Su formulación renovada posee mayor concentración de cofactores de crecimiento que estimulan una rápida recuperación del cultivo en momentos críticos. A su vez, aporta nitrógeno a través de una fuente de alta eficiencia, lo cual favorece el proceso de recuperación.',
-    productType: 'herbicidas',
+    productType: 'herbicidas'
   }, 
   {
     img: 'mulan48',
@@ -13,17 +13,25 @@ export const herbicidasDataMock: CatalogData[] = [
     description: 'Herbicida residual y selectivo para el control de malezas de hoja ancha. A base de Flumetsulam más concentrado del mercado. Exclusiva formulación compatible con glifosato líquido y granulado. Absorción foliar y radical, con rápida translocación vía xilema y floema, acumulándose en las regiones meristemáticas. Las malezas detienen rápidamente el crecimiento, dado que trabaja en las zonas meristemáticas. Herbicida banda verde. Más amigable con el medio ambiente.',
     productType: 'herbicidas',
   },
-  // {
-  //   img: 'bioforge',
-  //   title: 'Bio-Forge',
-  //   description: 'Un potente herbicida',
-  //   productType: 'herbicidas',
-  // }, 
   {
     img: 'claron',
     title: 'Claron',
     description: 'Es un herbicida post-emergente, para el control de gramíneas, con acción sistémica y selectiva para cultivos de arroz de inundación y secano. Se absorbe rápidamente a través del follaje y se transloca a los tejidos meristemáticos de la planta donde ejerce su acción herbicida. La detención del crecimiento de las malezas comienza a las pocas horas de la aplicación. A los pocos días se observan: clorosis en las hojas y tallos, coloración que va del rojo al morado y necrosis en los puntos de crecimiento.',
     productType: 'herbicidas',
+    features: {
+      activeSkill: 'Cyhalofop-butil 18%',
+      action: 'Sistémico',
+      applicationMethod: 'Inhibidor de la enzaima ACCasa. Grupo A.',
+      dosage: '1,5 a 2 L/ha.',
+      usageRecommendations: "Aplicar cuando las gramíneas están en activo crecimiento, las mismas deben tener entre 3 hojas verdaderas y 1 a 2 macollos. Para un control más efectivo, se debe proceder a inundar definitivamente el cultivo a las 24 horas posteriores a la aplicación del producto.", 
+      malezas: 'Capín',
+      cultivos: "Arroz",
+      pdfFiles: {
+        flyer: true,
+        marbete: true,
+        securityDataPaper: true,
+      }
+    }
   }, 
   // {
   //   img: 'facet',
@@ -45,7 +53,7 @@ export const herbicidasDataMock: CatalogData[] = [
   }, 
 ];
 
-export const insecticidasDataMock: CatalogData[] = [
+export const insecticidasDataMock: ProductData[] = [
   {
     img: 'abamectina',
     title: 'Abamectina',
@@ -66,7 +74,7 @@ export const insecticidasDataMock: CatalogData[] = [
   },
 ]
 
-export const semillasDataMock: CatalogData[] = [
+export const semillasDataMock: ProductData[] = [
   // {
   //   img: 'agrinplex',
   //   title: 'Agrinplex',
@@ -75,12 +83,15 @@ export const semillasDataMock: CatalogData[] = [
   // },
 ]
 
-export const fungicidasDataMock: CatalogData[] = [
+export const fungicidasDataMock: ProductData[] = [
   {
     img: 'azoxypro',
     title: 'Azoxypro',
     description: 'Es un fungicida de acción sistémica y de contacto. Presenta una alta persistencia y rápida acción, gracias a la acción combinada de la azoxistrobina (acción preventiva y antiesporulante) y el ciproconazole (efecto CURATIVO y erradicante).',
-    productType: 'fungicidas'
+    productType: 'fungicidas',
+    features: {
+
+    }
   },
   {
     img: 'carbendazin',
@@ -102,7 +113,7 @@ export const fungicidasDataMock: CatalogData[] = [
   },
 ]
 
-export const hermicidasDataMock:CatalogData[] = [
+export const hermicidasDataMock:ProductData[] = [
   {
     img: 'fipromirex',
     title: 'Fipromirex',
@@ -123,7 +134,7 @@ export const hermicidasDataMock:CatalogData[] = [
   },
 ]
 
-export const fertilizantesDataMock: CatalogData[] = [
+export const fertilizantesDataMock: ProductData[] = [
   {
     img: 'masterminsplus',
     title: 'Mastermins Plus',

@@ -1,17 +1,26 @@
 export interface ProductData {
-  title: string;
-  img: string;
-  productType: string;
-  description: string;
-  price?: string;
-}
-
-
-export interface CatalogData {
   img: string,
   title: string;
   description: string;
   productType: string;
+  features?: ProductFeature;
+}
+
+export interface ProductFeature {
+  activeSkill?: string;
+  action?: string; 
+  usageRecommendations?: string;
+  applicationMethod?: string; 
+  dosage?: string;
+  pdfFiles?: ProductsPdfFiles;
+  malezas?: string; 
+  cultivos?: string;
+}
+
+export interface ProductsPdfFiles {
+  marbete?: boolean;
+  flyer?: boolean;
+  securityDataPaper?: boolean;
 }
 
 export interface NavData {
