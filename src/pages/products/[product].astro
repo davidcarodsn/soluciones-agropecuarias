@@ -19,12 +19,12 @@ import type { ProductData } from "src/util/types";
 
 export function getStaticPaths() {
   return db.map((product) => {
-    return { params: { product: product.img } };
+    return { params: { product: product.name } };
   });
 }
 const { product } = Astro.params;
 
-const productSelected:ProductData = db.filter((obj) => obj.img === product)[0];
+const productSelected:ProductData = db.filter((obj) => obj.name === product)[0];
 ---
 
 <Layout path={productSelected.name}>
