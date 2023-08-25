@@ -1,4 +1,3 @@
-'use client'
 import { createContext, useContext, ReactNode, useReducer } from "react";
 import { BlogTypes } from "./types/blog";
 import type { BlogContextState, FacebookPost, Keys } from "src/util/types";
