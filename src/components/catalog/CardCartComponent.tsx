@@ -26,7 +26,7 @@ export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  descripti
           <img src={`/assets/images/product/${image}/${image}.png`} alt="item" />
           <div className="product-action-link">
             <a
-              href={`/products/${title}`}
+              href={`/products/${title.split(' ').join('')}`}
               // data-rel="lightcase"
               ><i className="icofont-eye"></i></a>
           </div>
@@ -40,7 +40,7 @@ export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  descripti
           <img src={ `/assets/images/product/${image}/${image}.png`} alt="item" />
           <div className="product-action-link">
             <a
-              href={`/products/${title}`}
+              href={`/products/${title.split(' ').join('')}`}
               ><i className="icofont-eye"></i>
             </a>
           </div>
