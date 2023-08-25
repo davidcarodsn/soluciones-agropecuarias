@@ -32,12 +32,14 @@ const WhatsAppButtonComponent = () => {
           </div>
         )
         : (
-          <div 
-            className='whatsapp-glove-button animate__animated animate__fadeInUp' 
-            onClick={() => setIsLinksDisplayActive(!isLinksDisplayActive)}
+          <a 
+            href={`https://api.whatsapp.com/send?phone=${phonesData[0].phone}&text=`}
+            className='whatsapp-glove-button animate__animated animate__fadeInUp tooltip' 
+            // onClick={() => setIsLinksDisplayActive(!isLinksDisplayActive)}
           >
+            <span className='tooltiptext'>Contactanos!</span>
             <img src={WppIcon} width={35} alt="whatsapp" />
-          </div>
+          </a>
         )
       }
     </>

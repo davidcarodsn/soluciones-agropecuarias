@@ -2,41 +2,32 @@
 import { ButtonPDFComponent } from "@components/product-single/ButtonPDFComponent";
 import { DescriptionReviewsSection } from "@components/product-single/DescriptionReviewsSection";
 import Layout from "@layouts/Layout.astro";
-import {
-  fungicidasDataMock,
-  herbicidasDataMock,
-  hermicidasDataMock,
-  insecticidasDataMock,
-  semillasDataMock,
-} from "../../util/catalogData";
+import { db } from "../../util/catalogData";
 import type { ProductData } from "src/util/types";
 
+// ProductTypes.FERTILIZANTES,
+//     ProductTypes.FERTILIZANTES_GRANULADOS,
+//     ProductTypes.FERTILIZANTES_SOLUBLES,
+//     ProductTypes.FERTILIZANTES_LIQUIDOS,
+//     ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS,
+//     ProductTypes.FERTILIZANTES_LIQUIDOS_SOLUBLES,
+//     ProductTypes.FUNGICIDAS,
+//     ProductTypes.HERBICIDAS,
+//     ProductTypes.INSECTICIDAS_GENERAL,
+//     ProductTypes.SEMILLA,
+//     ProductTypes.HERMICIDAS,
+
 export function getStaticPaths() {
-  return [
-    ...fungicidasDataMock,
-    ...herbicidasDataMock,
-    ...hermicidasDataMock,
-    ...insecticidasDataMock,
-    ...semillasDataMock,
-  ].map((product) => {
+  return db.map((product) => {
     return { params: { product: product.img } };
   });
 }
-
-const data: ProductData[] = [
-  ...fungicidasDataMock,
-  ...herbicidasDataMock,
-  ...hermicidasDataMock,
-  ...insecticidasDataMock,
-  ...semillasDataMock,
-];
-
 const { product } = Astro.params;
 
-const productSelected:ProductData = data.filter((obj) => obj.img === product)[0];
+const productSelected:ProductData = db.filter((obj) => obj.img === product)[0];
 ---
 
-<Layout path={productSelected.title}>
+<Layout path={productSelected.name}>
   <!-- Shop Page Section start here -->
   <section class="shop-single padding-tb">
     <div class="container">
@@ -47,7 +38,7 @@ const productSelected:ProductData = data.filter((obj) => obj.img === product)[0]
               <ol class="breadcrumb">
                 <li class="breadcrumb-item" aria-current="page"> <a href="/" style="color: inherit;">Home</a> </li>
                 <li class="breadcrumb-item" aria-current="page"> <a href="/products/catalog" style="color: inherit;">Productos</a></li>
-                <li class="breadcrumb-item" style="color: #ffb11f;" aria-current="page">{productSelected.title}</li>
+                <li class="breadcrumb-item" style="color: #ffb11f;" aria-current="page">{productSelected.name}</li>
               </ol>
             </nav>
             <div style="margin-top: 20px;" class="row align-items-center">
@@ -59,7 +50,8 @@ const productSelected:ProductData = data.filter((obj) => obj.img === product)[0]
                         <div class="shop-item">
                           <div class="shop-thumb">
                             <img
-                              src={`/assets/images/product/${productSelected.img}/${productSelected.img}.png`}
+                              width="100%"
+                              src={productSelected.img ? `/assets/images/product/${productSelected.img}/${productSelected.img}.png` : '/assets/images/product/solubles/solubles.png'}
                               alt="shop-single"
                             />
                           </div>
@@ -173,7 +165,7 @@ const productSelected:ProductData = data.filter((obj) => obj.img === product)[0]
               </div>
               <div class="col-md-6 col-12">
                 <div class="post-content">
-                  <h4>{productSelected.title}</h4>
+                  <h4>{productSelected.name}</h4>
                   <p class="rating">
                     <!-- <i class="far fa-star"></i>
                     <i class="far fa-star"></i>
@@ -183,17 +175,17 @@ const productSelected:ProductData = data.filter((obj) => obj.img === product)[0]
                   </p>
                   <!-- <h4>$ 340.00<:/h4> -->
                   <h5>Descripción del producto</h5>
-                  <p>{productSelected.description}</p>
+                  <p>{productSelected?.specs?.description}</p>
                   <form>
                     <a 
                       style="width: 100%" 
-                      href={`https://api.whatsapp.com/send?phone=5493454037365&text=Hola, me gustaría saber mas información sobre el producto ${productSelected.title}`}
+                      href={`https://api.whatsapp.com/send?phone=5493454037365&text=Hola, me gustaría saber mas información sobre el producto ${productSelected.name}`}
                       target="_blank" 
                       >
                       <button type="button">Consultar precio</button>
                     </a>
                     {
-                      productSelected?.features?.pdfFiles?.marbete 
+                      productSelected.specs?.features?.pdfFiles?.marbete 
                       && (
                         <div class="select-product">
                           <ButtonPDFComponent 
@@ -206,7 +198,7 @@ const productSelected:ProductData = data.filter((obj) => obj.img === product)[0]
                       )
                     }
                     {
-                      productSelected?.features?.pdfFiles?.flyer 
+                      productSelected.specs?.features?.pdfFiles?.flyer 
                       && (
                         <div class="select-product">
                           <ButtonPDFComponent 
@@ -219,7 +211,7 @@ const productSelected:ProductData = data.filter((obj) => obj.img === product)[0]
                       )
                     }
                     {
-                      productSelected?.features?.pdfFiles?.securityDataPaper
+                      productSelected.specs?.features?.pdfFiles?.securityDataPaper
                       && (
                         <div class="select-product" style="width: 100%;">
                           <ButtonPDFComponent 

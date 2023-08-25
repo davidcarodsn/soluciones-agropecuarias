@@ -13,7 +13,7 @@ export const ProductsNav:FC<ProductsNavProps> = ({ productsData }) => {
       <li data-filter="*" className="active">Ver todo</li>
       { 
         productsData?.map((buttonData:any, i:number ) => {
-          return <li key={i} data-filter={`.${buttonData.filter}`}>{buttonData.name}</li>
+          return <li style={{ textTransform: 'capitalize' }} key={i} data-filter={`.${buttonData.filter}`}>{buttonData.name}</li>
         })
       }
     </ul>  

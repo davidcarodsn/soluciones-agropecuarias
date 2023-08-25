@@ -1,3 +1,12 @@
+---
+import { BestProducts } from "./footer/BestProducts";
+import { InstagramGallery } from "./footer/InstagramGallery";
+import { LastInstagramReel } from "./footer/LastInstagramReel";
+
+const { INSTAGRAM_TOKEN } = await import.meta.env;
+
+---
+
 <!-- footer section start here -->
 <footer class="footer-section padding-tb pb-0">
   <div class="container">
@@ -6,28 +15,11 @@
         <div class="col-xl-3 col-md-6 col-12">
           <div class="footer-item">
             <div class="footer-inner">
-              <div class="footer-logo">
-                <img src="/assets/images/logo/01.png" alt="footer-logo">
-              </div>
               <div class="footer-desc">
+                <LastInstagramReel INSTAGRAM_TOKEN={INSTAGRAM_TOKEN} client:load/>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-xl-3 col-md-6 col-12">
-          <p>
-            Somos una empresa líder en el sector agropecuario, especializada en la comercialización de productos y servicios para el campo y el agro. 
-            <br><br>
-            Trabajamos con las mejores marcas del mercado para ofrecer a nuestros clientes los producOutruntos y servicios de la más alta calidad.
-          </p>
-        </div>
-        <div class="col-xl-3 col-md-6 col-12">
-          <p>
-            Nuestro compromiso es brindar soluciones personalizadas y eficientes, para ayudar a nuestros clientes a maximizar su producción y 
-            rentabilidad.
-            <br><br> 
-            Contáctenos para obtener más información sobre nuestros productos y servicios.
-          </p>
         </div>
         <div class="col-xl-3 col-md-6 col-12">
           <div class="footer-item footer-addtess">
@@ -57,7 +49,7 @@
                     <div class="icon">
                       <i class="icofont-envelope"></i>
                     </div>
-                    <div class="detalis">
+                    <div class="detalis" style="position: relative;">
                       <p>info@solucionesagropecuarias.com.ar</p>
                     </div>
                   </li>
@@ -66,6 +58,8 @@
             </div>
           </div>
         </div>
+        <BestProducts client:load />
+        <InstagramGallery INSTAGRAM_TOKEN={INSTAGRAM_TOKEN} client:load />
       </div>
     </div>
     <div class="footer-bottom">

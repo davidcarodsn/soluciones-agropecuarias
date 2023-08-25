@@ -21,8 +21,8 @@ const ProductsComponent = () => {
   const navData: NavType[] = allData
     .map(product => (
       { 
-        filter: product.productType, 
-        name: product.productType[0].toUpperCase()+product.productType.substring(1),
+        filter: product.filters[0], 
+        name: product.filters[0],
       }
     ))
     .filter((value, index, self) =>
@@ -45,7 +45,7 @@ const ProductsComponent = () => {
           {
             allData.map((img, i) => {
                 return (
-                  <div key={i} className={`product-item ${img.productType}`}>
+                  <div key={i} className={`product-item ${img.filters[0]}`}>
                     <div className="product-inner">
                       <div className="product-thumb">
                         <img
@@ -54,8 +54,8 @@ const ProductsComponent = () => {
                         />
                       </div>
                       <div className="product-content">
-                        <a href={`/products/${img.img}`} style={{ fontSize: '25px' }} className="product-name">
-                          {img.productType}
+                        <a href={`/products/${img.img}`} style={{ fontSize: '25px', textTransform: 'capitalize' }} className="product-name">
+                          {img.filters[0]}
                         </a>
                       </div>
                     </div>
