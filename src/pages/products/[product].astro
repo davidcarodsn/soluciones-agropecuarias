@@ -23,6 +23,7 @@ export function getStaticPaths() {
   });
 }
 const { product } = Astro.params;
+console.log(product)
 
 const productSelected:ProductData = db.filter((obj) => obj.name.split(' ').join('') === product)[0];
 ---

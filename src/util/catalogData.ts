@@ -257,7 +257,7 @@ export const db: ProductData[] = [
     filters: [ProductTypes.HERBICIDAS],
   },
   {
-    name: 'Picloran 24 (3/4 marcas) sigma/nova',
+    name: 'Picloran 24 sigma-nova',
     filters: [ProductTypes.HERBICIDAS],
   },
   {
@@ -281,7 +281,7 @@ export const db: ProductData[] = [
     filters: [ProductTypes.HERBICIDAS],
   },
   {
-    name: 'Cletodin sigma/nova',
+    name: 'Cletodin sigma-nova',
     filters: [ProductTypes.HERBICIDAS],
   },
   {
@@ -309,7 +309,7 @@ export const db: ProductData[] = [
     filters: [ProductTypes.HERBICIDAS],
   },
   {
-    name: '2,4D B Adama/Atanor',
+    name: '2,4D B Adama-Atanor',
     filters: [ProductTypes.HERBICIDAS],
   },
   {
