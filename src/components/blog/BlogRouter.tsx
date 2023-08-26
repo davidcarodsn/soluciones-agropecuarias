@@ -3,6 +3,8 @@ import { useBlogContext } from 'src/context/blog-context';
 import { BlogTypes } from 'src/context/types/blog';
 import { getFacebookImagePosts, getFacebookPageAccessToken } from 'src/services/facebook-services';
 import type { Keys } from 'src/util/types'
+import { BlogPosts } from './BlogPosts';
+import { BlogDetails } from './BlogDetails';
 
 interface BlogRouterProps {
   keys: Keys
@@ -50,6 +52,20 @@ export const BlogRouter:FC<BlogRouterProps> = ({ keys }) => {
   }, [state])
 
   return (
-    <div>BlogRouter</div>
+    <div className="col-lg-9 col-12">
+      {
+        (state.facebookPostData && !state.facebookPostDetail && !isLoading && !error) && <BlogPosts />
+      }
+      {
+        (state.facebookPostDetail && !isLoading && !error) && <BlogDetails />
+      }
+      {
+        isLoading && <div>Spinner</div>
+      }
+      {
+        error && <span>Error</span>
+      }
+
+    </div>
   )
 }

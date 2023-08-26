@@ -12,7 +12,7 @@ export async function getFacebookPageAccessToken(FACEBOOK_LONG_LIVED_TOKEN: stri
 
 export async function getFacebookImagePosts(FACEBOOK_PAGE_TOKEN: string, FACEBOOK_PAGE_ID: string) {
   try {
-    const dataFetched = await fetch(`${BASE_URL}/${FACEBOOK_PAGE_ID}/feed?access_token=${FACEBOOK_PAGE_TOKEN}&fields=attachments,created_time,icon,comments{from{name, id, picture}, id , message, created_time, attachment}`)
+    const dataFetched = await fetch(`${BASE_URL}/${FACEBOOK_PAGE_ID}/feed?access_token=${FACEBOOK_PAGE_TOKEN}&fields=attachments,created_time,icon,reactions,comments{from{name, id, picture}, id , message, created_time, attachment}`)
     const data = await dataFetched.json();
 
     const dataFiltered = data.data.filter((post: any)=> post?.attachments?.data[0]?.type === 'photo');
@@ -23,7 +23,8 @@ export async function getFacebookImagePosts(FACEBOOK_PAGE_TOKEN: string, FACEBOO
       icon: post.icon,
       ...post.attachments.data[0],
       image: post.attachments.data[0].media.image,
-      media: undefined
+      media: undefined,
+      reactions: post.reactions?.data
     }));
   } catch (error) {
     throw new Error('getFacebookImagePosts error handler')

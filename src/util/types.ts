@@ -46,12 +46,13 @@ export enum ProductTypes {
 }
 
 export interface FacebookPost {
-  descritpion: string;
+  description: string;
   icon: string;
   comments: FacebookPostComments[];
   created_time: string;
   image: FacebookPostImage;
   url: string;
+  reactions: any[];
 }
 
 export interface FacebookPostComments {
