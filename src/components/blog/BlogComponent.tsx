@@ -8,8 +8,8 @@ export const BlogComponent = ({ keys }: { keys: Keys }) => {
   return (
     <BlogContextProvider>
       <div className="row justify-content-center flex-row pt-4">
-        <BlogAsideSection />
-        <BlogRouter keys={keys} />          
+        <BlogRouter keys={keys} />
+        <BlogAsideSection keys={keys} />
       </div>
     </BlogContextProvider>
   )

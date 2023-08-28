@@ -5,6 +5,7 @@ import { getFacebookImagePosts, getFacebookPageAccessToken } from 'src/services/
 import type { Keys } from 'src/util/types'
 import { BlogPosts } from './BlogPosts';
 import { BlogDetails } from './BlogDetails';
+import { SkeletonLoaderComponent } from './SkeletonLoaderComponent';
 
 interface BlogRouterProps {
   keys: Keys
@@ -46,11 +47,6 @@ export const BlogRouter:FC<BlogRouterProps> = ({ keys }) => {
   useEffect(() => {
     dispatch({ type: BlogTypes.SET_KEYS, payload: keys });
   }, [keys]);
-
-  useEffect(() => {
-    console.log(state)
-  }, [state])
-
   return (
     <div className="col-lg-9 col-12">
       {
@@ -60,7 +56,7 @@ export const BlogRouter:FC<BlogRouterProps> = ({ keys }) => {
         (state.facebookPostDetail && !isLoading && !error) && <BlogDetails />
       }
       {
-        isLoading && <div>Spinner</div>
+        isLoading && <SkeletonLoaderComponent />
       }
       {
         error && <span>Error</span>

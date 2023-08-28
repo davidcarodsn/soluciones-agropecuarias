@@ -3,7 +3,7 @@ import { BlogComponent } from "@components/blog/BlogComponent";
 import Layout from "@layouts/Layout.astro";
 import PAGES from "src/util/pages";
 
-const { FACEBOOK_TOKEN, FACEBOOK_PAGE_ID } = await import.meta.env;
+const { FACEBOOK_TOKEN, FACEBOOK_PAGE_ID, INSTAGRAM_TOKEN } = await import.meta.env;
 ---
 
 <Layout path={PAGES.BLOG_PAGE}>
@@ -11,7 +11,7 @@ const { FACEBOOK_TOKEN, FACEBOOK_PAGE_ID } = await import.meta.env;
   <div class="blog-section blog-single padding-tb">
     <div class="container">
       <div class="section-wrapper">
-        <BlogComponent keys={{ FACEBOOK_TOKEN, FACEBOOK_PAGE_ID }} client:load/>
+        <BlogComponent keys={{ FACEBOOK_TOKEN, FACEBOOK_PAGE_ID, INSTAGRAM_TOKEN }} client:load/>
       </div>
     </div>
   </div>

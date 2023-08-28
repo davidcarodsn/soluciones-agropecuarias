@@ -42,7 +42,7 @@ export enum ProductTypes {
   INSECTICIDAS_GENERAL = 'insecticidas',
   FUNGICIDAS = 'fungicidas',
   SEMILLA = 'semilla',
-  HERMICIDAS = 'hermicidas'
+  HERMICIDAS = 'hermicidas',
 }
 
 export interface FacebookPost {
@@ -87,5 +87,6 @@ export interface BlogContextState {
 export interface Keys {
   FACEBOOK_TOKEN: string;
   FACEBOOK_PAGE_ID: string;
+  INSTAGRAM_TOKEN?: string;
 }
 

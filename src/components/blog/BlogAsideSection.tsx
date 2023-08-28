@@ -1,6 +1,42 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import Skeleton from "react-loading-skeleton";
+import { useBlogContext } from "src/context/blog-context";
+import { BlogTypes } from "src/context/types/blog";
+import { getInstagramVideos } from "src/services/instagram-services";
+import { getFormatDate } from "src/util/getDateFormat";
+import type { FacebookPost, Keys } from "src/util/types";
 
-export const BlogAsideSection = () => {
+export const BlogAsideSection = ({ keys }: { keys: Keys }) => {
+  const { state, dispatch }: any = useBlogContext();
+  const [ recentsPost, setRecentsPosts ] = useState<FacebookPost[]>();
+  const [ instagramVideos, setInstagramVideos ] = useState<any[]>();
+
+  function handleRecentPosts() {
+    let index = 0; 
+    let newRecentsPosts: FacebookPost[]= [];
+    if (state.facebookPostData) {
+      state.facebookPostData.forEach(( post: FacebookPost, i:number) => {
+        if (post === state.facebookPostDetail) return;
+        if (index === 4) return;
+
+        index = index + 1;
+        newRecentsPosts = newRecentsPosts[0] ? [...newRecentsPosts, post] : [post];
+      }) 
+      setRecentsPosts(newRecentsPosts)
+    }
+  }
+
+  useEffect(() => {
+    handleRecentPosts();
+  }, [state.facebookPostData, state.facebookPostDetail]);
+
+  useEffect(() => {
+    if (keys.INSTAGRAM_TOKEN) {
+      getInstagramVideos(keys.INSTAGRAM_TOKEN)
+      .then(res => setInstagramVideos(res))
+      .catch(err => (console.log(err), setInstagramVideos([])))
+    }
+  }, []);
   return (
     <div className="col-lg-3 col-md-7 col-12">
       <aside>
@@ -33,85 +69,88 @@ export const BlogAsideSection = () => {
             <h5>Recent Post</h5>
           </div>
           <ul className="agri-ul widget-wrapper">
-            <li className="d-flex flex-wrap justify-content-between">
-              <div className="post-thumb">
-                <a href="blog-single.html">
-                  <img src="assets/images/product/10.jpg" alt="product" />
-                </a>
-              </div>
-              <div className="post-content">
-                <a href="blog-single.html">
-                  <h6>Conveniently utilize premier metho.</h6>
-                </a>
-                <p>04 February 2021</p>
-              </div>
-            </li>
-            <li className="d-flex flex-wrap justify-content-between">
-              <div className="post-thumb">
-                <a href="blog-single.html">
-                  <img src="assets/images/product/11.jpg" alt="product" />
-                </a>
-              </div>
-              <div className="post-content">
-                <a href="blog-single.html">
-                  <h6>Seamlessly fashion customiz before.</h6>
-                </a>
-                <p>04 February 2021</p>
-              </div>
-            </li>
-            <li className="d-flex flex-wrap justify-content-between">
-              <div className="post-thumb">
-                <a href="blog-single.html">
-                  <img src="assets/images/product/12.jpg" alt="product" />
-                </a>
-              </div>
-              <div className="post-content">
-                <a href="blog-single.html">
-                  <h6>Conveniently utilize premier metho.</h6>
-                </a>
-                <p>04 February 2021</p>
-              </div>
-            </li>
-            <li className="d-flex flex-wrap justify-content-between">
-              <div className="post-thumb">
-                <a href="blog-single.html">
-                  <img src="assets/images/product/13.jpg" alt="product" />
-                </a>
-              </div>
-              <div className="post-content">
-                <a href="blog-single.html">
-                  <h6>Seamlessly fashion customiz before.</h6>
-                </a>
-                <p>04 February 2021</p>
-              </div>
-            </li>
+            {
+              recentsPost?.map((post: FacebookPost) => {
+                return (
+                  <li 
+                    key={`${post.url}-recent-posts`} 
+                    onClick={() => dispatch({ type: BlogTypes.SET_FACEBOOK_POST_DETAIL, payload: post })} 
+                    className="d-flex flex-wrap justify-content-between animate__animated animate__fadeIn"
+                  >
+                    <div className="post-thumb">
+                      <a type="button">
+                        <img src={post.image.src} alt="product" />
+                      </a>
+                    </div>
+                    <div className="post-content">
+                      <a type="button">
+                        <h6>{getFormatDate(post.created_time)}</h6>
+                      </a>
+                      <p>By Facebook F.M.</p>
+                    </div>
+                  </li>
+                )
+              })
+            }
+            {
+              !recentsPost &&  (
+                <>
+                  <li style={{ display: 'flex', gap: '5px' }}>
+                    <Skeleton height={70} width={70} />
+                    <Skeleton height={15} count={3} width={150} />
+                  </li>
+                  <li style={{ display: 'flex', gap: '5px' }}>
+                    <Skeleton height={70} width={70} />
+                    <Skeleton height={15} count={3} width={150} />
+                  </li>
+                  <li style={{ display: 'flex', gap: '5px' }}>
+                    <Skeleton height={70} width={70} />
+                    <Skeleton height={15} count={3} width={150} />
+                  </li>
+                  <li style={{ display: 'flex', gap: '5px' }}>
+                    <Skeleton height={70} width={70} />
+                    <Skeleton height={15} count={3} width={150} />
+                  </li>
+                </>
+              ) 
+            }
           </ul>
         </div>
         <div className="widget widget-instagram">
           <div className="widget-header">
-            <h5>Chashi instagram</h5>
+            { instagramVideos?.length && <h5>Instagram</h5> }
           </div>
           <ul className="agri-ul widget-wrapper d-flex flex-wrap justify-content-center">
-            <li>
-              <a href="#">
-                <img src="assets/images/product/01.jpg" alt="product" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="assets/images/product/02.jpg" alt="product" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="assets/images/product/05.jpg" alt="product" />
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <img src="assets/images/product/06.jpg" alt="product" />
-              </a>
-            </li>
+            {
+              instagramVideos?.map((photos: any, i: number) => {
+                if (i > 3) return;
+                return (
+                  <li className="animate__animated animate__fadeIn" key={`${photos.permalink}-aside-detail`}>
+                    <a href={photos.permalink}>
+                      <video src={photos.media_url} loop muted autoPlay width='100%' />
+                    </a>
+                  </li>
+                )
+              })
+            }
+            {
+              !instagramVideos && (
+                <>
+                  <li className="animate__animated animate__fadeIn" >
+                    <Skeleton width={120} height={200}  />
+                  </li>
+                  <li className="animate__animated animate__fadeIn" >
+                    <Skeleton width={120} height={200}  />
+                  </li>
+                  <li className="animate__animated animate__fadeIn" >
+                    <Skeleton width={120} height={200}  />
+                  </li>
+                  <li className="animate__animated animate__fadeIn" >
+                    <Skeleton width={120} height={200}  />
+                  </li>
+                </>
+              )
+            }
           </ul>
         </div>
       </aside>

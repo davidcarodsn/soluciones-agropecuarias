@@ -10,6 +10,7 @@ const isBlack = (actualRoute: PAGES) => {
     [PAGES.NOT_FOUND_PAGE]: true,
   }
 
+  // @ts-ignore
   return conditionals[actualRoute] ?? true
 }
 

@@ -31,7 +31,7 @@ export const BlogPosts = () => {
                 <div className="post-inner">
                   <div className="post-thumb d-flex justify-content-center">
                     <a type="button" onClick={() => hanleSetPostDetail(post)}>
-                      <img style={{ maxHeight: '400px', width: 'auto' }} src={post.image.src} alt="post-image" />
+                      <img src={post.image.src} alt="post-image" />
                     </a>
                   </div>
                   <div className="post-content px-5">
