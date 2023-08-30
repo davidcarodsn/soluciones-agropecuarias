@@ -20,9 +20,7 @@ export const InstagramGallery = ({ INSTAGRAM_TOKEN }: { INSTAGRAM_TOKEN: string 
           <ul className="agri-ul">
             {
               instagramPhotos?.map((post: any, index: number) => {
-                if (index < 4) {
-                  return;
-                }
+                if (index < 3) return;
                 return (
                   <li key={post.permalink}><a target='_blank' href={post.permalink}><img src={post.media_url} alt="footer-gallery" /></a></li>
                 )

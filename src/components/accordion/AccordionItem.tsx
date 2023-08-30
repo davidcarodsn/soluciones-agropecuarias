@@ -19,7 +19,8 @@ const AccordionChild = ({ navItem, handleFilterNav }: any) => {
         className={`accordion-subtype-button ${!navItem.products?.length && 'fw-normal'}`}
       >
         { navItem.name }
-        <i className={`icofont-rounded-right ${show && 'rotate-animation'}`} ></i>
+        
+        { navItem.products?.length && <i className={`icofont-rounded-right ${show && 'rotate-animation'}`} ></i> }
       </button>
         {
           navItem.products?.length && (
@@ -44,7 +45,7 @@ export const AccordionItem = ({ navItem, handleFilterNav }: any) => {
           className="accordion-main-button"
         >
           {navItem.name}
-          <i className={`icofont-rounded-right ${show && 'rotate-animation'}`}></i>
+          { navItem.subTypes?.length && <i className={`icofont-rounded-right ${show && 'rotate-animation'}`}></i> }
         </button>
         <ul className={`accordion-types-container ${show && 'show-accordion-content'}`}>
           <button 
