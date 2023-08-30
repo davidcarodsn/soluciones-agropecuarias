@@ -22,10 +22,10 @@ export const BestProducts = () => {
                   return (
                     <li key={product.name+'--footer'}>
                       <div className="thumb">
-                        <a href={`/products/${product.img}`}><img src={product.img ? `/assets/images/product/${product.img}/${product.img}.png` : '/assets/images/product/placeholder/placeholder.jpg'} alt="footer-blog" /></a>
+                        <a href={`/products/${product.name.split(' ').join('')}`}><img src={product.img ? `/assets/images/product/${product.img}/${product.img}.png` : '/assets/images/product/placeholder/placeholder.jpg'} alt="footer-blog" /></a>
                       </div>
                       <div className="detalis">
-                        <a href="blog-single.html"><h5>{product.name}</h5></a>
+                        <a href={`/products/${product.name.split(' ').join('')}`}><h5>{product.name}</h5></a>
                         <h6></h6>
                       </div>
                     </li>
