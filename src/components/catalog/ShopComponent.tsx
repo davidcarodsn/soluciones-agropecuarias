@@ -45,11 +45,11 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
               <div className="shop-title d-flex flex-wrap justify-content-between">
                   <p>{ProductData?.length} Resultados de {db.length}</p>
                   <div className="product-view-mode">
-                      <a className="active" data-target="grids"><i className="icofont-ghost"></i></a>
-                      <a data-target="lists"><i className="icofont-listing-box"></i></a>
+                      <a data-target="grids"><i className="icofont-ghost"></i></a>
+                      <a className="active" data-target="lists"><i className="icofont-listing-box"></i></a>
                   </div>
               </div>
-                <div className="shop-product-wrap grids row justify-content-center">
+                <div className="shop-product-wrap lists row justify-content-center">
                   {
                     ProductData?.map((data, i) => {
                       return (
@@ -66,7 +66,6 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
                 </div>
               </article>
             </div>
-            
           </div>
         </div>
       </div>

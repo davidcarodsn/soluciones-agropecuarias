@@ -1,6 +1,6 @@
 ---
 import { ButtonPDFComponent } from "@components/product-single/ButtonPDFComponent";
-import { DescriptionReviewsSection } from "@components/product-single/DescriptionReviewsSection";
+import { RelatedProductsSection } from "@components/product-single/RelatedProductsSection";
 import Layout from "@layouts/Layout.astro";
 import { db } from "../../util/catalogData";
 import type { ProductData } from "src/util/types";
@@ -40,6 +40,7 @@ const productSelected:ProductData = db.filter((obj) => obj.name.split(' ').join(
                 <li class="breadcrumb-item" aria-current="page"> <a href="/" style="color: inherit;">Home</a> </li>
                 <li class="breadcrumb-item" aria-current="page"> <a href="/products/catalog" style="color: inherit;">Productos</a></li>
                 <li class="breadcrumb-item" style="color: #ffb11f;" aria-current="page">{productSelected.name}</li>
+                <button type="button" style="margin-left: 90%; background-color: #ffb11f; border: none;">Atras</button>
               </ol>
             </nav>
             <div style="margin-top: 20px;" class="row align-items-center">
@@ -58,123 +59,13 @@ const productSelected:ProductData = db.filter((obj) => obj.name.split(' ').join(
                           </div>
                         </div>
                       </div>
-                      <!-- <div class="swiper-slide">
-                        <div class="shop-item">
-                          <div class="shop-thumb">
-                            <img
-                              src="assets/images/product/single/top/01.png"
-                              alt="shop-single"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="shop-item">
-                          <div class="shop-thumb">
-                            <img
-                              src="assets/images/product/single/top/01.png"
-                              alt="shop-single"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="shop-item">
-                          <div class="shop-thumb">
-                            <img
-                              src="assets/images/product/single/top/01.png"
-                              alt="shop-single"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="shop-item">
-                          <div class="shop-thumb">
-                            <img
-                              src="assets/images/product/single/top/01.png"
-                              alt="shop-single"
-                            />
-                          </div>
-                        </div>
-                      </div> -->
                     </div>
-                    <!-- <div class="shop-navigation d-flex flex-wrap">
-                      <div class="shop-nav shop-slider-prev">
-                        <i class="icofont-simple-left"></i>
-                      </div>
-                      <div class="shop-nav shop-slider-next">
-                        <i class="icofont-simple-right"></i>
-                      </div>
-                    </div> -->
                   </div>
-                  <!-- <div class="swiper-container gallery-thumbs">
-                    <div class="swiper-wrapper">
-                      <div class="swiper-slide">
-                        <div class="shop-item">
-                          <div class="shop-thumb">
-                            <img
-                              src="assets/images/product/single/bottom/01.png"
-                              alt="shop-single"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="shop-item">
-                          <div class="shop-thumb">
-                            <img
-                              src="assets/images/product/single/bottom/02.png"
-                              alt="shop-single"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="shop-item">
-                          <div class="shop-thumb">
-                            <img
-                              src="assets/images/product/single/bottom/03.png"
-                              alt="shop-single"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="shop-item">
-                          <div class="shop-thumb">
-                            <img
-                              src="assets/images/product/single/bottom/04.png"
-                              alt="shop-single"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                      <div class="swiper-slide">
-                        <div class="shop-item">
-                          <div class="shop-thumb">
-                            <img
-                              src="assets/images/product/single/bottom/05.png"
-                              alt="shop-single"
-                            />
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div> -->
                 </div>
               </div>
               <div class="col-md-6 col-12">
                 <div class="post-content">
                   <h4>{productSelected.name}</h4>
-                  <p class="rating">
-                    <!-- <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i> -->
-                  </p>
-                  <!-- <h4>$ 340.00<:/h4> -->
                   <h5>Descripción del producto</h5>
                   <p>{productSelected?.specs?.description}</p>
                   <form>
@@ -229,7 +120,7 @@ const productSelected:ProductData = db.filter((obj) => obj.name.split(' ').join(
               </div>
             </div>
           </div>
-          <DescriptionReviewsSection productSelected={productSelected} client:load/>
+          <RelatedProductsSection productSelected={productSelected} client:load/>
         </div>
       </div>
     </div>

@@ -3,6 +3,8 @@ import React from 'react';
 import { db } from 'src/util/catalogData';
 import { ProductData, ProductTypes } from 'src/util/types';
 
+// CUANDO ES PRODUCTO: BOTONES DE DESCARGAS PDF
+
 interface NavData {
   name: string;
   filter: string;
@@ -24,7 +26,7 @@ export const ShopNavComponent = ({ handleFilterNav }: any) => {
         {
           name: 'Granulados',
           filter: ProductTypes.FERTILIZANTES_GRANULADOS,
-          products: db.filter(product => product.filters.includes(ProductTypes.FERTILIZANTES_GRANULADOS)).map(product => {
+          products: db.filter(product => product.filters.includes(ProductTypes.FERTILIZANTES_GRANULADOS)).sort((a, b) => a.name.localeCompare(b.name)).map(product => {
             return {
               name: product.name,
               filter: product.name
@@ -34,7 +36,7 @@ export const ShopNavComponent = ({ handleFilterNav }: any) => {
         {
           name: 'Solubles',
           filter: ProductTypes.FERTILIZANTES_SOLUBLES,
-          products: db.filter(product => product.filters.includes(ProductTypes.FERTILIZANTES_SOLUBLES)).map(product => {
+          products: db.filter(product => product.filters.includes(ProductTypes.FERTILIZANTES_SOLUBLES)).sort((a, b) => a.name.localeCompare(b.name)).map(product => {
             return {
               name: product.name,
               filter: product.name
@@ -47,17 +49,17 @@ export const ShopNavComponent = ({ handleFilterNav }: any) => {
       name: 'Fertilizantes líquidos',
       filter: ProductTypes.FERTILIZANTES_LIQUIDOS,
       subTypes: [
-        {
-          name: 'Herbicidas',
-          filter: ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS,
-          products: db.filter(product => product.filters.includes(ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS)).map(product => {
-            return {
-              name: product.name,
-              filter: product.name
-            }
-          })
-        },
-        ...db.filter(product => product.filters.includes(ProductTypes.FERTILIZANTES_LIQUIDOS) && (product.filters.length === 1)).map(product => {
+        // {
+        //   name: 'Herbicidas',
+        //   filter: ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS,
+        //   products: db.filter(product => product.filters.includes(ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS)).map(product => {
+        //     return {
+        //       name: product.name,
+        //       filter: product.name
+        //     }
+        //   })
+        // },
+        ...db.filter(product => product.filters.includes(ProductTypes.FERTILIZANTES_LIQUIDOS) && (product.filters.length === 1)).sort((a, b) => a.name.localeCompare(b.name)).map(product => {
           return {
             name: product.name,
             filter: product.name,
@@ -69,7 +71,7 @@ export const ShopNavComponent = ({ handleFilterNav }: any) => {
       name: 'Herbicidas',
       filter: ProductTypes.HERBICIDAS,
       subTypes: [
-        ...db.filter(product => product.filters.includes(ProductTypes.HERBICIDAS) && (product.filters.length === 1)).map(product => {
+        ...db.filter(product => product.filters.includes(ProductTypes.HERBICIDAS) && (product.filters.length === 1)).sort((a, b) => a.name.localeCompare(b.name)).map(product => {
           return {
             name: product.name,
             filter: product.name,
@@ -81,7 +83,7 @@ export const ShopNavComponent = ({ handleFilterNav }: any) => {
       name: 'Insecticidas General',
       filter: ProductTypes.INSECTICIDAS_GENERAL,
       subTypes: [
-        ...db.filter(product => product.filters.includes(ProductTypes.INSECTICIDAS_GENERAL) && (product.filters.length === 1)).map(product => {
+        ...db.filter(product => product.filters.includes(ProductTypes.INSECTICIDAS_GENERAL) && (product.filters.length === 1)).sort((a, b) => a.name.localeCompare(b.name)).map(product => {
           return {
             name: product.name,
             filter: product.name,
@@ -93,7 +95,7 @@ export const ShopNavComponent = ({ handleFilterNav }: any) => {
       name: 'Fungicidas',
       filter: ProductTypes.FUNGICIDAS,
       subTypes: [
-        ...db.filter(product => product.filters.includes(ProductTypes.FUNGICIDAS) && (product.filters.length === 1)).map(product => {
+        ...db.filter(product => product.filters.includes(ProductTypes.FUNGICIDAS) && (product.filters.length === 1)).sort((a, b) => a.name.localeCompare(b.name)).map(product => {
           return {
             name: product.name,
             filter: product.name,
@@ -105,7 +107,7 @@ export const ShopNavComponent = ({ handleFilterNav }: any) => {
       name: 'Semilla',
       filter: ProductTypes.SEMILLA,
       subTypes: [
-        ...db.filter(product => product.filters.includes(ProductTypes.SEMILLA) && (product.filters.length === 1)).map(product => {
+        ...db.filter(product => product.filters.includes(ProductTypes.SEMILLA) && (product.filters.length === 1)).sort((a, b) => a.name.localeCompare(b.name)).map(product => {
           return {
             name: product.name,
             filter: product.name,
@@ -114,10 +116,10 @@ export const ShopNavComponent = ({ handleFilterNav }: any) => {
       ]
     }, 
     {
-      name: 'Hermicidas',
+      name: 'Hormiguicidas',
       filter: ProductTypes.HERMICIDAS,
       subTypes: [
-        ...db.filter(product => product.filters.includes(ProductTypes.HERMICIDAS) && (product.filters.length === 1)).map(product => {
+        ...db.filter(product => product.filters.includes(ProductTypes.HERMICIDAS) && (product.filters.length === 1)).sort((a, b) => a.name.localeCompare(b.name)).map(product => {
           return {
             name: product.name,
             filter: product.name,

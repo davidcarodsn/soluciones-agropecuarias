@@ -110,11 +110,11 @@ export const db: ProductData[] = [
     }
   },
   {
-    name: '15-6-16-6 Citrus',
+    name: '15-6-16-6 Consulp',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS]
   },
   {
-    name: '15-15-15 Citrus',
+    name: '15-15-15',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS], 
     specs: {
       description: `
@@ -351,7 +351,7 @@ export const db: ProductData[] = [
     }
   },
   {
-    name: 'Stower Magnesio',
+    name: 'Stoller Magnesio',
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `
@@ -723,7 +723,7 @@ export const db: ProductData[] = [
     }
   },
   {
-    name: 'Paraquat, sisma',
+    name: 'Paraquat',
     filters: [ProductTypes.HERBICIDAS],
     specs: {
       description: `
@@ -733,11 +733,11 @@ export const db: ProductData[] = [
         fotosíntesis activa para manifiesta su efecto herbicida, que se 
         caracteriza por el colapso de la estructura celular y la 
         desecación.
-      `,
+          `,
     }
   },
   {
-    name: 'Flumioxazim marca summit agro',
+    name: 'Flumioxazim',
     filters: [ProductTypes.HERBICIDAS],
     specs: {
       description: `
@@ -763,11 +763,11 @@ export const db: ProductData[] = [
     }
   },
   {
-    name: '2,4D B Adama-Atanor',
+    name: '2,4DB Adama-Atanor',
     filters: [ProductTypes.HERBICIDAS],
     specs: {
       description: `
-        2,4D B Adama-Atanor 2,4DB es un herbicida indicado para el control de 
+        2,4DB Adama-Atanor 2,4DB es un herbicida indicado para el control de 
         malezas de hoja ancha en cultivos y praderas consociadas formadas 
         por leguminosas. Relacionado con el 2,4-D pero mucho menos activo. 
         Bajo la acción de ciertas sustancias, se transforma en 2,4-D en las 
@@ -778,6 +778,7 @@ export const db: ProductData[] = [
   {
     name: 'Ricer',
     filters: [ProductTypes.HERBICIDAS],
+    formulacion: '46-0-0',
     specs: {
       description: `
         Ricer® es un herbicida sistémico y selectivo, de aplicación postemergente, que 
@@ -873,20 +874,20 @@ export const db: ProductData[] = [
       description: 'ABAMECTINA DEL MONTE 1.8 EC es una abamectina que resulta de una mezcla de Avermectina B1A y Avermectina B1B que actúa estimulando la liberación presináptica del inhibidor neurotransmisor ácido g-aminobutírico (GABA) desde las terminales nerviosas y potenciando la fijación del GABA a los receptores postsinápticos. En los artrópodos impide la transmisión de señales en las conexiones neuromusculares por el mismo mecanismo de amplificación de la acción del GABA, a través de un aumento de la permeabilidad de la membrana al calcio. Los insectos sensibles quedan paralizados irreversiblemente y mueren. A diferencia de la mayoría de los insecticidas no afecta al sistema colinérgico.',
     }
   },
-  {
-    name: 'Olimpo',
-    filters: [ProductTypes.INSECTICIDAS_GENERAL],
-    specs: {
-      description: `
-        Olimpo es un fertilizante de alta asimilación, debido a las 
-        oligosacarinas y ácidos orgánicos que contiene facilita el flujo 
-        eficaz del potasio (K) a nivel translaminar y por tejidos de 
-        conducción en los puntos de mayor demanda, favoreciendo la 
-        acumulación de carbohidratos en los tejidos de reserva, lo que 
-        se refleja en frutos de mayor calidad.
-      `,
-    }
-  },
+  // {
+  //   name: 'Olimpo',
+  //   filters: [ProductTypes.INSECTICIDAS_GENERAL],
+  //   specs: {
+  //     description: `
+  //       Olimpo es un fertilizante de alta asimilación, debido a las 
+  //       oligosacarinas y ácidos orgánicos que contiene facilita el flujo 
+  //       eficaz del potasio (K) a nivel translaminar y por tejidos de 
+  //       conducción en los puntos de mayor demanda, favoreciendo la 
+  //       acumulación de carbohidratos en los tejidos de reserva, lo que 
+  //       se refleja en frutos de mayor calidad.
+  //     `,
+  //   }
+  // },
   {
     img: 'carbendazim',
     name: 'Carbendazim - Philagel',
@@ -1062,4 +1063,12 @@ export const db: ProductData[] = [
     name: 'Sulfamirex',
     filters: [ProductTypes.HERMICIDAS],
   },
+  {
+    name: 'Sulfato De Hierro',
+    filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES],
+  },
+  {
+    name: 'Cipermetrina',
+    filters: [ProductTypes.INSECTICIDAS_GENERAL]
+  }
 ]

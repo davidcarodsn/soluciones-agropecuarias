@@ -17,7 +17,7 @@ export const BlogDetails = () => {
           </ol>
         </nav>
         <div>
-          <button onClick={() => dispatch({ type: BlogTypes.SET_FACEBOOK_POST_DETAIL, payload: undefined })} className="lab-btn" style={{ color: 'white', border: 'none' }}>Atras</button>
+          <button onClick={() => dispatch({ type: BlogTypes.SET_FACEBOOK_POST_DETAIL, payload: undefined })} className="lab-btn" style={{ color: '#f7f7f7', border: 'none' }}>Atras</button>
         </div>
       </div>
       <div className="post-item-2">

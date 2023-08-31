@@ -5,7 +5,7 @@
         width: 100%;
         top: 0;
         z-index: 99;
-        background: $white-color;
+        background: $#f7f7f7-color;
         box-shadow: 0 0 3px rgba(81, 136, 136, .10);
     }
     .primary-menu {
@@ -79,7 +79,7 @@
                             @include breakpoint(max-sm) {
                                 position: static;
                                 display: none;
-                                background: $white-color;
+                                background: $#f7f7f7-color;
                                 box-shadow: none;
                                 padding-left: 15px;
                                 li {
@@ -93,18 +93,18 @@
                                 a {
                                     font-size: 98%;
                                     padding: 10px 15px;
-                                    color: $white-color;
+                                    color: $#f7f7f7-color;
                                     width: 100%;
-                                    border-bottom: 1px solid #ffffff40;
+                                    border-bottom: 1px solid #f7f7f7fff40;
                                     &:hover {
                                         padding-left: 20px;
                                         color: $theme-color;
-                                        background: $white-color;
+                                        background: $#f7f7f7-color;
                                     }
                                 }
                                 &.active, &:hover {
                                     > a {
-                                        background: $white-color;
+                                        background: $#f7f7f7-color;
                                         color: $theme-color;
                                     }
                                 }
@@ -195,7 +195,7 @@
         .ht-left {
             ul {
                 li {
-                    color: $white-color;
+                    color: $#f7f7f7-color;
                     font-size: 15px;
                     font-weight: 500;
                     padding-right: 15px;
@@ -221,7 +221,7 @@
                     @include transition($transition);
                     &:hover {
                         color: $theme-color;
-                        background: $white-color;
+                        background: $#f7f7f7-color;
                     }
                 }
             }
@@ -238,7 +238,7 @@
     top: 20px;
     z-index: 999;
     .primary-menu .main-area .main-menu ul li a {
-        color: $white-color;
+        color: $#f7f7f7-color;
     }
     .primary-menu .main-area .main-menu ul li ul {
         background: $theme-color;
@@ -251,16 +251,16 @@
                 background: $title-color;
             }
             .main-menu ul li.active > a {
-                color: $white-color;
+                color: $#f7f7f7-color;
             }
             .main-menu ul li ul li.active > a, .main-menu ul li ul li a, .main-menu ul li ul li.open > a, .main-menu ul li:hover > a {
                 background: $theme-color;
-                color: $white-color !important;
+                color: $#f7f7f7-color !important;
             }
         }
     }
     .primary-menu .navbar-toggler i {
-        color: $white-color;
+        color: $#f7f7f7-color;
     }
 }
 .transparent-header .header-area.menu-fixed {

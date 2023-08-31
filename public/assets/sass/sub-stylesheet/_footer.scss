@@ -24,14 +24,14 @@
                 }
                 .footer-desc {
                     p {
-                        color: $white-color;
+                        color: $#f7f7f7-color;
                         font-size: 15px;
                     }
                 }
                 .footer-title {
                     margin-bottom: 20px;
                     h5 {
-                        color: $white-color;
+                        color: $#f7f7f7-color;
                     }
                 }
                 .footer-body {
@@ -41,7 +41,7 @@
                             padding: 10px 0;
                             .detalis {
                                 p {
-                                    color: $white-color;
+                                    color: $#f7f7f7-color;
                                 }
                             }
                         }
@@ -95,7 +95,7 @@
                                         margin-bottom: 0;
                                         line-height: 1;
                                         font-weight: 500;
-                                        color: $white-color;
+                                        color: $#f7f7f7-color;
                                     }
                                     h5 {
                                         margin-bottom: 10px;
@@ -145,10 +145,10 @@
         p {
             margin-bottom: 0;
             text-align: center;
-            color: $white-color;
+            color: $#f7f7f7-color;
             a {
                 padding: 0 5px;
-                color: $white-color;
+                color: $#f7f7f7-color;
                 &:hover {
                     color: $theme-color;
                 }

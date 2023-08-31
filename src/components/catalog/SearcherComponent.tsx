@@ -12,7 +12,10 @@ export const SearcherComponent:FC<SearcherComponentProps> = ({ setProductData, a
 
   const hanldeInputChange = (e: any) => {
     const search = e.target.value;
-    const filter = allData.filter( product => product.name.toLowerCase().indexOf(search.toLowerCase()) !== -1)
+    const filter = allData.filter( product => (
+      product.name.toLowerCase().indexOf(search.toLowerCase()) !== -1) 
+      || (product.formulacion && product.formulacion.toLowerCase().indexOf(search.toLowerCase()) !== -1)
+    )
     
     search.length ? setProductData(filter) : setProductData(allData);
     setInput(search)

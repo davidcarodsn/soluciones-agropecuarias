@@ -34,7 +34,7 @@
   position: fixed;
   bottom: 40px;
   left: 40px;
-  background-color: #fffcf7;
+  background-color: #f7f7f7cf7;
   border-radius: 5px 5px 5px 5px;
   border: 1px solid rgba(0, 0, 0, 0.283);
   flex-direction: column;
@@ -68,7 +68,7 @@
   font-size: 20px;
   cursor: pointer;
   width: 7%;
-  color: white;
+  color: #f7f7f7;
   background-color: #a8cf45;
   border: none;
   border-radius: 100%;
@@ -98,7 +98,7 @@ a {
   border-radius: 3px;
   background-color: #a8cf45;
   display: flex;
-  color: #fff;
+  color: #f7f7f7;
   align-items: center;
   justify-content: space-between;
   width: 90%;
@@ -110,7 +110,7 @@ a {
 .body-overflow 
 a:hover {
   color: #a8cf45;
-  background-color: #fff;
+  background-color: #f7f7f7;
 }
 
 .link-ws-button {

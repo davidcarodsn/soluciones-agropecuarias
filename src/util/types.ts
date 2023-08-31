@@ -2,6 +2,7 @@ export interface ProductData {
   img?: string;
   name: string;
   filters: string[];
+  formulacion?: string;
   specs?: {
     description?: string; 
     features?: ProductFeature;
