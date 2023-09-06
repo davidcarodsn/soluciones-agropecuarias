@@ -2,6 +2,7 @@ import React from "react";
 import { useBlogContext } from "src/context/blog-context";
 import { BlogTypes } from "src/context/types/blog";
 import { getFormatDate } from "src/util/getDateFormat";
+import { PATH_ROUTES } from "src/util/pages";
 import type { FacebookPost } from "src/util/types";
 
 export const BlogPosts = () => {
@@ -19,8 +20,8 @@ export const BlogPosts = () => {
         <div style={{ height: '150px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'flex-start' }}>
           <nav aria-label="breadcrumb">
             <ol className="breadcrumb">
-              <li className="breadcrumb-item" aria-current="page"> <a href="/" style={{ color: 'inherit' }}>Home</a> </li>
-              <li className="breadcrumb-item" aria-current="page"> <a href="/blog" style={{ color: '#ffb11f' }}>Noticias</a></li>
+              <li className="breadcrumb-item" aria-current="page"> <a href={PATH_ROUTES.HOME_PATH} style={{ color: 'inherit' }}>Home</a> </li>
+              <li className="breadcrumb-item" aria-current="page"> <a type="button" style={{ color: '#ffb11f' }}>Noticias</a></li>
             </ol>
           </nav>
         </div>

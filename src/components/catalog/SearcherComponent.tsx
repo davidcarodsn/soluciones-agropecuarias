@@ -1,5 +1,4 @@
 import React, { Dispatch, FC, SetStateAction, useState } from 'react';
-import product from 'src/pages/products/[product].astro';
 import type { ProductData } from 'src/util/types';
 
 interface SearcherComponentProps {

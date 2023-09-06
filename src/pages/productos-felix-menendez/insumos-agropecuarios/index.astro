@@ -1,21 +1,24 @@
 ---
-import { BlogComponent } from "@components/blog/BlogComponent";
-import Layout from "@layouts/Layout.astro";
-import PAGES from "src/util/pages";
-
-const { FACEBOOK_TOKEN, FACEBOOK_PAGE_ID, INSTAGRAM_TOKEN } = await import.meta.env;
+import ShopComponent from "../../../components/catalog/ShopComponent";
+import Layout from "../../../layouts/Layout.astro";
+import { PAGES } from "../../../util/pages";
 ---
-
-<Layout path={PAGES.BLOG_PAGE}>
-  <!-- Blog Section Start Here -->
-  <div class="blog-section blog-single padding-tb">
+<Layout path={PAGES.CATALOG_PAGE}>
+  <!-- Page Header Section Start Here -->
+  <section class="page-header bg_img padding-tb">
+    <div class="overlay"></div>
     <div class="container">
-      <div class="section-wrapper">
-        <BlogComponent keys={{ FACEBOOK_TOKEN, FACEBOOK_PAGE_ID, INSTAGRAM_TOKEN }} client:load/>
+      <div class="page-header-content-area">
+        <h4 class="ph-title">{PAGES.CATALOG_PAGE}</h4>
+        <ul class="agri-ul">
+          <li><a href="/">Home</a></li>
+          <li><a class="active">{PAGES.CATALOG_PAGE}</a></li>
+        </ul>
       </div>
     </div>
-  </div>
-  <!-- Blog Section ENding Here -->
+  </section>
+  <!-- Page Header Section Ending Here -->
+  <ShopComponent filter={undefined} client:load />
   <script is:inline src="/assets/js/jquery.js"></script>
   <script is:inline src="/assets/js/fontawesome.min.js"></script>
   <script is:inline src="/assets/js/waypoints.min.js"></script>

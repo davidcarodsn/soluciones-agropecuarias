@@ -1,7 +1,8 @@
 import React, { FC, useState } from "react";
 import type { ProductData } from "../../util/types";
 import { db } from "src/util/catalogData";
-import { CardCartComponent } from "@components/catalog/CardCartComponent";
+import { PATH_ROUTES } from "src/util/pages";
+import { getPlaceholder } from "src/util/getPlaceholder";
 
 interface RelatedProductsSectionProps {
   productSelected: ProductData;
@@ -20,15 +21,26 @@ export const RelatedProductsSection: FC<RelatedProductsSectionProps> = ({
           if (i > 5) {
             return;
           }
+          const img = relatedProduct.img ?? getPlaceholder(relatedProduct.filters);
           return (
-            <CardCartComponent 
-              description={relatedProduct.name} 
-              filter={relatedProduct.filters} 
-              img={relatedProduct.img} 
-              title={relatedProduct.name} 
-              key={`${i}-related-card`}
-              isProductDetail={true}
-            />
+            <div className="col-lg-4 col-md-6 col-12">
+              <div className="product-item">
+                <div className="product-thumb">
+                  <img src={`/assets/images/product/${img}/${img}.png`} alt="item" />
+                  <div className="product-action-link">
+                    <a
+                      href={`/${PATH_ROUTES.PRODUCTS_PATH}/${relatedProduct.name.split(' ').join('')}`}
+                      ><i className="icofont-eye"></i></a>
+                  </div>
+                </div>
+                <div className="product-content">
+                  <h6><a href={`/${PATH_ROUTES.PRODUCTS_PATH}/${relatedProduct.name.split(' ').join('')}`}>{relatedProduct.name}</a></h6>
+                  <p style={{ paddingLeft: '10px', maxWidth: '200px', maxHeight: '40px', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }}>
+                    {relatedProduct.specs?.description}
+                  </p>
+                </div>
+              </div>
+            </div>
           )
         })
       }

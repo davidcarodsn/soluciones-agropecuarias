@@ -1,5 +1,5 @@
 ---
-import PAGES from "../../util/pages";
+import { PAGES, PATH_ROUTES } from "../../util/pages";
 const { route } = Astro.props;
 
 const isBlack = (actualRoute: PAGES) => {
@@ -22,7 +22,7 @@ const isBlack = (actualRoute: PAGES) => {
       <nav class="navbar navbar-expand-lg">
         <div class="primary-menu">
           <div class="logo">
-            <a href="/"><img src="/assets/images/logo/01.png" alt="logo"></a>
+            <a href={PATH_ROUTES.HOME_PATH}><img src="/assets/images/logo/01.png" alt="logo"></a>
           </div>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <i class="icofont-navigation-menu"></i>
@@ -31,12 +31,12 @@ const isBlack = (actualRoute: PAGES) => {
             <div class="main-area">
               <div class="main-menu">
                 <ul class="agri-ul">
-                  <li class={route === PAGES.HOME_PAGE ? 'active' : ''}><a href="/">Home</a></li>
-                  <li class={route === PAGES.BLOG_PAGE ? 'active' : ''}><a href="/blog">Noticias</a></li>
-                  <li class={route === PAGES.CATALOG_PAGE ? 'active' : ''}><a href="/products/catalog">Productos</a></li>
-                  <li class={route === PAGES.CONTACT_PAGE ? 'active' : ''}><a href="/contact">Contacto</a></li>
+                  <li class={route === PAGES.HOME_PAGE ? 'active' : ''}><a href={PATH_ROUTES.HOME_PATH}>Home</a></li>
+                  <li class={route === PAGES.BLOG_PAGE ? 'active' : ''}><a href={'/'+PATH_ROUTES.BLOG_PATH}>Noticias</a></li>
+                  <li class={route === PAGES.CATALOG_PAGE ? 'active' : ''}><a href={`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}`}>Productos</a></li>
+                  <li class={route === PAGES.CONTACT_PAGE ? 'active' : ''}><a href={'/'+PATH_ROUTES.CONTACT_PATH}>Contacto</a></li>
                   <li>
-                    <a href="#">Seguinos</a>
+                    <a type="button" >Seguinos</a>
                     <ul class="agri-ul">
                       <li><a target="_blank" href="https://www.facebook.com/solucionesagropecuariasintegrales"><i style="margin-right: 10px;" class="fa-brands fa-facebook"></i>Facebook</a></li>
                       <li><a target="_blank" href="https://www.instagram.com/felixmenendezsrl/"><i style="margin-right: 10px;" class="fa-brands fa-instagram"></i> Instagram</a></li>

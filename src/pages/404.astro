@@ -1,19 +1,19 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import PAGES from "../util/pages";
+import { PAGES, PATH_ROUTES } from "../util/pages";
 ---
 <Layout path={PAGES.NOT_FOUND_PAGE}>
 	<!-- fore zero fore page start here -->
 	<section class="fore-zero padding-tb">
 		<div class="container">
 				<div class="section-wrapper">
-						<div class="zero-item text-center">
-								<h2>Oops, sorry we can’t find that page</h2>
-								<div class="zero-thumb">
-										<img src="/assets/images/404.png" alt="404">
+						<div class="zero-item text-center mt-5">
+								<h2>Página no encontrada</h2>
+								<div class="zero-thumb" style="height: 30vh; display: flex; justify-content: center; align-items: center;">
+										<h1 style="font-size: 200px; color: #ffb11f;">404</h1>
 								</div>
 								<div class="zero-content">
-										<a href="index.html" class="lab-btn"><span>Back to Home</span></a>
+										<a href={PATH_ROUTES.HOME_PATH} class="lab-btn"><span>Back to Home</span></a>
 								</div>
 						</div>
 				</div>

@@ -10,7 +10,7 @@
                 .post-inner {
                     box-shadow: 0 0 10px rgba(136, 136, 136, .10);
                     .post-content {
-                        background: $#f7f7f7-color;
+                        background: $white-color;
                         padding: 30px;
                         h5 {
                             margin-bottom: 10px;
@@ -46,7 +46,7 @@
                             }
                             &:hover {
                                 span {
-                                    color: $#f7f7f7-color;
+                                    color: $white-color;
                                 }
                                 &::after {
                                     background: $theme-color;
@@ -125,7 +125,7 @@
                                         @include border-radius(2px);
                                         &:hover, .active {
                                             background: $theme-color;
-                                            color: $#f7f7f7-color;
+                                            color: $white-color;
                                             border-color: $theme-color;
                                         }
                                     }
@@ -402,7 +402,7 @@
 // widget css start here
 .widget {
     padding: 25px;
-    background: $#f7f7f7-color;
+    background: $white-color;
     margin-bottom: 24px;
     &:last-child {
         margin-bottom: 0;
@@ -425,7 +425,7 @@
         }
     }
     &.widget-search {
-        background: $#f7f7f7-color;
+        background: $white-color;
         padding: 0;
         @include breakpoint(max-lg) {
             margin-top: 30px;
@@ -587,7 +587,7 @@
                         &.active,
                         &:hover {
                             background: $theme-color;
-                            color: $#f7f7f7-color;
+                            color: $white-color;
                             border-color: $theme-color;
                         }
                     }
@@ -692,7 +692,7 @@
         padding: 10px;
         margin-bottom: 24px;
         align-items: center;
-        background: $#f7f7f7-color;
+        background: white;
         -webkit-animation-name: zoomIn;
         animation-name: zoomIn;
         -webkit-animation-duration: .5s;
@@ -725,12 +725,11 @@
             box-shadow: none;
             @include border-radius(0px);
             &::after {
-                @extend %abs;
                 width: 100%;
                 height: 100%;
                 top: 0;
                 left: 0;
-                background: #f7f7f7fffe0;
+                background: black;
                 transform: scale(0);
                 @include transition($transition);
             }
@@ -755,7 +754,7 @@
                     text-align: center;
                     border-radius: 100%;
                     background: $theme-color;
-                    color: $#f7f7f7-color;
+                    color: white;
                     margin: 5px;
                     @include transition($transition);
                     &.view-modal {
@@ -876,7 +875,7 @@
 					tr {
 						th {
 							background: $theme-color;
-					  		color: $#f7f7f7-color;
+					  		color: $white-color;
 					  		padding: 18px;
 					  		border: none;
 					  		&:nth-child(3) {
@@ -956,7 +955,7 @@
                         margin-left: -10px;
                         outline: none;
                         border: none;
-                        color: $#f7f7f7-color;
+                        color: $white-color;
                         font-weight: 700;
                         font-size: 14px;
                         @extend %pointer;
@@ -974,7 +973,7 @@
 					}
 					input {
 						background: $theme-color;
-                        color: $#f7f7f7-color;
+                        color: $white-color;
                         outline: none;
                         border: none;
                         font-weight: 700;
@@ -1002,7 +1001,7 @@
 			}
 			.shiping-box {
 				padding: 30px 20px;
-                border-top: 1px solid $#f7f7f7-color;
+                border-top: 1px solid $white-color;
 				.calculate-shiping {
 					@include breakpoint(max-md) {
 						margin-bottom: 24px;
@@ -1011,7 +1010,7 @@
 						margin-bottom: 24px;
 					}
 					.outline-select {
-				        background: $#f7f7f7-color;
+				        background: $white-color;
 	    				margin-bottom: 20px;
     					@extend %rel;
 						select {
@@ -1036,7 +1035,7 @@
 						    right: 0;
 						    padding: 9px 20px;
 						    background: $theme-color;
-                            color: $#f7f7f7-color;
+                            color: $white-color;
                             border: 1px solid $border-color;
 						    border-radius: 0px 3px 3px 0px;
 						    @extend %abs;
@@ -1058,7 +1057,7 @@
 					    font-size: 14px;
 					    background: $theme-color;
                         font-weight: 700;
-                        color: $#f7f7f7-color;
+                        color: $white-color;
                         outline: none;
                         border: none;
                         float: right;
@@ -1081,7 +1080,7 @@
 						    border: 1px solid $border-color;
 						    padding: 8px 20px;
 						    margin-bottom: 15px;
-						    background: $#f7f7f7-color;
+						    background: $white-color;
 						    @extend %flex;
 							.pull-right {
 								margin-bottom: 0;
@@ -1102,7 +1101,7 @@
             border: none;
             form {
                 input {
-                    background: $#f7f7f7-color;
+                    background: $white-color;
                     border: 1px solid $border-color;
                 }
             }
@@ -1111,7 +1110,7 @@
 	.product-details {
 	    padding: 40px 30px;
         margin-bottom: 40px;
-        background: #f7f7f7;
+        background: white;
         @extend %hidden;
 		.product-thumb {
             .gallery-top {
@@ -1120,7 +1119,7 @@
                 .shop-item {
                     .shop-thumb {
                         text-align: center;
-                        background: $#f7f7f7-color;
+                        background: $white-color;
                     }
                 }
                 .shop-navigation {
@@ -1138,10 +1137,10 @@
                         height: 66px;
                         line-height: 66px;
                         text-align: center;
-                        color: $#f7f7f7-color;
+                        color: $white-color;
                         background: #cccccc;
                         &:hover, &.active {
-                            color: $#f7f7f7-color;
+                            color: $white-color;
                             background: $theme-color;
                         }
                         &.shop-slider-prev {
@@ -1158,7 +1157,7 @@
                     cursor: pointer;
                     .shop-thumb {
                         @extend %hidden;
-                        background: $#f7f7f7-color;
+                        background: $white-color;
                         text-align: center;
                         height: 74px;
                         line-height: 74px;
@@ -1199,7 +1198,7 @@
 		        @extend %flex;
 				.select-product {
 					width: 100%;
-				    background: $#f7f7f7-color;
+				    background: $white-color;
 				    margin-bottom: 20px;
 				    @extend %rel;
 				    @include breakpoint(sm) {
@@ -1256,7 +1255,7 @@
                     margin-top: 20px;
                     outline: none;
                     border: none;
-                    color: $#f7f7f7-color;
+                    color: $white-color;
                     @extend %pointer;
 				}
 			}
@@ -1269,14 +1268,14 @@
 			li {
 				list-style: none;
 				padding: 13px 33px;
-                background: #f7f7f7;
+                background: white;
 			    font-size: 16px;
 			    font-weight: 700;
 			    color: $title-color;
 			    margin-right: 10px;
 			    @extend %pointer;
 			    &.active {
-                    color: $#f7f7f7-color;
+                    color: $white-color;
 			    	background: $theme-color;
 			    }
 			    &:last-child {
@@ -1302,7 +1301,7 @@
 			    -webkit-animation-duration: 1s;
 			    animation-duration: 1s;
 				.content {
-                    background: #f7f7f7;
+                    background: white;
 					margin-bottom: 30px !important;
 					li {
 						padding: 25px 30px;
@@ -1373,7 +1372,7 @@
 				.client-review {
                     padding: 30px;
                     margin-bottom: 15px;
-                    background: #f7f7f7;
+                    background: white;
 					.review-form {
 						.review-title {
 							margin-bottom: 40px;
@@ -1434,7 +1433,7 @@
 								padding: 10px 30px;
                                 box-shadow: none;
                                 border: none;
-                                color: $#f7f7f7-color;
+                                color: $white-color;
                                 background: $theme-color;
                                 @extend %pointer;
 							}
@@ -1449,7 +1448,7 @@
 			    animation-name: fadeIn;
 			    -webkit-animation-duration: 1s;
 			    animation-duration: 1s;
-                background: #f7f7f7;
+                background: white;
 			    .post-item {
 			    	.post-content {
 		    			padding: 30px 0;

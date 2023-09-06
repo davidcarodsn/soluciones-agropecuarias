@@ -2,7 +2,7 @@
 import FormContact from "../components/contact/FormContact";
 // import FormContactEmail from "../components/contact/FormContactEmail";
 import Layout from "../layouts/Layout.astro";
-import PAGES from "../util/pages";
+import { PAGES } from "../util/pages";
 const { RECAPTCHA_KEY, EMAILJS_PUBLIC_KEY, EMAILJS_SERVICE, CONTACT_EMAILJS_TEMPLATE, GOOGLE_MAP_KEY } = await import.meta.env;
 ---
 <Layout path={PAGES.CONTACT_PAGE}>

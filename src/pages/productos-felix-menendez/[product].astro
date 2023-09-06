@@ -5,18 +5,6 @@ import Layout from "@layouts/Layout.astro";
 import { db } from "../../util/catalogData";
 import type { ProductData } from "src/util/types";
 
-// ProductTypes.FERTILIZANTES,
-//     ProductTypes.FERTILIZANTES_GRANULADOS,
-//     ProductTypes.FERTILIZANTES_SOLUBLES,
-//     ProductTypes.FERTILIZANTES_LIQUIDOS,
-//     ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS,
-//     ProductTypes.FERTILIZANTES_LIQUIDOS_SOLUBLES,
-//     ProductTypes.FUNGICIDAS,
-//     ProductTypes.HERBICIDAS,
-//     ProductTypes.INSECTICIDAS_GENERAL,
-//     ProductTypes.SEMILLA,
-//     ProductTypes.HERMICIDAS,
-
 export function getStaticPaths() {
   return db.map((product) => {
     return { params: { product: product.name.split(' ').join('') } };
