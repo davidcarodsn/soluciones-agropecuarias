@@ -4,6 +4,7 @@ import { RelatedProductsSection } from "@components/product-single/RelatedProduc
 import Layout from "@layouts/Layout.astro";
 import { db } from "../../util/catalogData";
 import type { ProductData } from "src/util/types";
+import { PATH_ROUTES } from "src/util/pages";
 
 export function getStaticPaths() {
   return db.map((product) => {
@@ -11,7 +12,6 @@ export function getStaticPaths() {
   });
 }
 const { product } = Astro.params;
-console.log(product)
 
 const productSelected:ProductData = db.filter((obj) => obj.name.split(' ').join('') === product)[0];
 ---
@@ -26,7 +26,7 @@ const productSelected:ProductData = db.filter((obj) => obj.name.split(' ').join(
             <nav aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item" aria-current="page"> <a href="/" style="color: inherit;">Home</a> </li>
-                <li class="breadcrumb-item" aria-current="page"> <a href="/products/catalog" style="color: inherit;">Productos</a></li>
+                <li class="breadcrumb-item" aria-current="page"> <a href={`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}`} style="color: inherit;">Productos</a></li>
                 <li class="breadcrumb-item" style="color: #ffb11f;" aria-current="page">{productSelected.name}</li>
                 <button type="button" style="margin-left: 90%; background-color: #ffb11f; border: none;">Atras</button>
               </ol>

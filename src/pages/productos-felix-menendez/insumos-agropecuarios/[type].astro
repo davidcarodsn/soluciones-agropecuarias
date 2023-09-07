@@ -1,16 +1,17 @@
 ---
+import { ProductTypes } from "src/util/types";
 import ShopComponent from "../../../components/catalog/ShopComponent";
 import Layout from "../../../layouts/Layout.astro";
 import { PAGES } from "../../../util/pages";
 
 export function getStaticPaths() {
  return [
- { params: { type: 'herbicidas' } },
- { params: { type: 'insecticidas' } },
- { params: { type: 'semillas' } },
- { params: { type: 'fertilizantes' } },
- { params: { type: 'hermicidas' } },
- { params: { type: 'fungicidas' } },
+    { params: { type: ProductTypes.HERBICIDAS } },
+    { params: { type: ProductTypes.INSECTICIDAS_GENERAL } },
+    { params: { type: ProductTypes.SEMILLA } },
+    { params: { type: ProductTypes.FERTILIZANTES } },
+    { params: { type: ProductTypes.HERMICIDAS } },
+    { params: { type: ProductTypes.FUNGICIDAS } },
   ]
 }
 

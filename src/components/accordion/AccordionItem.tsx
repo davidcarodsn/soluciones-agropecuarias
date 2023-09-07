@@ -50,7 +50,7 @@ export const AccordionItem = ({ navItem, handleFilterNav }: any) => {
         <ul className={`accordion-types-container ${show && 'show-accordion-content'}`}>
           <button 
             type='button'
-            style={{ fontSize: '16px' }}
+            style={{ fontSize: '14px' }}
             onClick={() => handleFilterNav(navItem.filter, false)}
             className='accordion-subtype-button'
           >

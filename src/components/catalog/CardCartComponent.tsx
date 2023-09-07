@@ -8,9 +8,21 @@ interface CardCartComponentProps {
   img: string | undefined;
   filter: string[];
   isProductDetail?: boolean;
+  formulacion?: string;
+  isActiveSubstance?: boolean
 }
 
-export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  description, img , filter }) => {
+const CardButton = ({ link }: {link: string}) => (
+  <a 
+    href={`/${PATH_ROUTES.PRODUCTS_PATH}/${link}`}
+    style={{ width: '120px', height: '30px', fontSize: '15px', display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '0', border: 'none' }}
+    className='lab-btn'
+  >
+    <span>Consultar</span>
+  </a>
+)
+
+export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  description, img , filter, formulacion, isActiveSubstance }) => {
   const [ image, setImage ] = useState<string>('solubles');
 
   useEffect(() => {
@@ -29,19 +41,32 @@ export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  descripti
           <div className="product-action-link">
             <a
               href={`/${PATH_ROUTES.PRODUCTS_PATH}/${title.split(' ').join('')}`}
-              // data-rel="lightcase"
               ><i className="icofont-eye"></i></a>
           </div>
         </div>
-        <div className="product-content">
-          <h6><a href={`/${PATH_ROUTES.PRODUCTS_PATH}/${title.split(' ').join('')}`}>{title}</a></h6>
-          <p style={{ paddingLeft: '10px', maxWidth: '200px', maxHeight: '40px', textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }}>
-            {description}
-          </p>
-          <div>
-            <button type='button' style={{ width: '120px', height: '50px', fontSize: '15px', textAllign: 'center', padding: '0', border: 'none', color: '#fff' }} className='lab-btn'>
-              <span>Consultar</span>
-            </button>
+        <div className="product-content row">
+          <div className='col-12' style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <span>Nuevo</span>
+            <span style={{ textTransform: 'capitalize', color: '#78bd41' }}>{filter[0]}</span>
+          </div>
+          <h6 className='col-12 mt-2' style={{ fontWeight: '450', textAlign: 'start' }}>
+            <a href={`/${PATH_ROUTES.PRODUCTS_PATH}/${title.split(' ').join('')}`}>
+              {title} 
+              {isActiveSubstance && <span style={{ fontWeight: '350', color: 'gray', fontSize: '13px' }}> (Principio activo)</span>}
+            </a>
+          </h6>
+          {
+            formulacion && (
+              <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                <span>Formulación: { formulacion }</span>
+              </div>
+            )
+          }
+          {/* <div>
+            <p style={{ overflow: 'hidden', whiteSpace: 'pre-wrap', textOverflow: 'ellipsis', width: '300px', height: '100px' }}>{description}</p>
+          </div> */}
+          <div className='col-12 mt-1'>
+            <CardButton link={title.split(' ').join('')} />
           </div>
         </div>
       </div>
@@ -59,9 +84,7 @@ export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  descripti
           <h6><a href="#">{title}</a></h6>
           <p style={{ maxHeight: '100px', overflow: 'hidden', textOverflow: 'ellipsis' }}>{description}</p>
           <div>
-            <button type='button' style={{ width: '120px', height: '50px', fontSize: '15px', textAllign: 'center', padding: '0', border: 'none', color: '#fff' }} className='lab-btn'>
-              <span>Consultar</span>
-            </button>
+            <CardButton link={title.split(' ').join('')} />
           </div>
         </div>
       </div>

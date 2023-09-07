@@ -59,6 +59,8 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
                           description={data.specs?.description ?? ''} 
                           img={data.img}
                           filter={data.filters}  
+                          formulacion={data.formulacion}
+                          isActiveSubstance={data.isActiveSubstance}
                         />
                       )
                     })
