@@ -53,6 +53,8 @@ export const db: ProductData[] = [
   {
     name: 'Urea Granulada',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS],
+    isActiveSubstance: true,
+    formulacion: '46-0-0',
     specs: {
       description: `
       La urea granulada es un fertilizante que suministra nitrógeno a la tierra para 
@@ -69,6 +71,8 @@ export const db: ProductData[] = [
   {
     name: 'Fosfato Monoamónico',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS],
+    isActiveSubstance: true,
+    formulacion: '0-0-22-11Mg-22s',
     specs: {
       description: `
       El fosfato monoamónico (MAP) es una sal de fosfato de amonio soluble en 
@@ -91,6 +95,8 @@ export const db: ProductData[] = [
   {
     name: 'Fosfato Diamónico',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS],
+    isActiveSubstance: true,
+    formulacion:'18-46-0',
     specs: {
       description: `
         El Fosfato Diamónico (DAP) es un fertilizante complejo que asegura la nutrición 
@@ -111,10 +117,12 @@ export const db: ProductData[] = [
   },
   {
     name: '15-6-16-6 Consulp',
+    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS]
   },
   {
     name: '15-15-15',
+    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS], 
     specs: {
       description: `
@@ -164,6 +172,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Cloruro de Potasio',
+    formulacion: '0-0-60',
+    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS]
   },
   {
@@ -185,6 +195,8 @@ export const db: ProductData[] = [
   {
     name: 'Nitrato de Calcio',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES], 
+    formulacion: '15-0-0-0-0-19Ca',
+    isActiveSubstance: true,
     specs: {
       description: `
       Nitrato de Calcio El Nitrato de Calcio es un fertilizante sólido 100% soluble en 
@@ -204,6 +216,8 @@ export const db: ProductData[] = [
   {
     name: 'Nitrito de Potasio',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES], 
+    formulacion: '13-0-44',
+    isActiveSubstance: true,
     specs: {
       description: `
       El nitrato de potasio es una fuente de potasio ideal para la fertirrigación de los 
@@ -219,10 +233,14 @@ export const db: ProductData[] = [
   },
   {
     name: 'Cloruro de Potasio',
+    formulacion: '0-0-60',
+    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES]
   },
   {
     name: 'Sulfato de Magnesio',
+    isActiveSubstance: true,
+    formulacion: 'S 19 % - Mn 31 %',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES], 
     specs: {
       description: `
@@ -241,8 +259,10 @@ export const db: ProductData[] = [
     }
   },
   {
-    name: 'Sulfato de Amonio',
+    name: 'Sulfato de Amonio Cristalino',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES], 
+    isActiveSubstance: true,
+    formulacion: '21-0-0-24',
     specs: {
       description: `
       El sulfato de amonio es un fertilizante químico que satisface los 
@@ -262,6 +282,8 @@ export const db: ProductData[] = [
   {
     name: 'Sulfato de Potasio',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES], 
+    isActiveSubstance: true,
+    formulacion: '0-0-52-18s',
     specs: {
       description: `
       El sulfato de potasio estandar es un fertilizante sólido 100% soluble en agua12
@@ -278,13 +300,15 @@ export const db: ProductData[] = [
     }
   },
   {
-    name: 'Harvest More 5-5-45',
+    name: 'Harvest More',
+    formulacion: '5--5--45',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES],
 
   },
   {
     img: 'masterminsplus',
     name: 'Mastermins Plus',
+    formulacion: '3N-17P-5K-1Mg-2S-1Zn',
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: 'Es un fertilizante líquido, de aplicación foliar que contiene macro y micronutrientes y es apto en todos los cultivos. Nutren la planta en forma equilibrada. Es rápidamente absorbido por las hojas, ramas y raíces. Es líquido, facilitando la preparación del caldo y su aplicación. Mejora la acción de los plaguicidas aplicados en conjunto. Mayor número de frutos por plantas.',
@@ -293,6 +317,7 @@ export const db: ProductData[] = [
   {
     img: 'nitroplus18',
     name: 'Nitro Plus 18',
+    formulacion: '18 % N',
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: 'Es un fertilizante que contiene una exclusiva combinación de nitrógeno amínico y calcio, totalmente solubles en agua. Esta asociación maximiza el aprovechamiento de estos nutrientes por la planta. Nitroplus 18 es un complejo que promueve la reducción de estrés en la planta, mejorando la uniformidad del producto cosechado, reduciendo las enfermedades e incrementando la calidad y rentabilidad.',
@@ -323,6 +348,7 @@ export const db: ProductData[] = [
   {
     img: 'bioforgeadvance',
     name: 'Bio Forge',
+    formulacion: '2 % N-2,5 P',
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `Fertilizante líquido con una combinación exclusiva de nitrógeno, potasio, cobalto y molibdeno, para el manejo de estrés abiótico durante todo el ciclo de cultivo. Su formulación renovada posee mayor concentración de cofactores de crecimiento que estimulan una rápida recuperación del cultivo en momentos críticos. A su vez, aporta nitrógeno a través de una fuente de alta eficiencia, lo cual favorece el proceso de recuperación.
@@ -337,6 +363,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Fosfito Potasico',
+    formulacion: 'urea + boro',
+    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `El fosfito de potasio es una sal blanca soluble en agua que se usa como 
@@ -352,6 +380,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Stoller Magnesio',
+    formulacion: '4 % Mg - 2 % S',
+    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `
@@ -365,6 +395,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Calcio Boro',
+    formulacion: ' 8 % Ca - 0,5 % Bo',
+    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `
@@ -381,6 +413,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Stoller Hierro',
+    formulacion: '10 % Bo',
+    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `
@@ -405,6 +439,7 @@ export const db: ProductData[] = [
   },
   {
     name: 'Fosfito de Calcio',
+    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `
@@ -417,6 +452,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Stoller Zinc',
+    formulacion: '7 % Zn - 3 % S',
+    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `
@@ -431,7 +468,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Toprice PN Nuro Arno.',
-    filters: [ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    formulacion: 'Imazapir 48 % + Imazapic 70%',
     specs: {
       description: `
         TOP RICE es un herbicida con acción residual, para aplicación 
@@ -452,7 +490,8 @@ export const db: ProductData[] = [
   {
     img: 'claron',
     name: 'Claron',
-    filters: [ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    formulacion: 'Bentazon 60 %',
     specs: {
       description: 'Es un herbicida post-emergente, para el control de gramíneas, con acción sistémica y selectiva para cultivos de arroz de inundación y secano. Se absorbe rápidamente a través del follaje y se transloca a los tejidos meristemáticos de la planta donde ejerce su acción herbicida. La detención del crecimiento de las malezas comienza a las pocas horas de la aplicación. A los pocos días se observan: clorosis en las hojas y tallos, coloración que va del rojo al morado y necrosis en los puntos de crecimiento.',
       features: {
@@ -473,7 +512,7 @@ export const db: ProductData[] = [
   },
   {
     name: 'Clomazone Upstage',
-    filters: [ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     specs: {
       description: `
         Descripción Definición Herbicida preemergente selectivo para los cultivos de soja, maní, arroz, y 
@@ -484,7 +523,7 @@ export const db: ProductData[] = [
   },
   {
     name: 'Ectran-Ectran Plus',
-    filters: [ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     specs: {
       description: `
         ECTRAN PLUS es un herbicida de amplio espectro, que 
@@ -500,7 +539,7 @@ export const db: ProductData[] = [
   },
   {
     name: 'Facet',
-    filters: [ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     specs: {
       description: `
         GENERALIDADES: Fertilizante en polvo para aplicación 
@@ -518,7 +557,7 @@ export const db: ProductData[] = [
   },
   {
     name: 'Aura',
-    filters: [ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     specs: {
       description: `
         es un herbicida de postemergencia con acción sistémica, selectivo para el 
@@ -543,7 +582,7 @@ export const db: ProductData[] = [
   },
   {
     name: 'Loyant',
-    filters: [ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     specs: {
       description: `
       es un herbicida de postemergencia con acción sistémica, selectivo para el 
@@ -568,7 +607,7 @@ export const db: ProductData[] = [
   },
   {
     name: 'Xeyelo',
-    filters: [ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     specs: {
       description: `
       Xeyelo es una marca de fertilizantes biológicos que se dedica a la fabricación 
