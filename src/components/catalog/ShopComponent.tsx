@@ -3,6 +3,7 @@ import { CardCartComponent } from './CardCartComponent.js';
 import type { ProductData, NavData } from 'src/util/types.js';
 import { db } from 'src/util/catalogData';
 import { SearcherComponent } from './SearcherComponent.js';
+import { ShopNavComponentNew } from './ShopNavComponentNew.js';
 import { ShopNavComponent } from './ShopNavComponent.js';
 
 interface ShopComponentProps {
@@ -37,7 +38,8 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
             <div className="col-lg-3 col-md-7 col-12">
               <aside>
                 <SearcherComponent setProductData={setProductData} allData={db} />
-                <ShopNavComponent handleFilterNav={handleFilterNav} />
+                {/* <ShopNavComponent handleFilterNav={handleFilterNav} /> */}
+                <ShopNavComponentNew handleFilterNav={handleFilterNav} />
               </aside>
             </div>
             <div className="col-lg-9 col-12">
@@ -45,11 +47,11 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
               <div className="shop-title d-flex flex-wrap justify-content-between">
                   <p>{ProductData?.length} Resultados de {db.length}</p>
                   <div className="product-view-mode">
-                      <a data-target="grids"><i className="icofont-ghost"></i></a>
-                      <a className="active" data-target="lists"><i className="icofont-listing-box"></i></a>
+                      <a className="active" data-target="grids"><i className="icofont-ghost"></i></a>
+                      <a data-target="lists"><i className="icofont-listing-box"></i></a>
                   </div>
               </div>
-                <div className="shop-product-wrap lists row justify-content-center">
+                <div className="shop-product-wrap grids row justify-content-center">
                   {
                     ProductData?.map((data, i) => {
                       return (

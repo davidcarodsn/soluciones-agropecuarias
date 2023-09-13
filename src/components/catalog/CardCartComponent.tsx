@@ -52,19 +52,15 @@ export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  descripti
           <h6 className='col-12 mt-2' style={{ fontWeight: '450', textAlign: 'start' }}>
             <a href={`/${PATH_ROUTES.PRODUCTS_PATH}/${title.split(' ').join('')}`}>
               {title} 
-              {isActiveSubstance && <span style={{ fontWeight: '350', color: 'gray', fontSize: '13px' }}> (Principio activo)</span>}
             </a>
           </h6>
           {
             formulacion && (
               <div style={{ display: 'flex', justifyContent: 'space-between' }}>
-                <span>Formulación: { formulacion }</span>
+                <span style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }}><strong>{ isActiveSubstance ? 'Principio Activo' : 'Formulación' }:</strong> { formulacion }</span>
               </div>
             )
           }
-          {/* <div>
-            <p style={{ overflow: 'hidden', whiteSpace: 'pre-wrap', textOverflow: 'ellipsis', width: '300px', height: '100px' }}>{description}</p>
-          </div> */}
           <div className='col-12 mt-1'>
             <CardButton link={title.split(' ').join('')} />
           </div>
@@ -80,11 +76,22 @@ export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  descripti
             </a>
           </div>
         </div>
-        <div className="product-content">
+        <div className="product-content row">
+          <div className='col-12' style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <span>Nuevo</span>
+            <span style={{ textTransform: 'capitalize', color: '#78bd41' }}>{filter[0]}</span>
+          </div>
           <h6><a href="#">{title}</a></h6>
           <p style={{ maxHeight: '100px', overflow: 'hidden', textOverflow: 'ellipsis' }}>{description}</p>
-          <div>
+          <div className='d-flex mt-3 justify-content-between'>
             <CardButton link={title.split(' ').join('')} />
+            {
+              formulacion && (
+                <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+                  <span style={{ textOverflow: 'ellipsis', whiteSpace: 'nowrap', overflow: 'hidden' }}><strong>{ isActiveSubstance ? 'Principio Activo' : 'Formulación' }:</strong> { formulacion }</span>
+                </div>
+              )
+            }
           </div>
         </div>
       </div>

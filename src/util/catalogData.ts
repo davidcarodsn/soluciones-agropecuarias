@@ -53,7 +53,6 @@ export const db: ProductData[] = [
   {
     name: 'Urea Granulada',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS],
-    isActiveSubstance: true,
     formulacion: '46-0-0',
     specs: {
       description: `
@@ -71,7 +70,6 @@ export const db: ProductData[] = [
   {
     name: 'Fosfato Monoamónico',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS],
-    isActiveSubstance: true,
     formulacion: '0-0-22-11Mg-22s',
     specs: {
       description: `
@@ -95,7 +93,6 @@ export const db: ProductData[] = [
   {
     name: 'Fosfato Diamónico',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS],
-    isActiveSubstance: true,
     formulacion:'18-46-0',
     specs: {
       description: `
@@ -173,7 +170,6 @@ export const db: ProductData[] = [
   {
     name: 'Cloruro de Potasio',
     formulacion: '0-0-60',
-    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_GRANULADOS]
   },
   {
@@ -196,7 +192,6 @@ export const db: ProductData[] = [
     name: 'Nitrato de Calcio',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES], 
     formulacion: '15-0-0-0-0-19Ca',
-    isActiveSubstance: true,
     specs: {
       description: `
       Nitrato de Calcio El Nitrato de Calcio es un fertilizante sólido 100% soluble en 
@@ -217,7 +212,6 @@ export const db: ProductData[] = [
     name: 'Nitrito de Potasio',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES], 
     formulacion: '13-0-44',
-    isActiveSubstance: true,
     specs: {
       description: `
       El nitrato de potasio es una fuente de potasio ideal para la fertirrigación de los 
@@ -234,12 +228,10 @@ export const db: ProductData[] = [
   {
     name: 'Cloruro de Potasio',
     formulacion: '0-0-60',
-    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES]
   },
   {
     name: 'Sulfato de Magnesio',
-    isActiveSubstance: true,
     formulacion: 'S 19 % - Mn 31 %',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES], 
     specs: {
@@ -261,7 +253,6 @@ export const db: ProductData[] = [
   {
     name: 'Sulfato de Amonio Cristalino',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES], 
-    isActiveSubstance: true,
     formulacion: '21-0-0-24',
     specs: {
       description: `
@@ -282,7 +273,6 @@ export const db: ProductData[] = [
   {
     name: 'Sulfato de Potasio',
     filters: [ProductTypes.FERTILIZANTES, ProductTypes.FERTILIZANTES_SOLUBLES], 
-    isActiveSubstance: true,
     formulacion: '0-0-52-18s',
     specs: {
       description: `
@@ -364,7 +354,6 @@ export const db: ProductData[] = [
   {
     name: 'Fosfito Potasico',
     formulacion: 'urea + boro',
-    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `El fosfito de potasio es una sal blanca soluble en agua que se usa como 
@@ -381,7 +370,6 @@ export const db: ProductData[] = [
   {
     name: 'Stoller Magnesio',
     formulacion: '4 % Mg - 2 % S',
-    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `
@@ -396,7 +384,6 @@ export const db: ProductData[] = [
   {
     name: 'Calcio Boro',
     formulacion: ' 8 % Ca - 0,5 % Bo',
-    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `
@@ -414,7 +401,6 @@ export const db: ProductData[] = [
   {
     name: 'Stoller Hierro',
     formulacion: '10 % Bo',
-    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `
@@ -439,7 +425,6 @@ export const db: ProductData[] = [
   },
   {
     name: 'Fosfito de Calcio',
-    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `
@@ -453,7 +438,6 @@ export const db: ProductData[] = [
   {
     name: 'Stoller Zinc',
     formulacion: '7 % Zn - 3 % S',
-    isActiveSubstance: true,
     filters: [ProductTypes.FERTILIZANTES_LIQUIDOS],
     specs: {
       description: `
@@ -468,7 +452,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Toprice PN Nuro Arno.',
-    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true, //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     formulacion: 'Imazapir 48 % + Imazapic 70%',
     specs: {
       description: `
@@ -490,7 +475,8 @@ export const db: ProductData[] = [
   {
     img: 'claron',
     name: 'Claron',
-    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true, //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     formulacion: 'Bentazon 60 %',
     specs: {
       description: 'Es un herbicida post-emergente, para el control de gramíneas, con acción sistémica y selectiva para cultivos de arroz de inundación y secano. Se absorbe rápidamente a través del follaje y se transloca a los tejidos meristemáticos de la planta donde ejerce su acción herbicida. La detención del crecimiento de las malezas comienza a las pocas horas de la aplicación. A los pocos días se observan: clorosis en las hojas y tallos, coloración que va del rojo al morado y necrosis en los puntos de crecimiento.',
@@ -512,7 +498,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Clomazone Upstage',
-    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true, //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     specs: {
       description: `
         Descripción Definición Herbicida preemergente selectivo para los cultivos de soja, maní, arroz, y 
@@ -523,7 +510,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Ectran-Ectran Plus',
-    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true, //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     specs: {
       description: `
         ECTRAN PLUS es un herbicida de amplio espectro, que 
@@ -539,7 +527,9 @@ export const db: ProductData[] = [
   },
   {
     name: 'Facet',
-    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS],//[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Quinclorac 25%', 
     specs: {
       description: `
         GENERALIDADES: Fertilizante en polvo para aplicación 
@@ -557,7 +547,9 @@ export const db: ProductData[] = [
   },
   {
     name: 'Aura',
-    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true, //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    formulacion: 'Profoxidin 20%',
     specs: {
       description: `
         es un herbicida de postemergencia con acción sistémica, selectivo para el 
@@ -582,7 +574,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Loyant',
-    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true, //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     specs: {
       description: `
       es un herbicida de postemergencia con acción sistémica, selectivo para el 
@@ -607,7 +600,8 @@ export const db: ProductData[] = [
   },
   {
     name: 'Xeyelo',
-    filters: [ProductTypes.HERBICIDAS], //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
+    filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true, //[ProductTypes.FERTILIZANTES_LIQUIDOS, ProductTypes.FERTILIZANTES_LIQUIDOS_HERBICIDAS],
     specs: {
       description: `
       Xeyelo es una marca de fertilizantes biológicos que se dedica a la fabricación 
@@ -619,6 +613,8 @@ export const db: ProductData[] = [
   {
     img: 'preside',
     name: 'Preside',
+    isActiveSubstance: true,
+    formulacion: 'Propanil 48%',
     filters: [ProductTypes.HERBICIDAS],
     specs: {
       description: 'Preside es un herbicida selectivo para el control de malezas de hoja ancha en semilleros y pasturas de alfalfa, trébol blanco, trébol rojo, lotus (corniculatus, tenuis y subbiflorus), melilotus y achicoria tanto puras como consociadas con cereales y gramíneas forrajeras (avena, trigo, cebadilla criolla, falaris, pasto ovillo, raigrás anual y perenne, agropiro, festuca, entre otras).',
@@ -627,6 +623,7 @@ export const db: ProductData[] = [
   {
     name: 'Mulan',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: `
         Mulan ® Herbicida a base de prosulfocarb perteneciente a la 
@@ -641,6 +638,7 @@ export const db: ProductData[] = [
     img: 'mulan48',
     name: 'Mulan 48',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: 'Herbicida residual y selectivo para el control de malezas de hoja ancha. A base de Flumetsulam más concentrado del mercado. Exclusiva formulación compatible con glifosato líquido y granulado. Absorción foliar y radical, con rápida translocación vía xilema y floema, acumulándose en las regiones meristemáticas. Las malezas detienen rápidamente el crecimiento, dado que trabaja en las zonas meristemáticas. Herbicida banda verde. Más amigable con el medio ambiente.',
     }
@@ -648,14 +646,19 @@ export const db: ProductData[] = [
   {
     name: 'Spider',
     filters: [ProductTypes.HERBICIDAS],
+    formulacion: 'Diclosulam 84%',
+    isActiveSubstance: true,
   },
   {
     name: 'Picloran 24 sigma-nova',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
   },
   {
     name: 'Tordon D30',
     filters: [ProductTypes.HERBICIDAS],
+    formulacion: '2,4 D 24 % + Picloran 6,41 %',
+    isActiveSubstance: true,
     specs: {
       description: `
       Tordon* D30 es un herbicida sistémico de aplicación foliar en 
@@ -669,6 +672,8 @@ export const db: ProductData[] = [
   {
     name: 'Starane Extra',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Fluroxyfyr',
     specs: {
       description: `
         Alta selectividad en cereales. Total eficacia en 
@@ -680,8 +685,10 @@ export const db: ProductData[] = [
     }
   },
   {
-    name: 'Atrazina 90, Adama Sisma',
+    name: 'Atrazina WG 90',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Atrazina 90%',
     specs: {
       description: `
         Es absorbido principalmente a través de las raíces 
@@ -696,6 +703,8 @@ export const db: ProductData[] = [
   {
     name: 'Galan HL',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Haloxifop metil 54%',
     specs: {
       description: `
         Galant® HL es un herbicida postemergente, sistémico, selectivo para cultivos de 
@@ -708,6 +717,7 @@ export const db: ProductData[] = [
   {
     name: '2,4 D Colina Ellist',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: `
         2,4 D Colina Ellist La sal colina del ácido 2,4-D penetra en las 
@@ -722,6 +732,7 @@ export const db: ProductData[] = [
   {
     name: 'Cletodin sigma-nova',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: `
         CLETODIM SIGMA es un herbicida selectivo postemergente sistémico, para el control de 
@@ -739,6 +750,8 @@ export const db: ProductData[] = [
     img:'pastar',
     name: 'Pastar',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Aminopiralit + Fluroxypir',
     specs: {
       description: 'Pastar® es un nuevo herbicida sistémico para aplicaciones foliares de cobertura total para el control de malezas arbustivas y semiarbustivas en pasturas, con excelente selectividad en gramíneas forrajeras.',
     }
@@ -746,6 +759,8 @@ export const db: ProductData[] = [
   {
     name: 'Koltar',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Oxifluorfen 24%',
     specs: {
       description: `
         Koltar® EC es un herbicida indicado para el control pre y post￾emergente de malezas latifoliadas y gramíneas en diversos cultivos. 
@@ -764,6 +779,8 @@ export const db: ProductData[] = [
   {
     name: 'Paraquat',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Parquat 27,6%',
     specs: {
       description: `
         PARAQUAT SIGMA es un herbicida que actúa en todos los 
@@ -778,6 +795,7 @@ export const db: ProductData[] = [
   {
     name: 'Flumioxazim',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: `
         Flumioxazin es un activo muy versátil e interesante, ya que presenta registro de 
@@ -791,6 +809,8 @@ export const db: ProductData[] = [
   {
     name: 'Heat',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Saxuflenazim',
     specs: {
       description: `
         Los atributos de Heat® son: Control de malezas difíciles de 
@@ -804,6 +824,7 @@ export const db: ProductData[] = [
   {
     name: '2,4DB Adama-Atanor',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: `
         2,4DB Adama-Atanor 2,4DB es un herbicida indicado para el control de 
@@ -817,6 +838,7 @@ export const db: ProductData[] = [
   {
     name: 'Ricer',
     filters: [ProductTypes.HERBICIDAS],
+    isActiveSubstance: true,
     formulacion: '46-0-0',
     specs: {
       description: `
@@ -830,10 +852,12 @@ export const db: ProductData[] = [
   {
     name: 'Quintal',
     filters: [ProductTypes.INSECTICIDAS_GENERAL],
+    isActiveSubstance: true,
   },
   {
     name: 'Expedition',
     filters: [ProductTypes.INSECTICIDAS_GENERAL],
+    isActiveSubstance: true,
     specs: {
       description: `
         Es un insecticida foliar de amplio espectro, integrado por dos principios 
@@ -845,8 +869,10 @@ export const db: ProductData[] = [
   },
   {
     img: 'imida35',
+    formulacion: 'Imidacloprid 35%',
     name: 'I Mida 35 Imidacloprid35',
     filters: [ProductTypes.INSECTICIDAS_GENERAL],
+    isActiveSubstance: true,
     specs: {
       description: 'Insecticida sistémico que actúa por ingestión y contacto, específico para el control de insectos como pulgones, mosquita blanca, trips y otros, que afectan a cultivos de cereales, frutales de carozo, cítricos, tabaco, hortalizas y ornamentales. Se aplica vía tratamiento foliar, mediante aspersiones y radicular mediante riego por goteo.',
     }
@@ -854,6 +880,7 @@ export const db: ProductData[] = [
   {
     name: 'Lambda 25',
     filters: [ProductTypes.INSECTICIDAS_GENERAL],
+    isActiveSubstance: true,
     specs: {
       description: `
         Lambdacialotrina es un insecticida perteneciente a la familia de los 
@@ -870,7 +897,9 @@ export const db: ProductData[] = [
   },
   {
     name: 'Tracer',
+    formulacion: 'Spinosad 43%',
     filters: [ProductTypes.INSECTICIDAS_GENERAL],
+    isActiveSubstance: true,
     specs: {
       description: `
         Una vez que el producto es pulverizado sobre el cultivo, 
@@ -882,7 +911,9 @@ export const db: ProductData[] = [
   },
   {
     name: 'Flipper',
+    formulacion: 'Spinosad 0,024%',
     filters: [ProductTypes.INSECTICIDAS_GENERAL],
+    isActiveSubstance: true,
     specs: {
       description: `
         Flipper® es un insecticida natural a base de spinosad, recomendado para el control 
@@ -894,7 +925,9 @@ export const db: ProductData[] = [
   },
   {
     name: 'Bifentrin',
+    formulacion: 'Bifentrin 10%',
     filters: [ProductTypes.INSECTICIDAS_GENERAL],
+    isActiveSubstance: true,
     specs: {
       description: `
         Bifentrin 100 EC es acaricida-insecticida que actúa por contacto e ingestión, 
@@ -908,29 +941,18 @@ export const db: ProductData[] = [
   {
     img: 'abamectina',
     name: 'Abamectina',
+    formulacion: 'Abamectina 1.8%',
     filters: [ProductTypes.INSECTICIDAS_GENERAL],
+    isActiveSubstance: true,
     specs: {
       description: 'ABAMECTINA DEL MONTE 1.8 EC es una abamectina que resulta de una mezcla de Avermectina B1A y Avermectina B1B que actúa estimulando la liberación presináptica del inhibidor neurotransmisor ácido g-aminobutírico (GABA) desde las terminales nerviosas y potenciando la fijación del GABA a los receptores postsinápticos. En los artrópodos impide la transmisión de señales en las conexiones neuromusculares por el mismo mecanismo de amplificación de la acción del GABA, a través de un aumento de la permeabilidad de la membrana al calcio. Los insectos sensibles quedan paralizados irreversiblemente y mueren. A diferencia de la mayoría de los insecticidas no afecta al sistema colinérgico.',
     }
   },
-  // {
-  //   name: 'Olimpo',
-  //   filters: [ProductTypes.INSECTICIDAS_GENERAL],
-  //   specs: {
-  //     description: `
-  //       Olimpo es un fertilizante de alta asimilación, debido a las 
-  //       oligosacarinas y ácidos orgánicos que contiene facilita el flujo 
-  //       eficaz del potasio (K) a nivel translaminar y por tejidos de 
-  //       conducción en los puntos de mayor demanda, favoreciendo la 
-  //       acumulación de carbohidratos en los tejidos de reserva, lo que 
-  //       se refleja en frutos de mayor calidad.
-  //     `,
-  //   }
-  // },
   {
     img: 'carbendazim',
     name: 'Carbendazim - Philagel',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: `
         Carbendazim 50 F es un funguicida sistémico formulado como 
@@ -946,6 +968,7 @@ export const db: ProductData[] = [
     img: 'dithanent80wp',
     name: 'Dithane',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: `
         Dithane™ NT es un fungicida protectante de contacto que inhibe el 
@@ -958,6 +981,8 @@ export const db: ProductData[] = [
   {
     name: 'Tritac',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Procloras 45%',
     specs: {
       description: `
         Fungicida de amplio espectro para el control de enfermedades que 
@@ -971,6 +996,8 @@ export const db: ProductData[] = [
   {
     name: 'Xedrel',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Imazalil 50%',
     specs: {
       description: `
         XEDREL 50 tiene propiedades fungicidas, 
@@ -981,8 +1008,10 @@ export const db: ProductData[] = [
     }
   },
   {
-    name: 'Ziram',
+    name: 'Ziram Granuflo',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Ziram 76%',
     specs: {
       description: `
         Ziram Granuflo es un fungicida foliar de contacto con acción 
@@ -1001,6 +1030,7 @@ export const db: ProductData[] = [
     img: 'racerm',
     name: 'Race RM',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: `
         RACE RM combina las fortalezas de ambas moléculas, dando 
@@ -1015,6 +1045,7 @@ export const db: ProductData[] = [
   {
     name: 'Hidroxido de Cobre',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: `
         Es un nutriente vegetal de aplicación foliar, 
@@ -1028,6 +1059,7 @@ export const db: ProductData[] = [
   {
     name: 'Oxicloruro de Cobre',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: `
         El oxicloruro de cobre es un fungicida de contacto con acción preventiva y 
@@ -1049,30 +1081,39 @@ export const db: ProductData[] = [
   {
     name: 'Azoxitrobin - Azostart',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
   },
   {
     name: 'Azoxy Pro',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
   },
   {
     name: 'Tebucanazole Falcrop',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
   },
   {
     name: 'Difenoconazole Multiplicar',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
   },
   {
     name: 'Bumper',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
   },
   {
     name: 'Comet',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Pyraclostrobin 25%'
   },
   {
     name: 'Cura Semilla Nova',
     filters: [ProductTypes.FUNGICIDAS],
+    isActiveSubstance: true,
+    formulacion: 'Thiram 10 + Carbendazim 10',
   },
   {
     name: 'Matiz Kws Linta Proncross',
@@ -1089,11 +1130,13 @@ export const db: ProductData[] = [
   {
     name: 'Myrmex',
     filters: [ProductTypes.HERMICIDAS],
+    isActiveSubstance: true,
   },
   {
     img: 'fipromirex',
     name: 'Fipromirex',
     filters: [ProductTypes.HERMICIDAS],
+    isActiveSubstance: true,
     specs: {
       description: 'Fipromirex es un insecticida de la familia de los Fenilpirazoles que actúa por contacto e ingestión, tiene efecto sobre el sistema nervioso central interfiriendo en la transmisión GABA (ácido gama amino butírico) sobre los canales del ión cloro. Es efectivo en el control de varias especies (Hormiga minera, Isaú, negra del sud, negra común, colorada e invasora).',      
     }
@@ -1101,6 +1144,7 @@ export const db: ProductData[] = [
   {
     name: 'Sulfamirex',
     filters: [ProductTypes.HERMICIDAS],
+    isActiveSubstance: true,
   },
   {
     name: 'Sulfato De Hierro',
