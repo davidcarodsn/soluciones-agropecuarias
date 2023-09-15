@@ -1,6 +1,6 @@
 import React from "react";
 import { db } from "src/util/catalogData";
-import { ProductTypes } from "src/util/types";
+import { ProductData, ProductTypes } from "src/util/types";
 
 const mainNavData = [
   {
@@ -39,7 +39,12 @@ const secondaryNavData = [
 
 ]
 
-export const ShopNavComponentNew = ({ handleFilterNav }: any) => {
+export const ShopNavComponentNew = ({ handleFilterNav }: {handleFilterNav: (category: ProductTypes)=> void}) => {
+  
+  const handleClickCategory = (category: ProductTypes) => {
+    handleFilterNav(category);
+  };
+
   return (
     <>
       <div className="widget widget-category">
@@ -48,7 +53,8 @@ export const ShopNavComponentNew = ({ handleFilterNav }: any) => {
         </div>
         <ul className="agri-ul widget-wrapper">
           <li>
-            <a href="#" className="d-flex flex-wrap justify-content-between">
+            <a href="#" className="d-flex flex-wrap justify-content-between"
+            >
               <span>
                 <i className="icofont-double-right"></i>Ver Todos
               </span>
@@ -58,7 +64,8 @@ export const ShopNavComponentNew = ({ handleFilterNav }: any) => {
           { mainNavData.map(data => {
             return (
               <li>
-                <a href="#" className="d-flex flex-wrap justify-content-between">
+                <a href="#" className="d-flex flex-wrap justify-content-between"
+                onClick={() => handleClickCategory(data.filter)}>
                   <span>
                     <i className="icofont-double-right"></i>{data.name}
                   </span>
