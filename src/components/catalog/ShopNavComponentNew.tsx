@@ -39,10 +39,10 @@ const secondaryNavData = [
 
 ]
 
-export const ShopNavComponentNew = ({ handleFilterNav }: any) => {
+export const ShopNavComponentNew = ({ handleFilterNav }: {handleFilterNav: (category: ProductTypes)=> void}) => {
   
-  const handleClickCategory = (categoria: any) => {
-    handleFilterNav(categoria);
+  const handleClickCategory = (category: ProductTypes) => {
+    handleFilterNav(category);
   };
 
   return (
