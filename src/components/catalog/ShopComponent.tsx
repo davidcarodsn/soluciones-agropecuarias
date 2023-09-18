@@ -14,8 +14,8 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
   const [ProductData,  setProductData] = useState<ProductData[] | undefined>(db);
     
   
-  //TODO:refactor function by responsibility 
-  const handleFilterNav = (productType: string, isName: boolean) => {
+  //TODO:refactor function by responsability 
+  const handleFilterNav = (productType: string, isName: boolean = false) => {
     let newData: ProductData[];
     if (isName) {
       newData = db.filter(product => product.name === productType)
@@ -25,7 +25,7 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
     setProductData(newData);
   }
 
-  const updateFilteredData = (filteredData: ProductData[]) => {
+  const handleUpdateFilterData = (filteredData: ProductData[]) => {
     setProductData(filteredData);
   };
   
@@ -45,7 +45,7 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
               <aside>
                 <SearcherComponent setProductData={setProductData} allData={db} />
                 {/* <ShopNavComponent handleFilterNav={handleFilterNav} /> */}
-                <ShopNavComponentNew handleFilterNav={handleFilterNav} updateFilteredData={updateFilteredData} />
+                <ShopNavComponentNew handleFilterNav={handleFilterNav} updateFilteredData={handleUpdateFilterData} />
               </aside>
             </div>
             <div className="col-lg-9 col-12">
