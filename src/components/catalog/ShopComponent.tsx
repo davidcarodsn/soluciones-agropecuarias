@@ -13,16 +13,22 @@ interface ShopComponentProps {
 const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
   const [ProductData,  setProductData] = useState<ProductData[] | undefined>(db);
     
-  const handleFilterNav = (productType: string, isName: boolean) => {
+  
+  //TODO:refactor function by responsability 
+  const handleFilterNav = (productType: string, isName: boolean = false) => {
     let newData: ProductData[];
     if (isName) {
       newData = db.filter(product => product.name === productType)
     } else {
       newData = db.filter(product => product.filters.includes(productType))
     }
-
     setProductData(newData);
   }
+
+  const handleUpdateFilterData = (filteredData: ProductData[]) => {
+    setProductData(filteredData);
+  };
+  
 
   useEffect(() => {
     if (filter) {
@@ -39,7 +45,7 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
               <aside>
                 <SearcherComponent setProductData={setProductData} allData={db} />
                 {/* <ShopNavComponent handleFilterNav={handleFilterNav} /> */}
-                <ShopNavComponentNew handleFilterNav={handleFilterNav} />
+                <ShopNavComponentNew handleFilterNav={handleFilterNav} updateFilteredData={handleUpdateFilterData} />
               </aside>
             </div>
             <div className="col-lg-9 col-12">
