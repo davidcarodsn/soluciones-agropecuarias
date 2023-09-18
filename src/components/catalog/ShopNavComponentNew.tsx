@@ -55,15 +55,17 @@ function groupProductsByFormulation(products: ProductData[]) {
 
 
 export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
-   { handleFilterNav: (category: ProductTypes, isName: boolean) => void;
-     updateFilteredData: (filteredData: ProductData[]) => void }) => {
+  {
+    handleFilterNav: (category: ProductTypes, isName: boolean) => void;
+    updateFilteredData: (filteredData: ProductData[]) => void
+  }) => {
 
   const [selectedCategory, setSelectedCategory] = useState<ProductTypes | null>(null);
   const [filteredProducts, setFilteredProducts] = useState<ProductData[]>([]);
   const [selectedFormulation, setSelectedFormulation] = useState<string | null>(null);
-  const [isActiveSubstance, setActiveSubstance] = useState<boolean | null>(false); 
+  const [isActiveSubstance, setActiveSubstance] = useState<boolean | null>(false);
 
-  
+
   const handleClickCategory = (category: ProductTypes, isName: boolean) => {
     resetFilters()
     handleFilterNav(category, isName);
@@ -77,7 +79,7 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
     setSelectedFormulation(formulation);
     const filteredByFormulation = filteredProducts.filter((product) => product.formulacion === formulation);
     console.log(filteredByFormulation, 'data filtrada');
-    updateFilteredData(filteredByFormulation); 
+    updateFilteredData(filteredByFormulation);
   };
 
   //maked for reset Filters for now only reset selecteds
@@ -93,10 +95,10 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
 
     console.log(isActiveSubstance)
     console.log(filteredProducts, 'producs')
- 
+
   }
   const groupedProducts = groupProductsByFormulation(filteredProducts);
-  
+
   return (
     <>
 
@@ -131,13 +133,13 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
         </ul>
       </div>
       <div className="widget widget-category">
-        <div className="widget-header">
-          <h5>  
-          {
-            isActiveSubstance ? 'Principio Activo' : 'Formulación'
-          }
-          </h5>
-        </div>
+        {selectedCategory ? (
+          <div className="widget-header">
+            <h5>
+              {isActiveSubstance ? 'Principio Activo' : 'Formulación'}
+            </h5>
+          </div>
+        ) : null}
         <ul className="agri-ul widget-wrapper">
           {/* <li>
             <a href="#" className="d-flex flex-wrap justify-content-between">
@@ -148,22 +150,21 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
             </a>
           </li> */}
           {Object.keys(groupedProducts).map((formulation, index) => (
-          <li key={index}>
-            <a
-              href="#"
-              className={`d-flex flex-wrap justify-content-between ${
-                selectedFormulation === formulation ? 'active' : ''
-              }`}
-              onClick={() => handleClickFormulation(formulation)}
-            >
-              <span>
-                <i className="icofont-double-right"></i>
-                {formulation}
-              </span>
-              <span>({groupedProducts[formulation].length})</span>
-            </a>
-          </li>
-        ))}
+            <li key={index}>
+              <a
+                href="#"
+                className={`d-flex flex-wrap justify-content-between ${selectedFormulation === formulation ? 'active' : ''
+                  }`}
+                onClick={() => handleClickFormulation(formulation)}
+              >
+                <span>
+                  <i className="icofont-double-right"></i>
+                  {formulation}
+                </span>
+                <span>({groupedProducts[formulation].length})</span>
+              </a>
+            </li>
+          ))}
         </ul>
       </div>
       {/* <div className="widget widget-category">
