@@ -87,13 +87,13 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
  
   const allData = (db) => {
     if (selectedCategory) {
-      const allDbData = db();
-      updateFilteredData(allDbData);
       resetFilters();
+      const allDbData = db;
+      return allDbData;
+      updateFilteredData(allDbData);
     }
   };
   
-
   const filterCategoryByFormulacion = (category: ProductTypes) => {
     const newFilteredProducts = db.filter((product) => product.filters.includes(category));
     setFilteredProducts(newFilteredProducts);
