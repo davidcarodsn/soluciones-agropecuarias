@@ -5,15 +5,18 @@ import { db } from 'src/util/catalogData';
 import { SearcherComponent } from './SearcherComponent.js';
 import { ShopNavComponentNew } from './ShopNavComponentNew.js';
 import { ShopNavComponent } from './ShopNavComponent.js';
-
+import ReactPaginate from "react-paginate";
+import '../../../public/assets/css/paginationBlogPosts.css';
 interface ShopComponentProps {
   filter: string | undefined;
 }
 
-const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
-  const [ProductData,  setProductData] = useState<ProductData[] | undefined>(db);
-    
-  
+const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
+  const [ProductData, setProductData] = useState<ProductData[] | undefined>(db);
+
+  const [currentPage, setCurrentPage] = useState(0);
+  const postsPerPage = 6; // Número de publicaciones por página
+
   //TODO:refactor function by responsibility 
   const handleFilterNav = (productType: string, isName: boolean) => {
     let newData: ProductData[];
@@ -28,12 +31,22 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
   const updateFilteredData = (filteredData: ProductData[]) => {
     setProductData(filteredData);
   };
-  
+
+
+  const getCurrentPagePosts = () => {
+    const startIndex = currentPage * postsPerPage;
+    const endIndex = startIndex + postsPerPage;
+    return ProductData?.slice(startIndex, endIndex);
+  };
+
+  const handlePageChange = (selectedPage: number) => {
+    setCurrentPage(selectedPage);
+  };
 
   useEffect(() => {
     if (filter) {
       handleFilterNav(filter, false);
-    }    
+    }
   }, [filter])
 
   return (
@@ -50,23 +63,23 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
             </div>
             <div className="col-lg-9 col-12">
               <article>
-              <div className="shop-title d-flex flex-wrap justify-content-between">
+                <div className="shop-title d-flex flex-wrap justify-content-between">
                   <p>{ProductData?.length} Resultados de {db.length}</p>
                   <div className="product-view-mode">
-                      <a className="active" data-target="grids"><i className="icofont-ghost"></i></a>
-                      <a data-target="lists"><i className="icofont-listing-box"></i></a>
+                    <a className="active" data-target="grids"><i className="icofont-ghost"></i></a>
+                    <a data-target="lists"><i className="icofont-listing-box"></i></a>
                   </div>
-              </div>
+                </div>
                 <div className="shop-product-wrap grids row justify-content-center">
                   {
-                    ProductData?.map((data, i) => {
+                    getCurrentPagePosts()?.map((data, i) => {
                       return (
-                        <CardCartComponent 
-                          key={i}  
-                          title={data.name} 
-                          description={data.specs?.description ?? ''} 
+                        <CardCartComponent
+                          key={i}
+                          title={data.name}
+                          description={data.specs?.description ?? ''}
                           img={data.img}
-                          filter={data.filters}  
+                          filter={data.filters}
                           formulacion={data.formulacion}
                           isActiveSubstance={data.isActiveSubstance}
                         />
@@ -75,10 +88,33 @@ const ShopComponent:FC<ShopComponentProps> = ({ filter }) => {
                   }
                 </div>
               </article>
+              <div className="" style={{ height: '150px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <ReactPaginate
+                  pageCount={Math.ceil(ProductData?.length ?? 0 / postsPerPage)}
+                  pageRangeDisplayed={3}
+                  marginPagesDisplayed={1}
+                  onPageChange={(selected) => handlePageChange(selected.selected)}
+                  containerClassName="pagination"
+                  activeClassName="active"
+                  nextLabel=">"
+                  previousLabel="<"
+                  // pageClassName="page-item"
+                  pageLinkClassName="page-num"
+                  previousLinkClassName="page-num"
+                  // previousClassName="page-item"
+                  nextLinkClassName="page-num"
+                  breakLabel="..."
+                  // breakClassName="page-item"
+                  // breakLinkClassName="page-link"
+                  renderOnZeroPageCount={null}
+                />
+              </div>
             </div>
           </div>
         </div>
       </div>
+
+
     </div>
   )
 }

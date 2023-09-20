@@ -67,7 +67,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
 
 
   const handleClickCategory = (category: ProductTypes, isName: boolean) => {
-    resetFilters()
     handleFilterNav(category, isName);
     if (category) {
       setSelectedCategory(category)
@@ -86,7 +85,17 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
   const resetFilters = () => {
     setSelectedCategory(null);
     setSelectedFormulation(null);
+    setFilteredProducts([]);
   };
+ 
+  const allData = () => {
+    const allDbData = db;
+    if (selectedCategory){
+      updateFilteredData(allDbData);
+      resetFilters();
+      console.log(allDbData)
+    }
+  }
 
   const filterCategoryByFormulacion = (category: ProductTypes) => {
     const filteredProducts = db.filter((product) => product.filters.includes(category));
@@ -107,11 +116,11 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
           <h5>Tipos de productos</h5>
         </div>
         <ul className="agri-ul widget-wrapper">
-          <li >
+          <li onClick={allData}>
             <a href="#" className="d-flex flex-wrap justify-content-between"
             >
               <span>
-                <i className="icofont-double-right"></i>Ver Todos
+                <i className="icofont-double-right" ></i>Ver Todos
               </span>
               <span>({db.length})</span>
             </a>
