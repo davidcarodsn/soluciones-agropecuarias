@@ -90,7 +90,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
       const allDbData = db();
       updateFilteredData(allDbData);
       resetFilters();
-      console.log(allDbData);
     }
   };
   
