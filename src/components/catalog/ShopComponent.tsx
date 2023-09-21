@@ -1,10 +1,9 @@
 import React, { FC, useEffect, useState } from 'react';
 import { CardCartComponent } from './CardCartComponent.js';
-import type { ProductData, NavData } from 'src/util/types.js';
+import type { ProductData } from 'src/util/types.js';
 import { db } from 'src/util/catalogData';
 import { SearcherComponent } from './SearcherComponent.js';
 import { ShopNavComponentNew } from './ShopNavComponentNew.js';
-import { ShopNavComponent } from './ShopNavComponent.js';
 import ReactPaginate from "react-paginate";
 import '../../../public/assets/css/paginationBlogPosts.css';
 interface ShopComponentProps {
@@ -13,9 +12,9 @@ interface ShopComponentProps {
 
 const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
   const [ProductData, setProductData] = useState<ProductData[] | undefined>(db);
-
+  const [ dataPaginated, setDataPaginated ] = useState<ProductData[] | undefined>();
   const [currentPage, setCurrentPage] = useState(0);
-  const postsPerPage = 6; // Número de publicaciones por página
+  const postsPerPage = 6; // Pagination static variable
 
   //TODO:refactor function by responsibility 
   const handleFilterNav = (productType: string, isName: boolean) => {
@@ -28,26 +27,23 @@ const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
     setProductData(newData);
   }
 
-  const handleUpdateFilterData = (filteredData: ProductData[]) => {
-    setProductData(filteredData);
-  };
-
+  const handleUpdateFilterData = (filteredData: ProductData[]) => setProductData(filteredData);
 
   const getCurrentPagePosts = () => {
     const startIndex = currentPage * postsPerPage;
     const endIndex = startIndex + postsPerPage;
-    return ProductData?.slice(startIndex, endIndex);
+    setDataPaginated(ProductData?.slice(startIndex, endIndex));
   };
 
-  const handlePageChange = (selectedPage: number) => {
-    setCurrentPage(selectedPage);
-  };
+  const handlePageChange = (selectedPage: number) => setCurrentPage(selectedPage);
 
   useEffect(() => {
     if (filter) {
       handleFilterNav(filter, false);
     }
   }, [filter])
+
+  useEffect(() => getCurrentPagePosts(), [currentPage])
 
   return (
     <div className="shop-page padding-tb">
@@ -57,7 +53,6 @@ const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
             <div className="col-lg-3 col-md-7 col-12">
               <aside>
                 <SearcherComponent setProductData={setProductData} allData={db} />
-                {/* <ShopNavComponent handleFilterNav={handleFilterNav} /> */}
                 <ShopNavComponentNew handleFilterNav={handleFilterNav} updateFilteredData={handleUpdateFilterData} />
               </aside>
             </div>
@@ -72,7 +67,7 @@ const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
                 </div>
                 <div className="shop-product-wrap grids row justify-content-center">
                   {
-                    getCurrentPagePosts()?.map((data, i) => {
+                    dataPaginated?.map((data, i) => {
                       return (
                         <CardCartComponent
                           key={i}
@@ -98,14 +93,10 @@ const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
                   activeClassName="active"
                   nextLabel=">"
                   previousLabel="<"
-                  // pageClassName="page-item"
                   pageLinkClassName="page-num"
                   previousLinkClassName="page-num"
-                  // previousClassName="page-item"
                   nextLinkClassName="page-num"
                   breakLabel="..."
-                  // breakClassName="page-item"
-                  // breakLinkClassName="page-link"
                   renderOnZeroPageCount={null}
                 />
               </div>

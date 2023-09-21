@@ -1,4 +1,5 @@
 ---
+import { ProductTypes } from "src/util/types";
 import { PAGES, PATH_ROUTES } from "../../util/pages";
 const { route } = Astro.props;
 
@@ -33,7 +34,16 @@ const isBlack = (actualRoute: PAGES) => {
                 <ul class="agri-ul">
                   <li class={route === PAGES.HOME_PAGE ? 'active' : ''}><a href={PATH_ROUTES.HOME_PATH}>Home</a></li>
                   <li class={route === PAGES.BLOG_PAGE ? 'active' : ''}><a href={'/'+PATH_ROUTES.BLOG_PATH}>Noticias</a></li>
-                  <li class={route === PAGES.CATALOG_PAGE ? 'active' : ''}><a href={`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}`}>Productos</a></li>
+                  <li class={route === PAGES.CATALOG_PAGE ? 'active' : ''}>
+                    <a href={`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}`}>Productos</a>
+                    <ul class="agri-ul">
+                      <li><a href=`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}/${ProductTypes.HERBICIDAS}`>Herbicidas</a></li>
+                      <li><a href=`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}/${ProductTypes.FERTILIZANTES}`>Fertilizantes</a></li>
+                      <li><a href=`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}/${ProductTypes.FUNGICIDAS}`>Fungicidas</a></li>
+                      <li><a href=`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}/${ProductTypes.SEMILLA}`>Semillas</a></li>
+                      <li><a href=`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}/${ProductTypes.HERMICIDAS}`>Hermicidas</a></li>
+                    </ul>
+                  </li>
                   <li class={route === PAGES.CONTACT_PAGE ? 'active' : ''}><a href={'/'+PATH_ROUTES.CONTACT_PATH}>Contacto</a></li>
                   <li>
                     <a type="button" >Seguinos</a>

@@ -38,13 +38,13 @@ const mainNavData = [
 function groupProductsByFormulation(products: ProductData[]) {
   const groupedProducts: { [formulacion: string]: ProductData[] } = {};
 
-  products.forEach((product) => {
-    if (product.formulacion) {
-      if (!groupedProducts[product.formulacion]) {
-        groupedProducts[product.formulacion] = [product];
-      } else {
-        groupedProducts[product.formulacion].push(product);
-      }
+  products.forEach((product: ProductData) => {
+    if (!product.formulacion) return undefined;
+
+    if (!groupedProducts[product.formulacion]) {
+      groupedProducts[product.formulacion] = [product];
+    } else {
+      groupedProducts[product?.formulacion].push(product);
     }
   });
 
@@ -55,7 +55,7 @@ function groupProductsByFormulation(products: ProductData[]) {
 export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
   {
     handleFilterNav: (category: ProductTypes, isName: boolean) => void;
-    updateFilteredData: (filteredData: ProductData[]) => void
+    updateFilteredData: (filteredData: ProductData[]) => void;
   }) => {
 
   const [selectedCategory, setSelectedCategory] = useState<ProductTypes | null>(null);
@@ -66,10 +66,14 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
 
   const handleClickCategory = (category: ProductTypes, isName: boolean) => {
     handleFilterNav(category, isName);
+
     if (category) {
       setSelectedCategory(category)
       filterCategoryByFormulacion(category)
     }
+
+    if (category === ProductTypes.SEMILLA) return setSelectedCategory(null);
+    if (category === ProductTypes.HERMICIDAS) return setSelectedCategory(null);
   };
 
   const handleClickFormulation = (formulation: string) => {
@@ -85,19 +89,16 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
     setFilteredProducts([]);
   };
  
-  const allData = (db) => {
-    if (selectedCategory){
-      updateFilteredData(db);
-      resetFilters();
-    }
-  }
+  const allData = (db: ProductData[]) => (selectedCategory && (updateFilteredData(db), resetFilters()));
 
   const filterCategoryByFormulacion = (category: ProductTypes) => {
     const newFilteredProducts = db.filter((product) => product.filters.includes(category));
     setFilteredProducts(newFilteredProducts);
     setActiveSubstance(newFilteredProducts.length > 0 ? newFilteredProducts[0].isActiveSubstance || false : false);
   }
+
   const groupedProducts = groupProductsByFormulation(filteredProducts);
+  
   return (
     <>
 

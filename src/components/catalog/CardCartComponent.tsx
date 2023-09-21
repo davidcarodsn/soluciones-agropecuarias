@@ -34,7 +34,7 @@ export const CardCartComponent:FC<CardCartComponentProps> = ({ title,  descripti
   }, [img])
 
   return (
-    <div className="col-lg-4 col-md-6 col-12">
+    <div className="col-lg-4 col-md-6 col-12 animate__animated animate__fadeIn">
       <div className="product-item">
         <div className="product-thumb">
           <img src={`/assets/images/product/${image}/${image}.png`} alt="item" />
