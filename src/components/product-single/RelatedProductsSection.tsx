@@ -11,7 +11,6 @@ interface RelatedProductsSectionProps {
 export const RelatedProductsSection: FC<RelatedProductsSectionProps> = ({
   productSelected,
 }) => {
-  console.log(productSelected.filters)
   return (
     <div className="shop-product-wrap row">
       <h5>Productos Relacionados</h5>
@@ -23,7 +22,7 @@ export const RelatedProductsSection: FC<RelatedProductsSectionProps> = ({
           }
           const img = relatedProduct.img ?? getPlaceholder(relatedProduct.filters);
           return (
-            <div className="col-lg-4 col-md-6 col-12">
+            <div className="col-lg-4 col-md-6 col-12" key={`${i}-related`}>
               <div className="product-item">
                 <div className="product-thumb">
                   <img src={`/assets/images/product/${img}/${img}.png`} alt="item" />

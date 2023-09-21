@@ -35,8 +35,6 @@ const mainNavData = [
   },
 ];
 
-const secondaryNavData = []
-
 function groupProductsByFormulation(products: ProductData[]) {
   const groupedProducts: { [formulacion: string]: ProductData[] } = {};
 
@@ -67,7 +65,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
 
 
   const handleClickCategory = (category: ProductTypes, isName: boolean) => {
-    resetFilters()
     handleFilterNav(category, isName);
     if (category) {
       setSelectedCategory(category)
@@ -78,7 +75,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
   const handleClickFormulation = (formulation: string) => {
     setSelectedFormulation(formulation);
     const filteredByFormulation = filteredProducts.filter((product) => product.formulacion === formulation);
-    console.log(filteredByFormulation, 'data filtrada');
     updateFilteredData(filteredByFormulation);
   };
 
@@ -86,19 +82,22 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
   const resetFilters = () => {
     setSelectedCategory(null);
     setSelectedFormulation(null);
+    setFilteredProducts([]);
   };
+ 
+  const allData = (db) => {
+    if (selectedCategory){
+      updateFilteredData(db);
+      resetFilters();
+    }
+  }
 
   const filterCategoryByFormulacion = (category: ProductTypes) => {
-    const filteredProducts = db.filter((product) => product.filters.includes(category));
-    setFilteredProducts(filteredProducts);
-    setActiveSubstance(filteredProducts.length > 0 ? filteredProducts[0].isActiveSubstance || false : false);
-
-    console.log(isActiveSubstance)
-    console.log(filteredProducts, 'producs')
-
+    const newFilteredProducts = db.filter((product) => product.filters.includes(category));
+    setFilteredProducts(newFilteredProducts);
+    setActiveSubstance(newFilteredProducts.length > 0 ? newFilteredProducts[0].isActiveSubstance || false : false);
   }
   const groupedProducts = groupProductsByFormulation(filteredProducts);
-
   return (
     <>
 
@@ -107,11 +106,11 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
           <h5>Tipos de productos</h5>
         </div>
         <ul className="agri-ul widget-wrapper">
-          <li >
+          <li onClick={()=> allData(db)}>
             <a href="#" className="d-flex flex-wrap justify-content-between"
             >
               <span>
-                <i className="icofont-double-right"></i>Ver Todos
+                <i className="icofont-double-right" ></i>Ver Todos
               </span>
               <span>({db.length})</span>
             </a>
@@ -141,14 +140,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
           </div>
         ) : null}
         <ul className="agri-ul widget-wrapper">
-          {/* <li>
-            <a href="#" className="d-flex flex-wrap justify-content-between">
-              <span>|
-                <i className="icofont-double-right"></i>Ver Todos
-              </span>
-              <span>({db.length})</span>
-            </a>
-          </li> */}
           {Object.keys(groupedProducts).map((formulation, index) => (
             <li key={index}>
               <a
@@ -167,33 +158,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
           ))}
         </ul>
       </div>
-      {/* <div className="widget widget-category">
-        <div className="widget-header">
-          <h5>Principio Activo</h5>
-        </div>
-        <ul className="agri-ul widget-wrapper">
-          <li>
-            <a href="#" className="d-flex flex-wrap justify-content-between">
-              <span>
-                <i className="icofont-double-right"></i>Ver Todos
-              </span>
-              <span>({db.length})</span>
-            </a>
-          </li>
-          {mainNavData.map(data => {
-            return (
-              <li key={data.filter}>
-                <a href="#" className="d-flex flex-wrap justify-content-between">
-                  <span>
-                    <i className="icofont-double-right"></i>{data.name}
-                  </span>
-                  <span>({data.length})</span>
-                </a>
-              </li>
-            )
-          })}
-        </ul>
-      </div> */}
     </>
   );
 };
