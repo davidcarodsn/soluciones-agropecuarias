@@ -51,7 +51,6 @@ function groupProductsByFormulation(products: ProductData[]) {
   return groupedProducts;
 }
 
-
 export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
   {
     handleFilterNav: (category: ProductTypes, isName: boolean) => void;
@@ -62,7 +61,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
   const [filteredProducts, setFilteredProducts] = useState<ProductData[]>([]);
   const [selectedFormulation, setSelectedFormulation] = useState<string | null>(null);
   const [isActiveSubstance, setActiveSubstance] = useState<boolean | null>(false);
-
 
   const handleClickCategory = (category: ProductTypes, isName: boolean) => {
     handleFilterNav(category, isName);
@@ -85,7 +83,7 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
     setFilteredProducts([]);
   };
  
-  const allData = (db) => {
+  const allData = (db: ProductData[]) => {
     if (selectedCategory){
       updateFilteredData(db);
       resetFilters();
@@ -97,6 +95,7 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
     setFilteredProducts(newFilteredProducts);
     setActiveSubstance(newFilteredProducts.length > 0 ? newFilteredProducts[0].isActiveSubstance || false : false);
   }
+  
   const groupedProducts = groupProductsByFormulation(filteredProducts);
   return (
     <>
