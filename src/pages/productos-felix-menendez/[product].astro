@@ -28,10 +28,11 @@ const productSelected:ProductData = db.filter((obj) => obj.name.split(' ').join(
                 <li class="breadcrumb-item" aria-current="page"> <a href="/" style="color: inherit;">Home</a> </li>
                 <li class="breadcrumb-item" aria-current="page"> <a href={`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}`} style="color: inherit;">Productos</a></li>
                 <li class="breadcrumb-item" style="color: #ffb11f;" aria-current="page">{productSelected.name}</li>
-                <button type="button" style="margin-left: 90%; background-color: #ffb11f; border: none;">Atras</button>
+                <a type="a" href="/productos-felix-menendez/insumos-agropecuarios" class="lab-btn" style="display: flex;justify-content: center ; margin-left: 90%; background-color: #ffb11f; border: none; padding: 0.6rem 2rem;color: #f7f7f7;">
+                  <span style="display: flex; align-items: center;gap: 0.5rem;"><i class="icofont-swoosh-left"></i>  Atras</span> </a>
               </ol>
             </nav>
-            <div style="margin-top: 20px;" class="row align-items-center">
+            <div  class="row align-items-center">
               <div class="col-md-6 col-12">
                 <div class="product-thumb">
                   <div class="swiper-container gallery-top">
@@ -62,7 +63,7 @@ const productSelected:ProductData = db.filter((obj) => obj.name.split(' ').join(
                       href={`https://api.whatsapp.com/send?phone=5493454037365&text=Hola, me gustaría saber mas información sobre el producto ${productSelected.name}`}
                       target="_blank" 
                       >
-                      <button type="button">Consultar precio</button>
+                      <button type="button" class="lab-btn"><span>Consultar precios</span></button>
                     </a>
                     {
                       productSelected.specs?.features?.pdfFiles?.marbete 

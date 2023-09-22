@@ -17,6 +17,7 @@ export const ShopComponent = ({ filter }: any) => {
 
   //TODO:refactor function by responsibility 
   const handleFilterNav = (productType: string, isName: boolean) => {
+    setCurrentPage(0);
     let newData: ProductData[];
     if (isName) {
       newData = db.filter(product => product.name === productType)

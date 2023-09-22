@@ -51,7 +51,6 @@ function groupProductsByFormulation(products: ProductData[]) {
   return groupedProducts;
 }
 
-
 export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
   {
     handleFilterNav: (category: ProductTypes, isName: boolean) => void;
@@ -63,17 +62,12 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
   const [selectedFormulation, setSelectedFormulation] = useState<string | null>(null);
   const [isActiveSubstance, setActiveSubstance] = useState<boolean | null>(false);
 
-
   const handleClickCategory = (category: ProductTypes, isName: boolean) => {
     handleFilterNav(category, isName);
 
     if (category) {
       setSelectedCategory(category)
       filterCategoryByFormulacion(category)
-    }
-
-    if (category === ProductTypes.SEMILLA || category === ProductTypes.HERMICIDAS) {
-      setSelectedCategory(null)
     }
   };
 
@@ -83,7 +77,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
     updateFilteredData(filteredByFormulation);
   };
 
-  //maked for reset Filters for now only reset selecteds
   const resetFilters = () => {
     setSelectedCategory(null);
     setSelectedFormulation(null);
@@ -100,7 +93,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
     setFilteredProducts(newFilteredProducts);
     setActiveSubstance(newFilteredProducts.length > 0 ? newFilteredProducts[0].isActiveSubstance || false : false);
   }
-
   const groupedProducts = groupProductsByFormulation(filteredProducts);
   
   return (
@@ -140,7 +132,8 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
         {selectedCategory && (
           <div className="widget-header">
             <h5>
-              {isActiveSubstance ? 'Principio Activo' : 'Formulación'}
+            {selectedCategory !== ProductTypes.SEMILLA && selectedCategory !== ProductTypes.HERMICIDAS && 
+            ( isActiveSubstance ? 'Principio Activo' : 'Formulación') }
             </h5>
           </div>
         )}
