@@ -12,7 +12,7 @@ interface ShopComponentProps {
 export const ShopComponent = ({ filter }: any) => {
   const [ProductData, setProductData] = useState<ProductData[]>(db);
   const [currentPage, setCurrentPage] = useState(0);
-  const [ dataPaginate, setDataPaginate ] = useState<ProductData[]>()
+  const [ dataPaginate, setDataPaginate ] = useState<ProductData[]>();
   const postsPerPage = 6; // Número de publicaciones por página
 
   //TODO:refactor function by responsibility 
@@ -30,13 +30,6 @@ export const ShopComponent = ({ filter }: any) => {
     setProductData(filteredData);
   };
 
-
-  const getCurrentPagePosts = () => {
-    const startIndex = currentPage * postsPerPage;
-    const endIndex = startIndex + postsPerPage;
-    setDataPaginate(ProductData?.slice(startIndex, endIndex));
-  };
-
   const handlePageChange = (selectedPage: number) => {
     setCurrentPage(selectedPage);
   };
@@ -47,7 +40,11 @@ export const ShopComponent = ({ filter }: any) => {
     }
   }, [filter])
 
-  useEffect(() => getCurrentPagePosts(), [currentPage]);
+  useEffect(() => {
+    const startIndex = currentPage * postsPerPage;
+    const endIndex = startIndex + postsPerPage;
+    setDataPaginate(ProductData?.slice(startIndex, endIndex));
+  }, [currentPage, ProductData]);
 
   return (
     <div className="shop-page padding-tb">
@@ -88,7 +85,7 @@ export const ShopComponent = ({ filter }: any) => {
                 </div>
                 <div className="" style={{ height: '150px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <ReactPaginate
-                    pageCount={Math.ceil(ProductData?.length ?? 0 / postsPerPage)}
+                    pageCount={Math.ceil(ProductData?.length / postsPerPage)}
                     pageRangeDisplayed={3}
                     marginPagesDisplayed={1}
                     onPageChange={(selected) => handlePageChange(selected.selected)}

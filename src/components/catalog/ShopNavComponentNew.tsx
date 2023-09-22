@@ -71,9 +71,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
       setSelectedCategory(category)
       filterCategoryByFormulacion(category)
     }
-
-    if (category === ProductTypes.SEMILLA) return setSelectedCategory(null);
-    if (category === ProductTypes.HERMICIDAS) return setSelectedCategory(null);
   };
 
   const handleClickFormulation = (formulation: string) => {
@@ -89,7 +86,12 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
     setFilteredProducts([]);
   };
  
-  const allData = (db: ProductData[]) => (selectedCategory && (updateFilteredData(db), resetFilters()));
+  const allData = (db: ProductData[]) => {
+    if (selectedCategory) {
+      updateFilteredData(db);
+      resetFilters();
+    }  
+  };
 
   const filterCategoryByFormulacion = (category: ProductTypes) => {
     const newFilteredProducts = db.filter((product) => product.filters.includes(category));
