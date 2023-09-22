@@ -69,10 +69,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
       setSelectedCategory(category)
       filterCategoryByFormulacion(category)
     }
-
-    if (category === ProductTypes.SEMILLA || category === ProductTypes.HERMICIDAS) {
-      setSelectedCategory(null)
-    }
   };
 
   const handleClickFormulation = (formulation: string) => {
@@ -81,7 +77,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
     updateFilteredData(filteredByFormulation);
   };
 
-  //maked for reset Filters for now only reset selecteds
   const resetFilters = () => {
     setSelectedCategory(null);
     setSelectedFormulation(null);
@@ -98,7 +93,6 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
     setFilteredProducts(newFilteredProducts);
     setActiveSubstance(newFilteredProducts.length > 0 ? newFilteredProducts[0].isActiveSubstance || false : false);
   }
-
   const groupedProducts = groupProductsByFormulation(filteredProducts);
   
   return (
@@ -138,7 +132,8 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
         {selectedCategory && (
           <div className="widget-header">
             <h5>
-              {isActiveSubstance ? 'Principio Activo' : 'Formulación'}
+            {selectedCategory !== ProductTypes.SEMILLA && selectedCategory !== ProductTypes.HERMICIDAS && 
+            ( isActiveSubstance ? 'Principio Activo' : 'Formulación') }
             </h5>
           </div>
         )}
