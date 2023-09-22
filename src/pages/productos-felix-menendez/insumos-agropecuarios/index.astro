@@ -1,7 +1,7 @@
 ---
-import ShopComponent from "../../../components/catalog/ShopComponent";
-import Layout from "../../../layouts/Layout.astro";
-import { PAGES } from "../../../util/pages";
+import { ShopComponent } from "@components/catalog/ShopComponent";
+import Layout from "@layouts/Layout.astro";
+import { PAGES } from "src/util/pages";
 ---
 <Layout path={PAGES.CATALOG_PAGE}>
   <!-- Page Header Section Start Here -->
@@ -18,7 +18,7 @@ import { PAGES } from "../../../util/pages";
     </div>
   </section>
   <!-- Page Header Section Ending Here -->
-  <ShopComponent filter={undefined} client:load />
+  <ShopComponent filter={undefined} client:only="react" />
   <script is:inline src="/assets/js/jquery.js"></script>
   <script is:inline src="/assets/js/fontawesome.min.js"></script>
   <script is:inline src="/assets/js/waypoints.min.js"></script>

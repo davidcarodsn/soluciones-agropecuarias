@@ -5,7 +5,6 @@ import { getFormatDate } from "src/util/getDateFormat";
 import { PATH_ROUTES } from "src/util/pages";
 import type { FacebookPost } from "src/util/types";
 import ReactPaginate from "react-paginate"; 
-import '../../../public/assets/css/paginationBlogPosts.css';
 
 export const BlogPosts = () => {
   const { state, dispatch }: any = useBlogContext();
@@ -93,29 +92,23 @@ export const BlogPosts = () => {
           )
         })
       }
-      
       <div className="" style={{ height: '150px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-      <ReactPaginate
-        pageCount={Math.ceil(state.facebookPostData?.length / postsPerPage)}
-        pageRangeDisplayed={3}
-        marginPagesDisplayed={1}
-        onPageChange={(selected) => handlePageChange(selected.selected)}
-        containerClassName="pagination"
-        activeClassName="active"
-        nextLabel=">"
-        previousLabel="<"
-        // pageClassName="page-item"
-        pageLinkClassName="page-num"
-        previousLinkClassName="page-num"
-        // previousClassName="page-item"
-        nextLinkClassName="page-num"
-        breakLabel="..."
-        // breakClassName="page-item"
-        // breakLinkClassName="page-link"
-        renderOnZeroPageCount={null}
-      />
+        <ReactPaginate
+          pageCount={Math.ceil(state.facebookPostData?.length / postsPerPage)}
+          pageRangeDisplayed={3}
+          marginPagesDisplayed={1}
+          onPageChange={(selected) => handlePageChange(selected.selected)}
+          containerClassName="pagination"
+          activeClassName="active"
+          nextLabel=">"
+          previousLabel="<"
+          pageLinkClassName="page-num"
+          previousLinkClassName="page-num"
+          nextLinkClassName="page-num"
+          breakLabel="..."
+          renderOnZeroPageCount={null}
+        />
       </div>
-     
     </article>
   );
 };

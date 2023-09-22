@@ -1,20 +1,19 @@
 import React, { FC, useEffect, useState } from 'react';
-import { CardCartComponent } from './CardCartComponent.js';
-import type { ProductData } from 'src/util/types.js';
+import { CardCartComponent } from './CardCartComponent';
+import type { ProductData } from 'src/util/types';
 import { db } from 'src/util/catalogData';
-import { SearcherComponent } from './SearcherComponent.js';
-import { ShopNavComponentNew } from './ShopNavComponentNew.js';
+import { SearcherComponent } from './SearcherComponent';
+import { ShopNavComponentNew } from './ShopNavComponentNew';
 import ReactPaginate from "react-paginate";
-import '../../../public/assets/css/paginationBlogPosts.css';
 interface ShopComponentProps {
   filter: string | undefined;
 }
 
-const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
-  const [ProductData, setProductData] = useState<ProductData[] | undefined>(db);
-  const [ dataPaginated, setDataPaginated ] = useState<ProductData[] | undefined>();
+export const ShopComponent = ({ filter }: any) => {
+  const [ProductData, setProductData] = useState<ProductData[]>(db);
   const [currentPage, setCurrentPage] = useState(0);
-  const postsPerPage = 6; // Pagination static variable
+  const [ dataPaginate, setDataPaginate ] = useState<ProductData[]>()
+  const postsPerPage = 6; // Número de publicaciones por página
 
   //TODO:refactor function by responsibility 
   const handleFilterNav = (productType: string, isName: boolean) => {
@@ -27,15 +26,20 @@ const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
     setProductData(newData);
   }
 
-  const handleUpdateFilterData = (filteredData: ProductData[]) => setProductData(filteredData);
+  const handleUpdateFilterData = (filteredData: ProductData[]) => {
+    setProductData(filteredData);
+  };
+
 
   const getCurrentPagePosts = () => {
     const startIndex = currentPage * postsPerPage;
     const endIndex = startIndex + postsPerPage;
-    setDataPaginated(ProductData?.slice(startIndex, endIndex));
+    setDataPaginate(ProductData?.slice(startIndex, endIndex));
   };
 
-  const handlePageChange = (selectedPage: number) => setCurrentPage(selectedPage);
+  const handlePageChange = (selectedPage: number) => {
+    setCurrentPage(selectedPage);
+  };
 
   useEffect(() => {
     if (filter) {
@@ -43,7 +47,7 @@ const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
     }
   }, [filter])
 
-  useEffect(() => getCurrentPagePosts(), [currentPage])
+  useEffect(() => getCurrentPagePosts(), [currentPage]);
 
   return (
     <div className="shop-page padding-tb">
@@ -59,7 +63,7 @@ const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
             <div className="col-lg-9 col-12">
               <article>
                 <div className="shop-title d-flex flex-wrap justify-content-between">
-                  <p>{ProductData?.length} Resultados de {db.length}</p>
+                  <p>{dataPaginate?.length} Resultados de {db.length}</p>
                   <div className="product-view-mode">
                     <a className="active" data-target="grids"><i className="icofont-ghost"></i></a>
                     <a data-target="lists"><i className="icofont-listing-box"></i></a>
@@ -67,7 +71,7 @@ const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
                 </div>
                 <div className="shop-product-wrap grids row justify-content-center">
                   {
-                    dataPaginated?.map((data, i) => {
+                    dataPaginate?.map((data, i) => {
                       return (
                         <CardCartComponent
                           key={i}
@@ -82,32 +86,32 @@ const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
                     })
                   }
                 </div>
+                <div className="" style={{ height: '150px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <ReactPaginate
+                    pageCount={Math.ceil(ProductData?.length ?? 0 / postsPerPage)}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={1}
+                    onPageChange={(selected) => handlePageChange(selected.selected)}
+                    containerClassName="pagination"
+                    activeClassName="active"
+                    nextLabel=">"
+                    previousLabel="<"
+                    // pageClassName="page-item"
+                    pageLinkClassName="page-num"
+                    previousLinkClassName="page-num"
+                    // previousClassName="page-item"
+                    nextLinkClassName="page-num"
+                    breakLabel="..."
+                    // breakClassName="page-item"
+                    // breakLinkClassName="page-link"
+                    renderOnZeroPageCount={null}
+                  />
+                </div>
               </article>
-              <div className="" style={{ height: '150px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <ReactPaginate
-                  pageCount={Math.ceil(ProductData?.length ?? 0 / postsPerPage)}
-                  pageRangeDisplayed={3}
-                  marginPagesDisplayed={1}
-                  onPageChange={(selected) => handlePageChange(selected.selected)}
-                  containerClassName="pagination"
-                  activeClassName="active"
-                  nextLabel=">"
-                  previousLabel="<"
-                  pageLinkClassName="page-num"
-                  previousLinkClassName="page-num"
-                  nextLinkClassName="page-num"
-                  breakLabel="..."
-                  renderOnZeroPageCount={null}
-                />
-              </div>
             </div>
           </div>
         </div>
       </div>
-
-
     </div>
   )
 }
-
-export default ShopComponent;

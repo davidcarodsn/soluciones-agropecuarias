@@ -2,7 +2,7 @@ import React, { Dispatch, FC, SetStateAction, useState } from 'react';
 import type { ProductData } from 'src/util/types';
 
 interface SearcherComponentProps {
-  setProductData: Dispatch<SetStateAction<ProductData[] | undefined>>,
+  setProductData: Dispatch<SetStateAction<ProductData[]>>,
   allData: ProductData[]
 }
 
