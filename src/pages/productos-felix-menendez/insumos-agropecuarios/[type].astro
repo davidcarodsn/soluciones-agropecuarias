@@ -1,6 +1,6 @@
 ---
 import { ProductTypes } from "src/util/types";
-import ShopComponent from "../../../components/catalog/ShopComponent";
+import { ShopComponent } from "../../../components/catalog/ShopComponent";
 import Layout from "../../../layouts/Layout.astro";
 import { PAGES } from "../../../util/pages";
 
@@ -33,7 +33,7 @@ const { type } = Astro.params;
     </div>
   </section>
   <!-- Page Header Section Ending Here -->
-  <ShopComponent filter={type} client:load />
+  <ShopComponent filter={type} client:only="react" />
   <script is:inline src="/assets/js/jquery.js"></script>
   <script is:inline src="/assets/js/fontawesome.min.js"></script>
   <script is:inline src="/assets/js/waypoints.min.js"></script>
