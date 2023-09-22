@@ -71,6 +71,10 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
       setSelectedCategory(category)
       filterCategoryByFormulacion(category)
     }
+
+    if (category === ProductTypes.SEMILLA || category === ProductTypes.HERMICIDAS) {
+      setSelectedCategory(null)
+    }
   };
 
   const handleClickFormulation = (formulation: string) => {
@@ -87,10 +91,8 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
   };
  
   const allData = (db: ProductData[]) => {
-    if (selectedCategory) {
-      updateFilteredData(db);
-      resetFilters();
-    }  
+    updateFilteredData(db);
+    resetFilters();
   };
 
   const filterCategoryByFormulacion = (category: ProductTypes) => {
@@ -135,13 +137,13 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
         </ul>
       </div>
       <div className="widget widget-category">
-        {selectedCategory ? (
+        {selectedCategory && (
           <div className="widget-header">
             <h5>
               {isActiveSubstance ? 'Principio Activo' : 'Formulación'}
             </h5>
           </div>
-        ) : null}
+        )}
         <ul className="agri-ul widget-wrapper">
           {Object.keys(groupedProducts).map((formulation, index) => (
             <li key={index}>
