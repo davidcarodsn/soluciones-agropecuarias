@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import type { ProductData } from "src/util/types";
 import { ProductsNav } from "./ProductsNav";
-import { fungicidasDataMock, herbicidasDataMock, insecticidasDataMock, semillasDataMock } from "src/util/catalogData";
+import { fungicidasDataMock, hermicidasDataMock, insecticidasDataMock} from "src/util/catalogData";
 
 interface NavType {
   filter: string;
@@ -9,8 +9,8 @@ interface NavType {
 }
 
 const allData:ProductData[] = [
-  herbicidasDataMock[0], 
-  herbicidasDataMock[1], 
+  hermicidasDataMock[0], 
+  hermicidasDataMock[1], 
   insecticidasDataMock[0], 
   insecticidasDataMock[1], 
   fungicidasDataMock[0],

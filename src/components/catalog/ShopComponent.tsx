@@ -1,11 +1,10 @@
 import React, { FC, useEffect, useState } from 'react';
-import { CardCartComponent } from './CardCartComponent.js';
-import type { ProductData, NavData } from 'src/util/types.js';
+import ReactPaginate from "react-paginate";
 import { db } from 'src/util/catalogData';
+import { CardCartComponent } from './CardCartComponent.js';
+import type { ProductData } from 'src/util/types.js';
 import { SearcherComponent } from './SearcherComponent.js';
 import { ShopNavComponentNew } from './ShopNavComponentNew.js';
-import { ShopNavComponent } from './ShopNavComponent.js';
-import ReactPaginate from "react-paginate";
 import '../../../public/assets/css/paginationBlogPosts.css';
 interface ShopComponentProps {
   filter: string | undefined;
@@ -19,6 +18,7 @@ const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
 
   //TODO:refactor function by responsibility 
   const handleFilterNav = (productType: string, isName: boolean) => {
+    setCurrentPage(0);
     let newData: ProductData[];
     if (isName) {
       newData = db.filter(product => product.name === productType)
@@ -89,25 +89,21 @@ const ShopComponent: FC<ShopComponentProps> = ({ filter }) => {
                 </div>
               </article>
               <div className="" style={{ height: '150px', width: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-                <ReactPaginate
-                  pageCount={Math.ceil(ProductData?.length ?? 0 / postsPerPage)}
-                  pageRangeDisplayed={3}
-                  marginPagesDisplayed={1}
-                  onPageChange={(selected) => handlePageChange(selected.selected)}
-                  containerClassName="pagination"
-                  activeClassName="active"
-                  nextLabel=">"
-                  previousLabel="<"
-                  // pageClassName="page-item"
-                  pageLinkClassName="page-num"
-                  previousLinkClassName="page-num"
-                  // previousClassName="page-item"
-                  nextLinkClassName="page-num"
-                  breakLabel="..."
-                  // breakClassName="page-item"
-                  // breakLinkClassName="page-link"
-                  renderOnZeroPageCount={null}
-                />
+                  <ReactPaginate
+                    pageCount={Math.ceil(ProductData?.length ?? 0 / postsPerPage)}
+                    pageRangeDisplayed={3}
+                    marginPagesDisplayed={1}
+                    onPageChange={(selected) => handlePageChange(selected.selected)}
+                    containerClassName="pagination"
+                    activeClassName="active"
+                    nextLabel=">"
+                    previousLabel="<"
+                    pageLinkClassName="page-num"
+                    previousLinkClassName="page-num"
+                    nextLinkClassName="page-num"
+                    breakLabel="..."
+                    renderOnZeroPageCount={null}
+                  />
               </div>
             </div>
           </div>

@@ -10,7 +10,7 @@ import '../../../public/assets/css/paginationBlogPosts.css';
 export const BlogPosts = () => {
   const { state, dispatch }: any = useBlogContext();
   const [currentPage, setCurrentPage] = useState(0);
-  const postsPerPage = 4; // Número de publicaciones por página
+  const postsPerPage = 4; 
 
 
   const hanleSetPostDetail = (post: FacebookPost): void => {
@@ -18,7 +18,7 @@ export const BlogPosts = () => {
       type: BlogTypes.SET_FACEBOOK_POST_DETAIL,
       payload: post,
     });
-    setCurrentPage(0); // Restablecer la página actual
+    setCurrentPage(0); 
   };
 
   const getCurrentPagePosts = () => {
@@ -104,14 +104,10 @@ export const BlogPosts = () => {
         activeClassName="active"
         nextLabel=">"
         previousLabel="<"
-        // pageClassName="page-item"
         pageLinkClassName="page-num"
         previousLinkClassName="page-num"
-        // previousClassName="page-item"
         nextLinkClassName="page-num"
         breakLabel="..."
-        // breakClassName="page-item"
-        // breakLinkClassName="page-link"
         renderOnZeroPageCount={null}
       />
       </div>
