@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { db } from "src/util/catalogData";
+import { PATH_ROUTES } from "src/util/pages";
 import { ProductData, ProductTypes } from "src/util/types";
 
 const mainNavData = [
@@ -35,6 +36,8 @@ const mainNavData = [
   },
 ];
 
+
+
 function groupProductsByFormulation(products: ProductData[]) {
   const groupedProducts: { [formulacion: string]: ProductData[] } = {};
 
@@ -51,10 +54,11 @@ function groupProductsByFormulation(products: ProductData[]) {
   return groupedProducts;
 }
 
-export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
+export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData, filter }:
   {
     handleFilterNav: (category: ProductTypes, isName: boolean) => void;
     updateFilteredData: (filteredData: ProductData[]) => void;
+    filter: ProductTypes
   }) => {
 
   const [selectedCategory, setSelectedCategory] = useState<ProductTypes | null>(null);
@@ -62,9 +66,9 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
   const [selectedFormulation, setSelectedFormulation] = useState<string | null>(null);
   const [isActiveSubstance, setActiveSubstance] = useState<boolean | null>(false);
 
+
   const handleClickCategory = (category: ProductTypes, isName: boolean) => {
     handleFilterNav(category, isName);
-
     if (category) {
       setSelectedCategory(category)
       filterCategoryByFormulacion(category)
@@ -82,7 +86,7 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
     setSelectedFormulation(null);
     setFilteredProducts([]);
   };
- 
+
   const allData = (db: ProductData[]) => {
     updateFilteredData(db);
     resetFilters();
@@ -94,7 +98,13 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
     setActiveSubstance(newFilteredProducts.length > 0 ? newFilteredProducts[0].isActiveSubstance || false : false);
   }
   const groupedProducts = groupProductsByFormulation(filteredProducts);
-  
+
+  useEffect(() => {
+    if (filter && filter !== selectedCategory) {
+      handleClickCategory(filter, false)
+    }
+  }, [filter, selectedCategory]);
+
   return (
     <>
 
@@ -103,8 +113,8 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
           <h5>Tipos de productos</h5>
         </div>
         <ul className="agri-ul widget-wrapper">
-          <li onClick={()=> allData(db)}>
-            <a href="#" className="d-flex flex-wrap justify-content-between"
+          <li >
+            <a href={`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}`} className="d-flex flex-wrap justify-content-between"
             >
               <span>
                 <i className="icofont-double-right" ></i>Ver Todos
@@ -113,18 +123,23 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
             </a>
           </li>
           {mainNavData.map(data => {
+            const filterPath = `/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}/${data.filter}`;
             return (
               <li key={data.filter}>
-                <a href="#" className={`d-flex flex-wrap justify-content-between ${selectedCategory === data.filter ? 'active' : ''
-                  }`}
-                  onClick={() => handleClickCategory(data.filter, false)}>
+                <a
+                  href={filterPath}
+                  className={`d-flex flex-wrap justify-content-between ${selectedCategory === data.filter ? 'active' : ''
+                    }`}
+                  onClick={() => handleClickCategory(data.filter, false)}
+                >
                   <span>
-                    <i className="icofont-double-right"></i>{data.name}
+                    <i className="icofont-double-right"></i>
+                    {data.name}
                   </span>
                   <span>({data.length})</span>
                 </a>
               </li>
-            )
+            );
           })}
         </ul>
       </div>
@@ -132,8 +147,8 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData }:
         {selectedCategory && (
           <div className="widget-header">
             <h5>
-            {selectedCategory !== ProductTypes.SEMILLA && selectedCategory !== ProductTypes.HERMICIDAS && 
-            ( isActiveSubstance ? 'Principio Activo' : 'Formulación') }
+              {selectedCategory !== ProductTypes.SEMILLA && selectedCategory !== ProductTypes.HERMICIDAS &&
+                (isActiveSubstance ? 'Principio Activo' : 'Formulación')}
             </h5>
           </div>
         )}
