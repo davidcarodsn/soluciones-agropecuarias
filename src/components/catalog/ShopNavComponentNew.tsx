@@ -113,8 +113,8 @@ export const ShopNavComponentNew = ({ handleFilterNav, updateFilteredData, filte
           <h5>Tipos de productos</h5>
         </div>
         <ul className="agri-ul widget-wrapper">
-          <li onClick={() => allData(db)}>
-            <a href="#" className="d-flex flex-wrap justify-content-between"
+          <li >
+            <a href={`/${PATH_ROUTES.PRODUCTS_PATH}/${PATH_ROUTES.CATALOG_PATH}`} className="d-flex flex-wrap justify-content-between"
             >
               <span>
                 <i className="icofont-double-right" ></i>Ver Todos
